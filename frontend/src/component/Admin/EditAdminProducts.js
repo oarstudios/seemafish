@@ -180,8 +180,6 @@ const EditAdminProducts = () => {
     }
 };
 
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 

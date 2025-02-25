@@ -113,6 +113,28 @@ const AdminCustomersDetails = () => {
     return `${address?.firstName} ${address?.lastName}, ${address?.address}, ${address?.landmark}, ${address?.city}, ${address?.state}, ${address?.pincode}`;
   };
 
+   const calculateAge = (dob) => {
+        if (!dob) return ""; // Handle empty or undefined values gracefully
+      
+        const birthDate = new Date(dob); // Parse the date directly
+        if (isNaN(birthDate.getTime())) return ""; // Ensure it's a valid date
+      
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDiff = today.getMonth() - birthDate.getMonth();
+        const dayDiff = today.getDate() - birthDate.getDate();
+      
+        // Adjust age if birthday hasn't occurred yet this year
+        if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+          age--;
+        }
+      
+        return age;
+      };
+      
+  
+      
+
   return (
     <div className="admin-orders">
       {/* Search Bar */}
@@ -169,7 +191,7 @@ const AdminCustomersDetails = () => {
                                 <p><strong>Contact:</strong> {user?.addresses?.[0]?.phoneNo}</p>
                                 <p><strong>Email:</strong> {user?.email}</p>
                                 <p><strong>Gender:</strong> {user?.gender}</p>
-                                <p><strong>Age:</strong> {user?.age}</p>
+                                <p><strong>Age:</strong> {calculateAge(user?.age)? calculateAge(user?.age) : user?.age}</p>
                               </div>
                             </div>
                           </td>

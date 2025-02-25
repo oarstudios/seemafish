@@ -154,10 +154,11 @@ const handleImageChange = (image) => {
 };
 
 // Calculate total price & weight dynamically
-const totalPrice = cart * product?.price?.sale;
-const totalWeight = cart * product?.weight;
-const unitSellingPrice = (product?.price?.sale / product?.weight).toFixed(2); // ₹ per gram
 const cartItem = cart?.find((item) => item?.productId?._id === id);
+const totalPrice = cartItem ? cartItem.quantity * product?.price?.sale : 0;
+const totalWeight = cartItem ? cartItem.quantity * product?.weight : 0;
+
+const unitSellingPrice = (product?.price?.sale / product?.weight).toFixed(2); // ₹ per gram
 
 useEffect(()=>{
   setMainImage(product?.images?.[0])
@@ -202,7 +203,7 @@ console.log(mainImage)
               <span>{cartItem?.quantity}</span>
               <button onClick={(e) => { e.preventDefault(); handleAddToCart(product, "inc"); }}>+</button>
             </div>
-          ) : !user?.userType != "Admin" && product?.isArchived === "false" && (
+          ) : !user?.userType != "Admin" &&(
             <button className="add-btn" onClick={(e) => { e.preventDefault(); handleAddToCart(product, "inc"); }}>
               ADD
             </button>
@@ -213,17 +214,18 @@ console.log(mainImage)
       </div>
 
       {/* Dynamic Total Price & Weight */}
-      {cart > 0 && (
-        <p className="product-weight">
-          Total Price: ₹{totalPrice} | Total Weight: {totalWeight}g
-        </p>
-      )}
+      {cartItem && (
+  <p className="product-weight">
+    Total Price: ₹{totalPrice} | Total Weight: {totalWeight}g
+  </p>
+)}
+
 
       <hr className="productdown"  />
 
       {/* Description */}
       <h3 className="section-title">Description</h3>
-      <p className="product-warning">Actual Product Weight may vary by 10g - 20g.</p>
+      <p className="product-warning">Actual Product Weight may vary by 30g - 40g.</p>
       <p className="product-description">
         {product?.description}
       </p>

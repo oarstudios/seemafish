@@ -24,11 +24,14 @@ const CustomerReviews = () => {
       try {
         const response = await fetch(`${backendUrl}/getproductreview/${id}`);
         const json = await response.json();
-
+    
         console.log("API Response:", json); // Debugging
-
+    
         if (json?.reviews && Array.isArray(json.reviews.reviews)) {
-          setReviewsData(json.reviews); // Store the entire object
+          // Sort reviews by rating in descending order
+          const sortedReviews = json.reviews.reviews.sort((a, b) => b.rating - a.rating);
+    
+          setReviewsData({ ...json.reviews, reviews: sortedReviews }); // Store the entire object with sorted reviews
         } else {
           console.error("Invalid reviews format:", json);
           setReviewsData({ reviews: [] });
@@ -40,6 +43,7 @@ const CustomerReviews = () => {
         setLoading(false);
       }
     };
+    
 
     fetchReviews();
   }, [id]);

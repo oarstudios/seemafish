@@ -173,7 +173,7 @@ export default function DealOfTheDay({fetchCart, cart}) {
                            <span>{cartItem?.quantity}</span>
                            <button  onClick={(e) => { e.preventDefault(); handleAddToCart(product?.product, "inc"); }}>+</button>
                          </div>
-                       ) :  user?.userType !== "Admin" && product.inStock === true &&(
+                       ) :  user?.userType != "Admin" && product?.inStock === true &&(
                          <button className="add-btn" onClick={(e) => { e.preventDefault(); handleAddToCart(product?.product, "inc"); }}>
                            ADD
                          </button>

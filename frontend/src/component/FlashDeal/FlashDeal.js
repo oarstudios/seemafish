@@ -215,7 +215,7 @@ export default function FlashDeal({fetchCart, cart}) {
                     <span>{cartItem?.quantity}</span>
                     <button  onClick={(e) => { e.preventDefault(); handleAddToCart(product, "inc"); }}>+</button>
                   </div>
-                ) :  user?.userType !== "Admin" && product.inStock === true &&(
+                ) :  user?.userType != "Admin" && product?.inStock === true &&(
                   <button className="add-btn" onClick={(e) => { e.preventDefault(); handleAddToCart(product, "inc"); }}>
                     ADD
                   </button>

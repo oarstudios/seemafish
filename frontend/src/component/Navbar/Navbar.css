@@ -19,6 +19,18 @@
   }
 }
 
+.search-item{
+  display: flex;
+  align-items: center;
+
+}
+
+.search-item img{
+  width: 17px;
+  height: 17px;
+  margin-left: 5px;
+}
+
 .left-info, .right-info {
   display: flex;
   align-items: center;
