@@ -92,6 +92,44 @@ const MyAccount = () => {
       setNewPass(password);
     };
 
+    const calculateAge = (dob) => {
+      if (!dob) return ""; // Handle empty or undefined values gracefully
+    
+      const birthDate = new Date(dob); // Parse the date directly
+      if (isNaN(birthDate.getTime())) return ""; // Ensure it's a valid date
+    
+      const today = new Date();
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const monthDiff = today.getMonth() - birthDate.getMonth();
+      const dayDiff = today.getDate() - birthDate.getDate();
+    
+      // Adjust age if birthday hasn't occurred yet this year
+      if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+        age--;
+      }
+    
+      return age;
+    };
+    
+    const handleDateChange = (e) => {
+      const selectedDate = e.target.value;
+      setDob(selectedDate);
+      setAge(calculateAge(selectedDate));
+    };
+    
+    
+
+    const [dob, setDob] = useState('')
+
+
+    useEffect(()=>{
+      setDob(calculateAge(age))
+      console.log(age)
+    },[age])
+    
+    
+    
+
     const handleSubmit = async(e)=>{
       e.preventDefault();
 
@@ -115,7 +153,7 @@ const MyAccount = () => {
           username,
           email,
           password,
-          age,
+          age: dob,
           gender
         }
 
@@ -256,7 +294,9 @@ const MyAccount = () => {
           <div className="form-row">
             <div className="form-group">
               <label htmlFor="age">Age</label>
-              <input type="number" id="age" value={age} onChange={(e) => setAge(e.target.value)} readOnly={!edit1} />
+              {!edit1 ? <input type="text" value={age} readOnly/> : <input type="date" id="age" value={dob} onChange={handleDateChange} readOnly={!edit1} />}
+              
+              
             </div>
             <div className="form-group">
               <label htmlFor="gender">Gender</label>

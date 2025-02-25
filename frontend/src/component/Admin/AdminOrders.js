@@ -144,6 +144,12 @@ const AdminOrders = () => {
    
   }
 
+  const formatDay = (dateString) => {
+    const date = new Date(dateString);
+    return `${date.getDate()} ${date.toLocaleString("en-US", {
+      month: "short",
+    })}`;
+  };
 
   return (
     <div className="admin-orders">
@@ -235,7 +241,7 @@ const AdminOrders = () => {
                 <p><strong>Contact:</strong> {order?.userId?.addresses?.[0]?.phoneNo}</p>
                 <p><strong>Email:</strong> {order?.userId?.email}</p>
                 <p><strong>Payment Method:</strong> Online</p>
-                <p><strong>Delivery Date:</strong> {order?.time?.day}</p>
+                <p><strong>Delivery Date:</strong>{formatDay(order?.time?.day)}</p>
                 <p>
                   <strong>Delivery Time:</strong> {order?.time?.slot}
                 </p>

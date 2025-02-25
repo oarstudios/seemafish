@@ -197,7 +197,7 @@ const QuickPricing = () => {
             <th>PRODUCT</th>
             <th>WEIGHT</th>
             <th>SALE PRICE</th>
-            <th>FISH OF THE DAY</th>
+            <th>DEAL OF THE DAY</th>
           </tr>
         </thead>
         <tbody>
@@ -236,7 +236,7 @@ const QuickPricing = () => {
               </td>
               <td className="bestseller-checkbox">
                 <form className="bestseller-checkbox">
-                <span className="fish-of-the-day">Fish of the Day:</span>
+                <span className="fish-of-the-day">Deal of the Day:</span>
                 <input 
   type="checkbox" 
   checked={ftds.some(ftd => ftd?.product?._id === product?._id)} // Check if product._id is in the ftds array

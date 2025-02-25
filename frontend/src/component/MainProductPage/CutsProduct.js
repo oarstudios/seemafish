@@ -189,7 +189,7 @@ const handleNavigate = (productId) => {
 
               <div className="product-bottom">
                 <div className="price-info">
-                  {cut?.price ? (
+                  {cut?.inStock ? (
                     <>
                       <span className="current-price">₹{cut?.price?.sale}</span>
                       <span className="old-price">₹{cut?.price?.default}</span>

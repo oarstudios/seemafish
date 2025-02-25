@@ -6,6 +6,7 @@ import "./App.css";
 import Navbar from "./component/Navbar/Navbar";
 import Footer from "./component/Footer/Footer";
 import ScrollToTop from "./component/ScrollToTop";
+import loader from './assets/Fish_Animation.gif'
 
 // User Components
 import SliderComponent from "./component/Slider/SliderComponent";
@@ -86,10 +87,21 @@ function App() {
         }
       },[sOpen])
 
+      const [lg, setLg] = useState("flex")
+      useEffect(()=>{
+        setTimeout(() => {
+          setLg("none")
+        }, 3000);
+      },[])
+
   return (
     <Router>
       <ScrollToTop />
-      <div className="App">
+      <div style={{ display: lg }} className="loader">
+  <img src={loader} alt="Loading..." />
+</div>
+
+      <div className="App" style={{display: lg === "flex" ? "none": "block"}}>
         <Routes>
           {/* User Routes */}
           <Route
@@ -147,7 +159,9 @@ function App() {
             path="/myaccount"
             element={
               <>
-                <Navbar fetchCart={fetchCart} cart={cart}/>
+              {user?.userType === "User" ? <Navbar fetchCart={fetchCart} cart={cart}/> : <AdminNavbar />}
+                
+                
                 <div className="comps">
                   <MyAccount />
                 </div>

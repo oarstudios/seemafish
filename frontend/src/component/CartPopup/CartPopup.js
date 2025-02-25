@@ -146,7 +146,7 @@ const handleAddToCart = async (item, status) => {
                 className="cut-image"
               />
               <div className="cut-details">
-                <p className="cut-name">{item.productId?.name}</p>
+                <Link to={`/product/${item?.productId?._id}`} className="cut-name">{item.productId?.name}</Link>
                 <p className="cut-weight">
                   {item.productId?.weight} g | Total: ₹{(item.productId?.price?.sale || 0) * item.quantity}
                 </p>

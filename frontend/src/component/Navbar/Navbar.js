@@ -15,6 +15,7 @@ import Signup from "../Signup/Signup";
 import CartPopup from "../CartPopup/CartPopup";
 import "./Navbar.css";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import trend from '../../assets/trend.png'
 
 const Navbar = ({ fetchCart, cart }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -231,7 +232,8 @@ const Navbar = ({ fetchCart, cart }) => {
                       onClick={() => setSearchQuery("")}
                       className="search-item"
                     >
-                      {product.name}
+                      {product?.name}
+                      {product?.bestseller && <img src={trend} alt="tren" />}
                     </Link>
                   ))
                 ) : (
@@ -284,6 +286,9 @@ const Navbar = ({ fetchCart, cart }) => {
         }}
       >
         Account
+      </Link>
+      <Link onClick={() => setIsCartOpen(true)}>
+      Cart
       </Link>
 
       <Link
