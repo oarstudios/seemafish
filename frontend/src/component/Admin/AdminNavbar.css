@@ -1,0 +1,349 @@
+.admin-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0rem 3rem;
+
+
+  }
+  
+  .admin-navbar-logo-container {
+    display: flex;
+    align-items: center;
+   
+  }
+  
+  .admin-navbar-links {
+  
+    list-style: none;
+    display: flex;
+    gap: 40px; /* Increase this for more spacing between links */
+    flex: 1;
+    justify-content: center; /* Center links in the middle */
+  }
+  
+  .admin-navbar-logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 4rem; 
+    
+  }
+  
+  .admin-navbar-logo {
+    position: absolute;
+    top: 0px;
+    margin-right: 1rem;
+    width: 80px;
+    height: 80px;
+    border: 1px solid rgba(57, 114, 193, 1);
+    border-radius: 0px 0px 20px 20px;
+    background-color: rgba(255, 255, 255, 1);
+  
+    
+  }
+  
+  .admin-text {
+    font-family: "Jost";
+font-size: 36px;
+font-weight: 600;
+margin-left: 6rem;
+
+    color: rgba(255, 255, 255, 1); /* Adjust color as needed */
+  }
+  
+ 
+  
+  .admin-navbar-links li a {
+    position: relative;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+    font-family: "Jost";
+    font-size: 20px;
+    font-weight: 400;
+    padding-bottom: 5px;
+    font-variation-settings: "wght" 400;
+   
+  }
+  
+
+  
+  .admin-navbar-icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .admin-navbar-icons img {
+    height: 1.5rem;
+    cursor: pointer;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .admin-navbar-links {
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+      position: absolute;
+      top: 5rem;
+      right: 1.5rem;
+      background-color: #FDFAF5;
+      padding: 1rem 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+  
+    .admin-navbar-links.open {
+      display: flex;
+    }
+  
+    .admin-hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+  
+    .admin-hamburger-line {
+      width: 25px;
+      height: 3px;
+      /* background-color: #D5B26B; */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .admin-navbar {
+      padding: 0rem 1.5rem;
+    }
+  
+    .admin-navbar-icons {
+      align-items: center;
+    }
+    .admin-text{
+      font-size: 28px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .admin-navbar {
+      padding: 0 1rem;
+    }
+    .admin-navbar-logo-link
+    {
+      gap: 0;
+    }
+  
+    .admin-navbar-icons {
+      display: flex;
+      gap: 20px;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+  
+
+
+
+  .admin-navbar {
+    
+    top: 0; /* Position it at the very top */
+    z-index: 1000; /* Ensures it stays above other elements */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0rem 3rem;
+
+    background-color: rgba(57, 114, 193, 1);
+  }
+  
+  
+  .admin-navbar-logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .admin-navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    flex: 1;
+    justify-content: center;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    background-color: rgba(57, 114, 193, 1);
+    text-align: right;
+  }
+  
+  .admin-navbar-links li a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+    font-family: "Jost";
+font-size: 20px;
+font-weight: 400;
+
+
+  }
+  
+
+  
+  .admin-navbar-icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .admin-navbar-icons img {
+    height: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .admin-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+  
+  .admin-hamburger-line {
+    width: 25px;
+    height: 3px;
+    background-color: rgba(19, 19, 19, 1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1124px) {
+    .admin-navbar-links {
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+      position: absolute;
+      top: 3rem;
+      right: 0.5rem;
+      padding: 1rem 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+  
+    .admin-navbar-links.open {
+      display: flex;
+    }
+  
+    .admin-hamburger {
+      display: flex;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .admin-navbar {
+      padding: 0.5rem 1.5rem;
+    }
+  
+    .admin-text {
+      font-size: 28px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .admin-navbar {
+      padding: 0.5rem 1rem;
+    }
+  
+    .admin-navbar-icons {
+      justify-content: flex-end;
+    }
+  }
+  
+
+  .admin-navbar-search-input {
+    width: 300px;
+    position: absolute;
+    top: 4rem;
+    right: 6rem;
+
+    border: 1px solid rgba(161, 161, 161, 1);
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-size: 24px;
+    outline: none;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .admin-navbar-search-icon {
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .admin-navbar-search-input {
+      width: 150px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .admin-navbar-search-input {
+      width: 160px;
+      font-size: 20px;
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
+ 
+  
+  .admin-navbar-links li a.active-link {
+    font-weight: 600;
+  }
+  
+  .admin-navbar-links li a.active-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -7px;
+    width: 100%;
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+    transform: translateX(-50%);
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 1124px) {
+    .admin-navbar-links {
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+      position: absolute;
+      top: 4rem;
+      right: 0.5rem;
+      background-color: rgba(57, 114, 193, 1);
+      padding: 1rem 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+  
+    .admin-navbar-links.open {
+      display: flex;
+    }
+  
+    .admin-navbar-links li a.active-link::after {
+      width: 100%;
+      bottom: 0px;
+    }
+  
+    .admin-hamburger {
+      display: flex;
+    }
+  }
+  
+  

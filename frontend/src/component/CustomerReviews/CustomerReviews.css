@@ -1,0 +1,344 @@
+.customer-reviews {
+
+    background-color: rgba(255, 255, 255, 1);
+    /* padding: 4rem; */
+    color: #4a4a4a;
+    line-height: 1.6;
+    width: 100%;
+  }
+  
+  .customer-reviews h2 {
+    font-family: "Lato";
+font-size: 28px;
+font-weight: 600;
+
+text-align: left;
+color: rgba(19, 19, 19, 1);
+
+  }
+  
+  .rating-summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .rating-summary p {
+    font-family: "Lato";
+    font-size: 32px;
+    font-weight: 600;
+ color: rgba(161, 161, 161, 1);
+    text-align: left;
+    
+    
+  }
+  
+
+  
+  .review-header {
+    /* display: flex; */
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .review-author {
+    margin: 2rem 0rem 0.6rem 0rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .review-author h4 {
+    font-family: "Lato";
+    font-size: 24px;
+    font-weight: 600;
+   color: rgba(161, 161, 161, 1);
+    text-align: left;
+   
+    
+  }
+  
+ 
+  
+  .review-card h3 {
+    font-family: "Lato";
+font-size: 24px;
+font-weight: 600;
+color: rgba(19, 19, 19, 1);
+text-align: left;
+
+
+  }
+  
+  .review-card p {
+    font-family: "Lato";
+font-size: 24px;
+font-weight: 300;
+color: rgba(19, 19, 19, 1);
+text-align: left;
+margin-bottom: 1rem;
+
+
+  }
+  
+  .review-images {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+  }
+  
+  .review-images img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+    /* border: 1px solid #ddd; */
+  }
+
+  .star-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 2px;
+  }
+  .user-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+      
+
+  .review-divider {
+
+    border-top: 1px solid rgba(161, 161, 161, 1)
+    ; /* Custom line styling */
+    width: 100%; /* Adjust width */
+    margin-left: auto; /* Center the line */
+    margin-right: auto; /* Center the line */
+    color: rgba(255, 255, 255, 1);
+  }
+
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .pagination-button {
+    padding: 10px 15px;
+    border: 1px solid rgba(57, 114, 193, 1);
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(57, 114, 193, 1);
+    font-family: 'Jost', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .pagination-button:hover {
+    background-color: rgba(57, 114, 193, 1);
+    color: #FDFAF5;
+  }
+  
+  .pagination-button.active {
+    background-color: rgba(57, 114, 193, 1);
+    color: #FDFAF5;
+  }
+  
+
+
+  /* For small devices (mobile phones, <600px) */
+@media (max-width: 600px) {
+  .customer-reviews {
+    /* padding: 2rem;  */
+  }
+
+  .customer-reviews h2 {
+    font-size: 24px; /* Smaller font for the title */
+  }
+
+  .rating-summary p {
+    font-size: 18px; /* Adjust text size */
+  }
+
+  .review-author h4,
+  .review-card h3 {
+    font-size: 18px; /* Adjust headings for smaller screens */
+  }
+
+  .review-card p {
+    font-size: 16px; /* Smaller review text */
+  }
+
+  .review-images img {
+    width: 100px;
+    height: 100px; /* Reduce size of review images */
+  }
+
+  .star-icon,
+  .user-icon {
+    width: 20px;
+    height: 20px; /* Smaller icons */
+  }
+
+  .pagination-button {
+    padding: 5px 10px; /* Smaller buttons */
+    font-size: 14px; /* Adjust font size */
+  }
+}
+
+/* For tablets (600px to 1024px) */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .customer-reviews {
+    /* padding: 3rem;  */
+  }
+
+  .customer-reviews h2 {
+    font-size: 36px; /* Moderate size for title */
+  }
+
+  .rating-summary p {
+    font-size: 24px; /* Adjust text size */
+  }
+
+  .review-author h4,
+  .review-card h3 {
+    font-size: 24px; /* Adjust headings */
+  }
+
+  .review-card p {
+    font-size: 18px; /* Adjust review text size */
+  }
+
+  .review-images img {
+    width: 150px;
+    height: 150px; /* Moderate image size */
+  }
+
+  .star-icon,
+  .user-icon {
+    width: 35px;
+    height: 35px; /* Adjust icon sizes */
+  }
+
+  .pagination-button {
+    padding: 8px 12px; /* Adjust button size */
+    font-size: 16px; /* Moderate font size */
+  }
+}
+
+/* For small laptops (1024px to 1440px) */
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .customer-reviews {
+    /* padding: 4rem; */
+  }
+
+  .customer-reviews h2 {
+    font-size: 28px; /* Slightly smaller title font */
+  }
+
+  .rating-summary p {
+    font-size: 28px; /* Slightly smaller text */
+  }
+
+  .review-author h4,
+  .review-card h3 {
+    font-size: 24px; /* Adjust headings */
+  }
+
+  .review-card p {
+    font-size: 20px; /* Adjust review text size */
+  }
+
+  .review-images img {
+    width: 180px;
+    height: 180px; /* Slightly smaller images */
+  }
+
+  .star-icon,
+  .user-icon {
+    width: 38px;
+    height: 38px; /* Slightly smaller icons */
+  }
+
+  .pagination-button {
+    padding: 10px 14px; /* Adjust button size */
+    font-size: 18px; /* Original font size */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+.review-images {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.review-thumbnail {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+
+/* Fullscreen Image Modal */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.image-modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.full-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  padding: 8px 12px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background: white;
+}
+
+

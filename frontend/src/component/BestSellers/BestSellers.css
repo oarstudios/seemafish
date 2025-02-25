@@ -1,0 +1,269 @@
+/* Best Sellers Section */
+.best-sellers {
+    text-align: left;
+    padding: 2rem 4rem;
+}
+
+/* Section Title */
+.best-sellers h2 {
+    font-family: "Lato";
+    font-size: 24px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1);
+    margin-bottom: 10px;
+}
+
+/* Section Description */
+.best-sellers p {
+    color: rgba(96, 96, 96, 1);
+    font-family: "Lato";
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+/* Product Grid - 2 Cards Per Row */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 2 items per row */
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* Product Card */
+.product-card {
+    background: rgba(255, 255, 255, 1);
+    border-radius: 20px;
+    overflow: hidden;
+    text-align: left;
+    border: 1px solid rgba(193, 193, 193, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    transition: transform 300ms ease-out, box-shadow 300ms ease-out;
+}
+
+/* Hover Effects */
+.product-card:hover {
+
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Product Image */
+.product-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border: 1px solid rgba(193, 193, 193, 1);
+    border-radius: 20px 20px 0px 0px;
+}
+
+/* Product Info */
+.product-info {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Product Title */
+.product-info h3 {
+    font-family: "Lato";
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(19, 19, 19, 1);
+    margin-bottom: 8px;
+    margin-top: 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+/* Bottom Section (Price + Add Button) */
+.product-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    gap: 0.5rem;
+}
+
+/* Price Details */
+.current-price {
+    font-family: "Lato";
+    font-size: 20px;
+    font-weight: 700;
+    margin-right: 8px;
+    color: rgba(1, 105, 57, 1);
+}
+
+.old-price {
+    font-family: "Lato";
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: line-through;
+    color: rgba(150, 150, 150, 1);
+}
+
+.weight {
+    font-family: "Lato";
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(96, 96, 96, 1);
+}
+
+/* Add Button */
+.add-btn, .quantity-control {
+    width: 100px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(57, 114, 193, 1);
+    border-radius: 10px;
+    font-family: "Lato";
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Default ADD Button */
+.add-btn {
+    background: rgba(255, 255, 255, 1);
+    color: rgba(19, 19, 19, 1);
+}
+
+.add-btn:hover {
+    background: rgba(57, 114, 193, 1);
+    color: rgba(255, 255, 255, 1);
+}
+
+/* Quantity Selector */
+.quantity-control {
+    background: rgba(255, 255, 255, 1);
+    overflow: hidden;
+}
+
+.quantity-control button {
+    background: rgba(57, 114, 193, 1);
+    color: rgba(255, 255, 255, 1);
+    border: none;
+    width: 30px;
+    height: 100%;
+    cursor: pointer;
+}
+
+.quantity-control span {
+    padding: 0px 15px;
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+}
+
+/* ---------------- RESPONSIVENESS ---------------- */
+
+/* Mobile (≤ 480px) - 2 items per row */
+@media (max-width: 480px) {
+    .best-sellers {
+        padding: 1rem;
+    }
+    .product-info{
+        padding: 0.6rem;
+    }
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+
+    .product-card img {
+        height: 114px;
+    }
+
+    .product-info h3 {
+        font-size: 13px;
+    }
+
+    .current-price {
+        font-size: 15px;
+        margin-right: 5px;
+    }
+
+    .old-price, .weight {
+        font-size: 10px;
+    }
+    .add-btn, .quantity-control{
+        font-size: 10px;
+        height: 28px;
+        width: 65px;
+    }
+    .quantity-control span{
+        padding: 0px 10px;
+        font-size: 10px;
+    }
+   
+}
+
+/* Tablets (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .best-sellers {
+        padding: 1.5rem;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .product-card img {
+        height: 160px;
+    }
+
+    .product-info h3 {
+        font-size: 16px;
+    }
+
+    .current-price {
+        font-size: 18px;
+    }
+}
+
+/* Small Laptops (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .best-sellers {
+        padding: 2rem 3rem;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .product-card img {
+        height: 170px;
+    }
+}
+
+/* Large Screens (1025px - 1439px) */
+@media (min-width: 1025px) and (max-width: 1439px) {
+    .best-sellers {
+        padding: 2rem 4rem;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2.5rem;
+    }
+
+    .product-card img {
+        height: 180px;
+    }
+}
+
+/* Extra Large Screens (1440px and above) */
+.product-card-link {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Keep text color same as parent */
+    display: block; /* Ensures the entire card is clickable */
+}
+

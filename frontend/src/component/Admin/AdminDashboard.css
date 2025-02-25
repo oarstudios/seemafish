@@ -1,0 +1,128 @@
+.admin-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 4rem;
+}
+
+.dashboard-row {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.dashboard-card {
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(161, 161, 161, 1);
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.full-width {
+  flex: 1;
+  width: 100%;
+}
+
+.half-width {
+  flex: 1;
+  /* width: 50%; */
+}
+
+.dashboard-card h2 {
+  font-family: "Anton SC";
+  font-size: 96px;
+  font-weight: 400;
+  color: rgba(57, 114, 193, 1);
+  margin: 0;
+}
+
+.dashboard-card p {
+  color: rgba(161, 161, 161, 1);
+  font-family: "Anton SC";
+  font-size: 64px;
+  font-weight: 400;
+  text-align: center;
+  margin: 0;
+  padding-top: 10px;
+}
+
+/* Link Styling */
+.dashboard-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .dashboard-card h2 {
+    font-size: 80px;
+  }
+  .dashboard-card p {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 992px) {
+  .dashboard-card h2 {
+    font-size: 60px;
+  }
+  .dashboard-card p {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .half-width {
+    min-width: 48%;
+  }
+  .dashboard-card {
+    align-items: center;
+    text-align: center;
+  }
+  .dashboard-card h2 {
+    font-size: 48px;
+  }
+  .dashboard-card p {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-dashboard {
+    padding: 2rem;
+  }
+  .dashboard-row {
+    flex-direction: column;
+  }
+  .half-width {
+    min-width: 100%;
+  }
+  .dashboard-card h2 {
+    font-size: 36px;
+  }
+  .dashboard-card p {
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,130 @@
+/* Category Section */
+.category-section {
+  text-align: left;
+  padding: 2rem 4rem;
+}
+
+/* Section Title */
+.category-section h2 {
+  font-family: "Lato";
+  font-size: 24px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1);
+  margin-bottom: 10px;
+}
+
+/* Section Description */
+.category-section p {
+  color: rgba(96, 96, 96, 1);
+  font-family: "Lato";
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+/* Default: Small screens (≤ 768px) - 3 items per row, 3 below */
+.category-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+  /* gap: 30px; */
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* Category Item */
+.category-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Image Shadow Effect */
+.category-item img {
+  width: 150px;
+  height: 150px;
+  /* border: 1px solid black; */
+  border-radius: 50%;
+  object-fit: contain;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover Effects */
+.category-item:hover img {
+  filter: drop-shadow(0px 4px 5px rgba(42, 42, 43, 0.55)); /* Shadow on Image */
+  transform: translateY(-10px); /* Slight Move Up */
+}
+
+.category-item:hover span {
+  color: rgba(57, 114, 193, 1); /* Text Color Change */
+}
+
+/* Category Names */
+.category-item span {
+  margin-top: 6px;
+  font-family: "Lato";
+  font-size: 20px;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+}
+
+/* ---------------- RESPONSIVENESS ---------------- */
+
+/* Mobile & Tablet (≤ 768px) - 3 items per row, 3 below */
+@media (max-width: 768px) {
+  .category-section {
+      padding: 1rem;
+  }
+
+  .category-container {
+      grid-template-columns: repeat(3, 1fr); /* 3 per row */
+      /* gap: 20px; */
+  }
+
+  .category-item img {
+      width: 90px;
+      height: 90px;
+  }
+
+  .category-item span {
+      font-size: 16px;
+  }
+}
+
+/* Small Laptops and Above (≥ 769px) - 6 items in one row */
+@media (min-width: 769px) {
+  .category-container {
+      grid-template-columns: repeat(3, 1fr); /* 6 per row */
+      /* gap: 30px; */
+  }
+
+  .category-item img {
+      width: 130px;
+      height: 130px;
+  }
+
+  .category-item span {
+      font-size: 18px;
+  }
+}
+
+/* Large Screens (≥ 1025px) */
+@media (min-width: 1025px) {
+  .category-container {
+    grid-template-columns: repeat(6, 1fr); /* 6 per row */
+    /* gap: 30px; */
+}
+  .category-section {
+      padding: 2rem 4rem;
+  }
+
+  .category-item img {
+      width: 150px;
+      height: 150px;
+  }
+}
+
+

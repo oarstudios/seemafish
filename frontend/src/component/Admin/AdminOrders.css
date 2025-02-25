@@ -1,0 +1,536 @@
+/* General Styling */
+.admin-orders {
+    padding: 20px;
+  
+    background-color:rgba(255, 255, 255, 1);
+  }
+  
+  /* Navigation Tabs */
+  .orders-navigation {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+
+  .orders-navigation .sb{
+    margin-left: 0;
+  }
+  
+  .orders-navigation button {
+    padding: 5px 20px;
+    margin-right: 10px;
+    border: 1px solid rgba(19, 19, 19, 1);
+    background-color: transparent;
+    color:rgba(19, 19, 19, 1);
+  
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: "Jost";
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .orders-navigation button:hover{
+      background-color:rgba(57, 114, 193, 1);
+    color:rgba(253, 250, 245, 1);
+  }
+  .orders-navigation button.active{
+    background-color:rgba(57, 114, 193, 1);
+  color:rgba(253, 250, 245, 1);
+}
+  
+  /* Orders Table */
+  .orders-list table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0 15px; /* Adjust vertical spacing */
+  
+    overflow: hidden;
+  }
+  
+  .orders-list table thead th {
+    border: none;
+    font-family: "Jost";
+    font-size: 20px;
+    font-weight: 500;
+    color: rgba(19, 19, 19, 1);
+    padding-bottom: 20px; /* Simulates spacing with padding */
+  }
+  .orders-list table td {
+    padding: 15px;
+    text-align: left;
+    color: rgba(19, 19, 19, 1);
+    font-family: "Jost";
+    font-size: 20px;
+    font-weight: 400;
+    border-bottom: 1px solid rgba(19, 19, 19, 1);
+  }
+  
+  .orders-list .status {
+    padding: 0px 10px;
+    border-radius: 10px;
+    font-family: "Jost";
+    font-size: 16px;
+    font-weight: 400;
+    border: 1px solid rgba(19, 19, 19, 1);
+    cursor: pointer;
+  
+    
+  }
+  
+  .orders-list .status.Pending {
+      background-color: rgba(255, 213, 187, 1);
+      color: rgba(174, 117, 0, 1);
+     
+    
+  }
+  
+  .orders-list .status.Delivered {
+    background-color: rgba(187, 255, 198, 1);
+    color: rgba(10, 106, 26, 1);
+   
+  
+  }
+  
+  .orders-list .status.Canceled {
+    background-color: rgba(255, 187, 187, 1);
+    color: rgba(168, 21, 10, 1);
+  }
+  
+  /* Order Details Dropdown */
+  
+  .order-row, .order-details-row{
+      cursor: pointer;
+     
+  }
+  
+  /* Active Order Highlight */
+  .order-row.active-order {
+      border: 1px solid rgba(19, 19, 19, 1);
+      border-radius: 10px;
+      background:linear-gradient(180deg, #FDFAF5 4.37%, #DFECFF 103.98%);
+      padding: 10px; /* Use padding for spacing */
+      overflow: hidden; /* To ensure the radius works */
+    }
+    .order-row.active-order td{
+      font-family: "Jost";
+  font-size: 20px;
+  font-weight: 400;
+  color: rgba(57, 114, 193, 1);
+  
+  
+    }
+    
+    .order-details-row.active-order-details {
+      border: 1px solid rgba(19, 19, 19, 1);
+      border-radius: 10px;
+      background:linear-gradient(180deg, #FDFAF5 4.37%, #DFECFF 103.98%);
+      padding: 20px; /* Adjust as needed */
+      overflow: hidden;
+    }
+    
+  .order-details-row td {
+    background:linear-gradient(180deg, #FDFAF5 4.37%, #DFECFF 103.98%);
+    border-top: 1px solid rgba(19, 19, 19, 1);
+    padding: 20px;
+  }
+  
+  .order-details {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  
+  .customer-details,
+  .order-items {
+    width: 45%;
+  }
+  
+  .customer-details h3,
+  .order-items h3, .update-status h3 {
+  
+    margin-bottom: 10px;
+  
+    font-family: "Jost";
+  font-size: 24px;
+  font-weight: 600;
+  color: rgba(57, 114, 193, 1);
+  
+  
+  }
+  
+  .customer-details p,
+  .order-items span {
+      font-family: "Jost";
+      font-size: 20px;
+      font-weight: 400;
+      color: rgba(19, 19, 19, 1);
+     
+      text-decoration-skip-ink: none;
+      
+    margin-bottom: 5px;
+  }
+  
+  .customer-details p strong {
+      font-family: "Jost";
+      font-size: 20px;
+      font-weight: 500;
+      
+      color: rgba(19, 19, 19, 1);
+  }
+  
+  .order-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  
+  .order-item img.cake-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+    margin-right: 10px;
+    object-fit: fill;
+  }
+  
+  .order-item span {
+      font-family: "Jost";
+      font-size: 24px;
+      font-weight: 400;
+      color: rgba(19, 19, 19, 1);
+      
+      
+  }
+  
+  .order-item span:last-child {
+    margin-left: auto;
+    font-family: "Jost";
+  font-size: 24px;
+  font-weight: 500;
+  color: rgba(19, 19, 19, 1);
+  
+  }
+  
+  /* Update Order Status Buttons */
+  
+  
+  
+  .update-status button {
+      padding: 0px 10px;
+      border-radius: 10px;
+      font-family: "Jost";
+      font-size: 16px;
+      font-weight: 400;
+      border: 1px solid rgba(19, 19, 19, 1);
+      cursor: pointer;
+      margin: 2px;
+  }
+  
+  .update-status button.Pending {
+      background-color: rgba(255, 213, 187, 1);
+      color: rgba(174, 117, 0, 1);
+  }
+  
+  
+  
+  .update-status button.Delivered {
+      background-color: rgba(187, 255, 198, 1);
+      color: rgba(10, 106, 26, 1);
+  }
+  
+  
+  
+  .update-status button.Canceled {
+      background-color: rgba(255, 187, 187, 1);
+      color: rgba(168, 21, 10, 1);
+  }
+  
+  
+  
+  
+  
+  .pagination {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-top: 20px;
+      gap: 5px;
+    }
+    
+    .pagination span {
+      font-family: "Jost";
+      font-size: 20px;
+      font-weight: 400;
+      color: rgba(19, 19, 19, 1);
+      margin-right: 10px;
+    }
+    
+    .pagination .pagination-btn {
+      padding: 5px 10px;
+      border: 1px solid rgba(19, 19, 19, 1);
+      background-color: transparent;
+      color: rgba(19, 19, 19, 1);
+      border-radius: 5px;
+      font-family: "Jost";
+      cursor: pointer;
+      font-size: 14px;
+    }
+    
+    .pagination .pagination-btn:hover {
+      background-color: rgba(57, 114, 193, 1);
+      color: #fff;
+    }
+    
+    .pagination .pagination-btn.active-page {
+      background-color: rgba(57, 114, 193, 1);
+      color: #fff;
+      border: none;
+    }
+    
+    .pagination .pagination-btn.disabled {
+      pointer-events: none;
+      /* background-color: rgba(229, 225, 215, 1); */
+      color: rgba(142, 142, 142, 1);
+      border: 1px solid rgba(142, 142, 142, 1);
+    }
+    
+  
+    
+  
+    /* General Styling */
+  .admin-orders {
+    padding: 40px 20px;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) { /* Tablets */
+    .orders-navigation {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    .orders-navigation button {
+      margin-bottom: 10px;
+    }
+  
+    .order-details {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .customer-details, .order-items {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) { /* Small Tablets and Large Mobiles */
+    .orders-navigation button {
+      padding: 5px 15px;
+      font-size: 14px;
+    }
+  
+    .orders-list table thead th,
+    .orders-list table td {
+      font-size: 16px;
+      padding: 10px;
+    }
+  
+    .order-item img.cake-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
+    }
+  
+    .order-item span {
+      font-size: 20px;
+    }
+  
+    .order-item span:last-child {
+      font-size: 20px;
+    }
+  
+    .customer-details h3,
+    .order-items h3, 
+    .update-status h3 {
+      font-size: 20px;
+    }
+  
+    .customer-details p,
+    .order-items span {
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 480px) { /* Mobile Devices */
+    .orders-navigation {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .orders-navigation button {
+      width: 90%;
+      margin: 5px 0;
+      padding: 8px 10px;
+    }
+  
+    .pagination {
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+    }
+  
+    .pagination span {
+      font-size: 18px;
+    }
+  
+    .pagination .pagination-btn {
+      padding: 5px 8px;
+      font-size: 12px;
+    }
+  
+    .orders-list table {
+      font-size: 14px;
+    }
+  
+    .order-row.active-order td {
+      font-size: 16px;
+    }
+  
+    .order-details {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .customer-details, .order-items {
+      width: 100%;
+    }
+  
+    .update-status button {
+      padding: 5px;
+      font-size: 12px;
+      margin: 2px;
+    }
+  }
+  
+  
+  
+  
+  /* Responsive Design */
+  
+  /* Tablets */
+  @media (max-width: 1024px) {
+      .orders-navigation {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    
+      .orders-navigation button {
+        margin-bottom: 10px;
+      }
+    
+      .order-details {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    
+      .customer-details, .order-items {
+        width: 100%;
+      }
+    }
+    
+    /* Small Tablets and Large Mobiles */
+    @media (max-width: 768px) {
+      .orders-navigation button {
+        padding: 5px 15px;
+        font-size: 14px;
+      }
+    
+      .orders-list table thead th,
+      .orders-list table td {
+        font-size: 16px;
+        padding: 10px;
+      }
+    
+      .order-item img.cake-image {
+        width: 60px;
+        height: 60px;
+        border-radius: 10px;
+      }
+    
+      .order-item span {
+        font-size: 20px;
+      }
+    
+      .order-item span:last-child {
+        font-size: 20px;
+      }
+    
+      .customer-details h3,
+      .order-items h3, 
+      .update-status h3 {
+        font-size: 20px;
+      }
+    
+      .customer-details p,
+      .order-items span {
+        font-size: 16px;
+      }
+    }
+    
+    /* Mobile Devices */
+    @media (max-width: 480px) {
+      .orders-navigation {
+        flex-direction: column;
+        align-items: center;
+        display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      }
+    
+      .orders-navigation button {
+        width: 100%;
+        margin: 5px 0;
+        padding: 8px 10px;
+      }
+    
+     
+    
+      .pagination span {
+        font-size: 18px;
+      }
+    
+      .pagination .pagination-btn {
+        padding: 5px 8px;
+        font-size: 12px;
+      }
+    
+      .orders-list table {
+        font-size: 14px;
+        overflow-x: auto;
+        display: block;
+      }
+    
+      .order-row.active-order td {
+        font-size: 16px;
+      }
+    
+      .order-details {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    
+      .customer-details, .order-items {
+        width: 100%;
+      }
+    
+      .update-status button {
+        padding: 5px;
+        font-size: 12px;
+        margin: 2px;
+      }
+    }
+    
+  
+  
+    

@@ -1,0 +1,105 @@
+/* Flash Deals Section */
+.flash-deal {
+    text-align: left;
+    padding: 2rem 4rem;
+}
+
+/* Section Title */
+.flash-deal h2 {
+    font-family: "Lato";
+    font-size: 36px;
+    font-style: italic;
+    font-weight: 700;
+    background: linear-gradient(90deg, #FF3838 0%, #CB7600 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    /* margin-bottom: 10px; */
+}
+
+/* Flash Deals Header */
+.flash-deal-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+/* Timer */
+.flash-deal-timer {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(90deg, #FF3838 0%, #CB7600 100%);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-family: "Lato";
+    font-size: 20px;
+    font-weight: 700;
+    padding-right: 2.2rem;
+}
+
+/* Timer Icon */
+.flash-deal-timer img {
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+}
+
+.flash-deal-header{
+    position: relative;
+    width: max-content;
+    margin: 1rem auto;
+}
+
+
+
+/* ---------------- RESPONSIVENESS ---------------- */
+
+/* Mobile (≤ 480px) - 2 items per row */
+@media (max-width: 480px) {
+    .flash-deal {
+        padding: 1rem;
+    }
+    .flash-deal h2{
+        
+            font-size: 24px;
+            text-align: center;
+        
+    } 
+    .flash-deal-timer{
+        font-size: 12px;
+        text-align: center;
+    }
+
+    
+}
+
+/* Tablets (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .flash-deal {
+        padding: 1.5rem;
+    }
+    
+    
+}
+
+/* Small Laptops (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .flash-deal {
+        padding: 2rem 3rem;
+    }
+
+    
+}
+
+/* Large Screens (1025px - 1439px) */
+@media (min-width: 1025px) and (max-width: 1439px) {
+    .flash-deal {
+        padding: 2rem 4rem;
+    }
+
+}
+
+

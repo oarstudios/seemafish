@@ -1,0 +1,110 @@
+.about-us {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 4rem;
+    flex-wrap: wrap; /* Allow elements to wrap on smaller screens */
+  }
+  
+  .about-us-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Optional: to add rounded corners */
+
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .about-us {
+      padding: 1rem; /* Adjust padding for smaller screens */
+    }
+  
+    .about-us-img {
+      width: 100%; /* Reduce width to allow for more space around image */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .about-us-img {
+      width: 100%; /* Ensure image occupies full width on mobile devices */
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
+  .shorts-container {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+  .shorts-title {
+    font-family: "Lato";
+    font-size: 24px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1);
+    margin-bottom: 10px;
+  }
+  
+  .shorts-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  /* Responsive iframe for Shorts */
+  .shorts-iframe {
+    width: 13rem;  /* Default width */
+    height: 25rem; /* Default height */
+    border-radius: 0.5rem;
+    border: none;
+  }
+  
+  /* View All Button */
+  .view-all-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: "Lato";
+    text-decoration: none;
+    color: white;
+    background-color: rgb(57 114 193);
+    border-radius: 0.5rem;
+    transition: background 0.3s ease;
+  }
+  
+  
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .shorts-iframe {
+      width: 11rem;
+      height: 20rem;
+    }
+  
+    .shorts-title {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .shorts-iframe {
+      width: 9rem;
+      height: 18rem;
+    }
+  
+    .view-all-btn {
+      font-size: 1rem;
+      padding: 0.6rem 1rem;
+    }
+  }
+  

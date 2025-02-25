@@ -1,0 +1,197 @@
+.signInMain{
+    /* border: 1px solid black; */
+    /* height: 100vh;
+    width: 100%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    pointer-events: all;
+    position: fixed;
+    /* height: 100vh;
+    width: 100%; */
+}
+
+.sg{
+    padding: 30px 0;
+    border: 2px solid rgba(57, 114, 193, 1);
+    min-width: 35vw;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    gap: 10px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 10px 10px 30px 0 #aaaaaa;
+}
+
+.sg h1{
+    color: #3972C1;
+    font-family: "Lato";
+    margin-bottom: 30px;
+}
+
+
+
+.sg .sgInput{
+    /* border: 1px solid black; */
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sgInput .pass{
+    width: 100%;
+    border: 1px solid #C1C1C1;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    border-radius: 10px;
+}
+
+.sgInput input{
+    /* border: 1px solid black; */
+    border: none;
+    padding: 10px 10px;
+    width: 100%;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: "Lato";
+}
+
+
+.signInMain img{
+    width: 25px;
+    height: 25px;
+}
+
+.pass img{
+    position: absolute;
+    margin-right: 10px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.sgInput .error{
+    font-size: 0.8rem;
+    color: #D84343;
+    width: 100%;
+    text-align: end;
+    margin-top: 5px;
+}
+
+
+.sgIn{
+    height: 100vh;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+    background-color: transparent;
+    pointer-events: all;
+
+}
+
+.sig{
+    /* border: 1px solid black; */
+    margin-top: 30px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 80%;
+}
+
+.sig button{
+    border-radius: 10px;
+    padding: 7px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    /* border: none; */
+    width: 60%;
+    font-size: 1rem;
+    color: #3972C1;
+    background-color: white;
+    border: 1px solid #3972C1;
+    font-family: "Lato";
+    font-weight: 600;
+}
+
+.sig button img{
+    width: 20px;
+    height: 20px;
+}
+
+.sig button:nth-child(1)
+{
+    width: 40%;
+    background-color: #3972C1;
+    color: white;
+    padding: 7.5px 0;
+}
+
+.sg span{
+    color: #3972C1;
+    cursor: pointer;
+}
+
+.sg span:hover{
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.rollDown{
+    transform: translateY(0);
+}
+
+.rollUp{
+    transform: translateY(-200%);
+}
+
+.sgTop{
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.sgBottom{
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+
+@media (min-width: 600px) and (max-width: 1024px) {
+    .sg{
+        width: 70vw;
+    }
+}
+
+@media (min-width: 1800px) {
+    .sg{
+        min-width: 25vw;
+    min-height: 30vh;
+    }
+}
+
+@media (max-width: 600px) {
+    .sg{
+        width: 90vw;
+    }
+
+    .sig{
+        flex-direction: column;
+    }
+
+    .sig button, .sig button:nth-child(1)
+    {
+        width: 100%;
+    }
+}

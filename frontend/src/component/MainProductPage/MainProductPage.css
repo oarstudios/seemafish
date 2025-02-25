@@ -1,0 +1,48 @@
+.product-page-container, .customer-reviews-section  {
+  display: flex;
+  padding: 3rem 18rem 3rem 3rem;
+  gap: 40px;
+}
+
+.product-left {
+  flex: 2; /* Takes more space */
+}
+
+.product-right {
+  flex: 1 ; /* Takes less space */
+}
+
+/* Tablet Screens */
+@media ((min-width:1300px) and (max-width: 1600px)) {
+  .product-page-container, .customer-reviews-section {
+    padding: 2rem 10rem;
+    gap: 15px;
+  }
+}
+
+/* Mobile Screens */
+@media (max-width:1300px) {
+  .product-page-container, .customer-reviews-section {
+    padding: 2rem;
+    gap: 15px;
+  }
+}
+@media (max-width: 768px) {
+  .product-page-container {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .product-left,
+  .product-right {
+    flex: 1; /* Make both sections full width */
+  }
+}
+
+/* Small Mobile Screens */
+@media (max-width: 480px) {
+  .product-page-container {
+    padding: 1rem;
+    gap: 10px;
+  }
+}

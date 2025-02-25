@@ -1,0 +1,71 @@
+.shop-by-price {
+  padding: 2rem 4rem;
+  text-align: left;
+}
+
+.title {
+  font-family: "Lato";
+  font-size: 24px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1);
+  margin-bottom: 15px;
+}
+
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+  gap: 40px; /* Space between cards */
+}
+
+.price-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px; /* Rounded corners */
+
+}
+
+.price-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fills the card while maintaining aspect ratio */
+  border-radius: 20px;
+}
+
+/* ---------------- RESPONSIVENESS ---------------- */
+
+/* Tablets and Below (max-width: 768px) */
+@media (max-width: 768px) {
+  .shop-by-price {
+    padding: 1.5rem; /* Reduce padding */
+  }
+
+  .price-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablet and below */
+  }
+
+  
+
+  .price-image {
+    object-fit: cover; /* Ensure the image fills properly */
+  }
+}
+
+/* Mobile Screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .shop-by-price {
+    padding: 1rem; /* Further reduce padding for mobile */
+  }
+
+  .price-grid {
+    grid-template-columns: 1fr; /* 1 column for mobile screens */
+  }
+
+  
+
+  .price-image {
+    height: auto; /* Adjust image height on mobile */
+  }
+  .price-grid{
+    gap: 20px;
+  }
+}

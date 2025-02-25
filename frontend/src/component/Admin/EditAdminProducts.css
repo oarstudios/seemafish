@@ -1,0 +1,115 @@
+.edit-admin-product-container {
+  font-family: Arial, sans-serif;
+  padding: 2rem 6rem;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+@media (max-width: 768px) {
+  .edit-admin-product-container {
+    padding: 1rem 2rem;
+  }
+}
+
+/* Top Bar */
+.top-bars {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* Back Button */
+.back-button {
+  background: none;
+  border: none;
+  color: rgba(19, 19, 19, 1);
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* Bestseller Tag */
+.bestseller-tag {
+  background: rgba(96, 96, 96, 1);
+  color: rgba(255, 255, 255, 1);
+  padding: 5px 12px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  font-family: "Jost";
+  font-size: 24px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  border: none;
+}
+
+/* Bestseller Active State */
+.bestseller-tag.active {
+  background: rgba(57, 114, 193, 1);
+}
+
+/* Icons */
+.close-icon-best,
+.check-icon {
+  font-size: 24px;
+  margin-right: 5px;
+  color: rgba(255, 255, 255, 1);
+}
+
+/* Buttons Container */
+.buttons-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Delete Product Button */
+.delete-button {
+  background-color: rgba(235, 87, 87, 1);
+  color: white;
+  font-size: 18px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: rgba(200, 60, 60, 1);
+}
+
+/* Publish Button */
+.publish-button {
+  background-color: rgba(57, 114, 193, 1);
+  color: white;
+  font-size: 18px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.publish-button:hover {
+  background-color: rgba(45, 100, 175, 1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .top-bars {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .bestseller-tag {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+  .buttons-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

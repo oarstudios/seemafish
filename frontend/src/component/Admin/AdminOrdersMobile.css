@@ -1,0 +1,186 @@
+/* Admin Orders Mobile Styling */
+.orders-list-mobile {
+    /* padding: 20px; */
+    /* background-color: #fdf9f3; */
+    font-family: "Jost", sans-serif;
+  }
+  
+  /* Mobile Order Container */
+  .order-container {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  /* Order Row */
+  .order-row-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 15px 0; */
+    cursor: pointer;
+    /* border-bottom: 1px solid rgba(71, 29, 6, 0.1); */
+  }
+  
+  .order-row-mobile p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(19, 19, 19, 1);
+  }
+  
+  /* Expanded Order Details */
+  .order-details-row-mobile {
+    padding: 15px 0;
+    background-color: #f9f9f9;
+    margin-top: 10px;
+    border-top: 1px solid rgba(71, 29, 6, 0.1);
+  }
+  
+  .orders-navigation{
+    margin-bottom: 1rem;
+    
+  }
+  
+  .customer-details h3, .order-extra-details h3, .order-items-mobile h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color:rgba(57, 114, 193, 1);
+    margin: 10px 0px;
+  }
+  
+  .customer-details p, .order-extra-details p, .order-item-details-mobile span {
+    font-size: 16px;
+    color: rgba(19, 19, 19, 1);
+    /* margin: 10px 0; */
+  }
+  
+  .customer-details p strong,
+  .order-extra-details p strong {
+    color: rgba(57, 114, 193, 1);
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  /* Order Items */
+  .order-items-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 0.5rem 0rem;
+  }
+  
+  .order-item-mobile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .order-item-image-mobile {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .order-item-details-mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  .orderID{
+    color: rgba(57, 114, 193, 1);
+  }
+  
+  
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .order-container {
+      padding: 15px;
+    }
+  
+    .order-row-mobile {
+      font-size: 16px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .order-details-row-mobile {
+      padding: 10px;
+    }
+  
+    .update-status-mobile button {
+      font-size: 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .order-container {
+      padding: 10px;
+      background: transparent;
+    }
+  
+    .order-row-mobile p {
+      font-size: 16px;
+    }
+  
+    .order-details-row-mobile {
+      padding: 10px;
+      background: transparent;
+    }
+  
+    .order-item-image-mobile {
+      width: 60px;
+      height: 60px;
+    }
+  
+    .update-status-mobile button {
+      padding: 5px 10px;
+      font-size: 10px;
+    }
+  }
+  /* Status Button */
+.status-button {
+    padding: 0px 8px;
+    border-radius: 10px;
+    font-family: "Jost";
+    font-size: 13px;
+    font-weight: 400;
+    margin-left: 5px;
+    border: 1px solid rgba(0, 0, 0, 1);
+    cursor: pointer;
+  }
+  
+  /* Specific Styles for Each Status */
+  .status-button.Pending {
+    background-color: rgba(255, 213, 187, 1);
+    color: rgba(174, 117, 0, 1);
+  }
+  
+  .status-button.Delivered {
+    background-color: rgba(187, 255, 198, 1);
+    color: rgba(10, 106, 26, 1);
+  }
+  
+  .status-button.Canceled {
+    background-color: rgba(255, 187, 187, 1);
+    color: rgba(168, 21, 10, 1);
+  }
+  
+  /* Optional: Disable hover effect */
+  .status-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  
+.pagination{
+    justify-content: center;
+}
+ 

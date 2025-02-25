@@ -1,0 +1,234 @@
+.footer {
+    border-top: 1px solid rgba(193, 193, 193, 1);
+    text-align: center;
+    color: #333;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* Makes all sections the same height */
+    text-align: left;
+    border-left: 1px solid rgba(193, 193, 193, 1);
+ 
+  }
+  
+  /* Equal-sized sections with internal padding */
+  .footer-section {
+    flex: 1;
+    border-right: 1px solid rgba(193, 193, 193, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    padding: 1rem;
+  }
+  
+  .footer-logo {
+    align-items: center;
+    padding-bottom: 2rem;
+  }
+  
+  .footer-links {
+    padding: 3rem;
+  }
+  
+  .footer-contact {
+    /* padding: 3rem; */
+    text-align: right;
+  }
+  
+  .footer-contact p strong {
+    font-family: Lato;
+    font-size: 20px;
+    font-weight: 800;
+    color: rgba(96, 96, 96, 1);
+    margin: 5px 0;
+  }
+  
+  .footer-contact p {
+    font-family: Lato;
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(96, 96, 96, 1);
+    margin: 5px 0;
+    text-align: right;
+  }
+  
+  .footer-logo img {
+    width: 240px;
+  }
+  
+  .footer-logo p {
+    margin: 5px 0;
+    color: rgba(96, 96, 96, 1);
+    font-family: "Lato";
+    font-size: 20px;
+    font-weight: 800;
+  }
+  
+  /* Links Section */
+  .footer-links-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  
+  .footer-links-column p strong{
+    margin: 10px 0;
+    font-family: "Lato";
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+  }
+  
+  /* Follow Us Section Below */
+  .footer-social {
+    text-align: left;
+    margin-top: 2rem;
+    font-family: "Lato";
+    font-size: 20px;
+    font-weight: 800;
+    color: rgba(96, 96, 96, 1);
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+  }
+  
+  .social-icons a {
+    font-size: 2rem;
+    color: #2d5aa7;
+    text-decoration: none;
+  }
+  
+  /* Footer Bottom */
+  .footer-bottom {
+    background-color: rgba(57, 114, 193, 1);
+    text-align: center;
+    padding: 10px 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .footer-bottom .copyright {
+    font-family: "Lato";
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 1);
+  }
+  
+  .footer-bottom .oar {
+    font-family: "Lato";
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 1);
+  }
+  
+  .footer-bottom .oar .oar1 {
+    font-family: "Gajraj One";
+    font-size: 21px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+  }
+  
+  .footer-bottom .oar .oar2 {
+    font-family: "Instrument Serif";
+    font-size: 21px;
+    font-style: italic;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    
+  
+    .footer-logo img {
+      width: 200px; /* Adjust logo size for medium screens */
+    }
+  
+    .footer-contact p {
+      font-size: 18px; /* Reduce font size in contact section */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+      border-left: none;
+    }
+  
+    .footer-section {
+      border-right: none;
+      border-bottom: 1px solid rgba(193, 193, 193, 1);
+    }
+  
+    .footer-links-row {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .footer-social {
+      text-align: center;
+    }
+  
+    .footer-logo {
+      padding-bottom: 1rem;
+    }
+  
+    .footer-logo img {
+      width: 180px; /* Resize logo */
+    }
+  
+    .footer-contact p {
+      font-size: 16px;
+    }
+  
+    .social-icons {
+      justify-content: center;
+    }
+  
+    .footer-bottom {
+      flex-direction: column;
+      padding: 10px 1rem;
+    }
+  
+    .footer-bottom .copyright,
+    .footer-bottom .oar {
+      font-size: 14px;
+    }
+  
+    .footer-bottom .oar1 {
+      font-size: 18px;
+    }
+  
+    .footer-bottom .oar2 {
+      font-size: 18px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    
+  
+    .footer-logo img {
+      width: 150px; /* Adjust logo for mobile */
+    }
+  
+    .footer-contact p {
+      font-size: 14px; /* Smaller font size for mobile */
+    }
+  
+    .footer-bottom {
+      padding: 10px 0;
+    }
+  
+    .footer-bottom .copyright,
+    .footer-bottom .oar {
+      font-size: 12px; /* Adjust footer bottom text for mobile */
+    }
+  }
+  

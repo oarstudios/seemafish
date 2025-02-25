@@ -1,0 +1,305 @@
+/* General styles */
+.my-account-page {
+    display: flex;
+    flex-direction: row; /* Default for larger screens */
+    gap: 20px;
+    background-color: rgba(255, 255, 255, 1)
+    ;
+  
+}
+
+.sbBtn{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
+.account-left {
+    flex: 3;
+    border-right: 1px solid rgba(239, 239, 239, 1)
+    ;
+    padding: 2rem;
+}
+
+.account-right {
+    flex: 2;
+    padding: 2rem;
+}
+
+.heading-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.heading {
+   
+
+
+    color: rgba(19, 19, 19, 1);
+
+
+
+    font-family: "Lato";
+font-weight: 700;
+font-size: 28px;
+margin-bottom: 1rem;
+
+
+}
+
+
+
+.logout-button, .submit {
+    display: block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    font-family: "Jost";
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background-color: rgba(57, 114, 193, 1);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Form styles */
+.account-form,
+.address-form {
+    display: grid;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-group {
+    flex: 1;
+}
+
+label {
+    margin-bottom: 5px;
+    display: block;
+    color: rgba(96, 96, 96, 1);
+
+
+    text-align: left;
+
+    font-family: "Lato";
+font-weight: 600;
+font-size: 16px;
+
+
+}
+
+.account-form input,
+.account-form select {
+    padding: 6px 8px;
+    border: 1px solid rgba(161, 161, 161, 1);
+    border-radius: 10px;
+    width: 100%;
+    
+    color: rgba(161, 161, 161, 1);
+    background-color: transparent;
+    outline: none;
+
+
+    font-family: "Lato";
+font-weight: 400;
+font-size: 20px;
+
+
+}
+
+.state-input{
+    /* padding: 0; */
+    margin-bottom: 15px;
+    padding: 6px 8px;
+    border: 1px solid rgba(142, 142, 142, 1);
+    border-radius: 10px;
+    width: 100%;
+    font-family: "Jost";
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(142, 142, 142, 1);
+    background-color: transparent;
+    outline: none;
+
+}
+
+
+
+/* Order Section */
+.orders-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 1.2rem;
+}
+
+.orders-image {
+    width: 110px;
+    height: 110px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.orders-details .orders-date {
+    margin: 0;
+    font-family: "Lato";
+    font-size: 24px;
+    font-weight: 400;
+    color: rgba(57, 114, 193, 1);
+}
+
+.orders-details .orders-items {
+    font-family: "Lato";
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(19, 19, 19, 1)
+    ;
+    margin-right: 10px;
+}
+
+.orders-status.pending {
+    color: rgba(227, 54, 41, 1);
+    font-family: "Jost";
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.orders-status.delivered {
+    color: rgba(49, 159, 67, 1);
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .my-account-page {
+        flex-direction: column; /* Stack sections on smaller devices */
+        gap: 15px;
+    }
+
+    .account-left,
+    .account-right {
+        padding: 1.5rem;
+    }
+
+    .heading {
+        font-size: 28px; /* Slightly smaller heading for tablets */
+    }
+
+    .orders-details .orders-date {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .my-account-page {
+        gap: 10px;
+    }
+
+    .heading {
+        font-size: 24px;
+    }
+
+    .account-form input,
+    .account-form select {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .logout-button {
+        font-size: 14px;
+        padding: 6px 15px;
+    }
+    .account-form,
+.address-form {
+    display: grid;
+    gap: 10px;
+}
+
+.form-row {
+    display: flex;
+    gap: 4px;
+}
+}
+
+@media (max-width: 480px) {
+    .heading-row {
+        align-items: flex-start;
+        margin-bottom: 0.5rem;
+    }
+
+    .edit-button {
+        margin-top: 10px;
+        font-size: 12px;
+    }
+
+    .heading {
+        font-size: 20px;
+        margin-bottom: 0.5rem;
+    }
+
+    .account-form input,
+    .account-form select {
+        margin-bottom: 15px;
+    }
+
+    .orders-details .orders-date {
+        font-size: 16px;
+    }
+
+    .orders-details .orders-items {
+        font-size: 14px;
+    }
+
+    .logout-button {
+        font-size: 16px;
+        padding: 4px 10px;
+    }
+    .account-form,
+    .address-form {
+        display: grid;
+        gap: 10px;
+    }
+    
+    .form-row {
+        display: flex;
+        gap: 4px;
+    }
+}
+
+.orders-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+@media (min-width: 1440px) {
+    
+
+    .account-left,
+    .account-right {
+        padding: 4rem;
+    }
+}
+
+
+
+
+
+
+
+select option {
+    font-size: 16px;
+    padding: 10px;
+    color: rgba(71, 29, 6, 1);
+    background-color: rgba(253, 250, 245, 1);
+    border: none;
+}
+
+

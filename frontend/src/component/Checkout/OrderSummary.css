@@ -1,0 +1,297 @@
+.order-summary-container {
+    width: 70%;
+
+}
+
+/* Title */
+.order-summary-container h2 {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: rgba(96, 96, 96, 1);
+    margin-bottom: 15px;
+}
+
+/* Delivery Time Button */
+.delivery-time-btn {
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(193, 193, 193, 1);
+    color: rgba(57, 114, 193, 1);
+    padding: 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: "Lato";
+    font-weight: 400;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+}
+
+.clock-icon {
+    width: 18px;
+    height: 18px;
+}
+
+/* Deliver To Section */
+.deliver-to-text {
+    font-family: "Lato";
+    font-weight: 400;
+    font-size: 20px;
+    color: rgba(161, 161, 161, 1);
+    margin: 2rem 0rem 1rem 0rem;
+}
+
+
+
+.home-button-checkout {
+    border: 1px solid rgba(57, 114, 193, 1);
+    background: white;
+    color: rgba(57, 114, 193, 1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.home-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Order Details */
+.user-order-details {
+    margin-top: 20px;
+}
+
+.user-order-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.user-order-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+/* Order Info */
+.user-order-info {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.user-product-name {
+    font-family: "Lato";
+    font-weight: 600;
+    font-size: 16px;
+    color: rgba(19, 19, 19, 1);
+}
+
+.user-product-weight {
+    font-family: "Lato";
+    font-weight: 500;
+    font-size: 16px;
+    color: rgba(96, 96, 96, 1);
+    margin-top: 0.2rem;
+}
+
+/* Price & Quantity in One Row */
+.user-price-quantity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 180px;
+    margin-top: 0.5rem;
+}
+
+.user-product-price {
+    font-family: "Lato";
+    font-weight: 700;
+    font-size: 24px;
+    color: rgba(1, 105, 57, 1);
+}
+
+.user-product-quantity {
+    font-family: "Lato";
+    font-weight: 700;
+    font-size: 16px;
+    color: rgba(150, 150, 150, 1);
+}
+
+/* Final Price */
+.user-final-price {
+    color: rgba(96, 96, 96, 1);
+    font-family: "Lato";
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.user-final-price-span {
+    font-family: "Lato";
+    font-weight: 700;
+    font-size: 20px;
+}
+
+/* User Price Summary */
+.user-price-summary {
+    margin: 1rem 0rem;
+    font-size: 18px;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 5px;
+    justify-content: space-between;
+}
+
+.user-price-text {
+    font-size: 20px;
+    font-family: "Lato";
+    font-weight: 500;
+    color: rgba(96, 96, 96, 1);
+}
+
+.user-price-value {
+    font-size: 20px;
+    font-family: "Lato";
+    font-weight: 700;
+    text-align: right;
+    color: rgba(96, 96, 96, 1);
+}
+
+.user-price-total {
+    font-size: 28px;
+    font-family: "Lato";
+    font-weight: 700;
+    color: rgba(19, 19, 19, 1);
+}
+
+.user-price-total-value {
+    font-size: 28px;
+    font-family: "Lato";
+    font-weight: 700;
+    color: rgba(57, 114, 193, 1);
+    text-align: right;
+}
+
+
+
+/* 🔹 Responsive Design Adjustments */
+
+/* Tablets & Small Laptops */
+@media (max-width: 1024px) {
+    .order-summary-container {
+        width: 70%;
+     
+    }
+
+  
+
+    .user-price-quantity {
+        width: 160px;
+    }
+
+    .select-address {
+        font-size: 16px;
+    }
+}
+
+/* Mobile & Small Screens */
+@media (max-width: 768px) {
+    .order-summary-container {
+        width: 100%;
+  
+    }
+
+    .delivery-time-btn {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .user-order-item {
+        /* flex-direction: column; */
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    
+
+    .user-price-quantity {
+        width: 140px;
+    }
+
+    .user-product-name {
+        font-size: 14px;
+    }
+
+    .user-product-price {
+        font-size: 20px;
+    }
+
+    .user-product-quantity {
+        font-size: 14px;
+    }
+
+    .user-final-price {
+        font-size: 18px;
+    }
+
+    .user-price-summary {
+        grid-template-columns: 1fr 1fr;
+        font-size: 16px;
+    }
+
+    .user-price-total, .user-price-total-value {
+        font-size: 22px;
+    }
+
+    .select-address {
+        font-size: 16px;
+        padding: 10px;
+    }
+    .user-order-info{
+        margin-left: 0px;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+   
+
+  
+
+  
+    .user-product-weight{
+        font-size: 14px;
+    }
+    .user-product-price{
+        font-size: 16px;
+    }
+    .user-final-price{
+        font-size: 14px;
+    }
+    .user-final-price-span{
+        font-size: 16px;
+    }
+    .user-order-info{
+        margin-left: 0px;
+    }
+    .user-price-quantity {
+        width: 130px;
+        gap: 10px;
+    }
+
+    .user-price-summary {
+        font-size: 14px;
+    }
+
+    .select-address {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+}

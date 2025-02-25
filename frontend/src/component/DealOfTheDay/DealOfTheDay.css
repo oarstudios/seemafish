@@ -1,0 +1,153 @@
+.deal-of-the-day {
+    text-align: left;
+    padding: 2rem 4rem;
+}
+
+.deal-of-the-day h2 {
+    font-family: "Lato";
+    font-size: 24px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1);
+    margin-bottom: 10px;
+}
+
+.deal-of-the-day p {
+    color: rgba(96, 96, 96, 1);
+    font-family: "Lato";
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+/* Product Grid */
+.deal-product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+    justify-content: center;
+}
+
+/* Product Card */
+.deal-product-card {
+    background: rgba(255, 255, 255, 1);
+    border-radius: 20px;
+    overflow: hidden;
+    text-align: left;
+    border: 1px solid rgba(193, 193, 193, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    transition: transform 300ms ease-out, box-shadow 300ms ease-out;
+}
+.deal-product-card:hover {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
+.deal-product-card:hover {
+    background: rgba(245, 245, 245, 1);
+}
+.deal-product-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border: 1px solid rgba(193, 193, 193, 1);
+    border-radius: 20px 20px 0px 0px;
+}
+
+.deal-product-info {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.deal-product-info h3 {
+    font-family: "Lato";
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(19, 19, 19, 1);
+    margin-bottom: 8px;
+    margin-top: 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+/* Bottom Section (Price + Add Button) */
+.deal-product-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+/* Price Details */
+.deal-current-price {
+    font-family: "Lato";
+    font-size: 24px;
+    font-weight: 700;
+    margin-right: 8px;
+    color: rgba(1, 105, 57, 1);
+}
+
+.deal-old-price {
+    font-family: "Lato";
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: line-through;
+    color: rgba(150, 150, 150, 1);
+}
+
+.deal-weight {
+    font-family: "Lato";
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(96, 96, 96, 1);
+}
+
+/* Add Button (Before Click) */
+.deal-add-btn, .deal-quantity-control {
+    width: 100px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(57, 114, 193, 1);
+    border-radius: 10px;
+    font-family: "Lato";
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Default ADD Button */
+.deal-add-btn {
+    background: rgba(255, 255, 255, 1);
+    color: rgba(19, 19, 19, 1);
+}
+
+.deal-add-btn:hover {
+    background: rgba(57, 114, 193, 1);
+    color: rgba(255, 255, 255, 1);
+}
+
+/* Quantity Selector (After Clicking Add) */
+.deal-quantity-control {
+    background: rgba(255, 255, 255, 1);
+    overflow: hidden;
+}
+
+.deal-quantity-control button {
+    background: rgba(57, 114, 193, 1);
+    color: rgba(255, 255, 255, 1);
+    border: none;
+    width: 30px;
+    height: 100%;
+    cursor: pointer;
+}
+
+.deal-quantity-control span {
+    padding: 0px 15px;
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+}

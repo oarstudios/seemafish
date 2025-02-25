@@ -1,0 +1,407 @@
+/* Default styles (for large screens) */
+.checkout-container {
+    display: flex;
+    gap: 20px;
+    padding: 3rem;
+    /* flex-wrap: wrap; */
+    /* height: auto; */
+}
+
+/* Address Section */
+.address-section {
+    width: 70%;
+}
+
+.address-section h2 {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: rgba(96, 96, 96, 1);
+    margin-bottom: 15px;
+}
+
+.address-box {
+    border: 2px solid rgba(193, 193, 193, 1);
+    padding: 15px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    flex-wrap: nowrap;
+}
+
+.address-box.selected {
+    border-color: rgba(57, 114, 193, 1);
+}
+
+.name {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: rgba(96, 96, 96, 1);
+}
+
+.phone {
+    color: rgba(96, 96, 96, 1);
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    margin-left: 1rem;
+}
+
+.address {
+    color: rgba(96, 96, 96, 1);
+    margin-top: 1rem;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.add-address,
+.select-address {
+    padding: 10px 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(57, 114, 193, 1);
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(57, 114, 193, 1);
+    cursor: pointer;
+    font-family: "Lato", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+}
+
+.select-address {
+    background-color: rgba(57, 114, 193, 1);
+    color: rgba(253, 250, 245, 1);
+}
+
+/* Checkout Steps */
+.checkout-steps {
+    width: 30%;
+    padding-left: 20px;
+    position: relative;
+}
+
+.step {
+    display: flex;
+    align-items: start;
+    gap: 10px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.step::before {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 15px;
+    width: 2px;
+    height: 100%;
+    background-color: #ccc;
+}
+
+.step:last-child::before {
+    display: none;
+}
+
+.circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(57, 114, 193, 1);
+    position: relative;
+}
+
+.circle.inactive {
+    background-color: rgba(193, 193, 193, 1);
+}
+
+.step-title {
+    color: rgba(96, 96, 96, 1);
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.step-title.active {
+    color: rgba(57, 114, 193, 1);
+}
+
+.step-description {
+    color: rgba(96, 96, 96, 1);
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+/* Address Actions */
+.address-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.home-button-checkout {
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(57, 114, 193, 1);
+    color: rgba(57, 114, 193, 1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.home-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.edit-button {
+    background: none;
+    border: none;
+    color: rgba(96, 96, 96, 1);
+    cursor: pointer;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* 🔹 Mobile & Tablet Responsive Styles */
+@media (max-width: 1024px) {
+    .checkout-container {
+        /* flex-direction: column; */
+        padding: 2rem;
+    }
+
+    .address-section {
+        width: 100%;
+    }
+
+    .checkout-steps {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .step-title {
+        font-size: 20px;
+    }
+
+    .buttons {
+        /* justify-content: center; */
+    }
+}
+
+@media (max-width: 768px) {
+    .checkout-container {
+        padding: 1.5rem;
+    }
+
+    .address-box {
+        /* flex-direction: column; */
+        align-items: flex-start;
+        padding: 12px;
+    }
+
+    .name {
+        font-size: 18px;
+    }
+
+    .phone {
+        font-size: 16px;
+        margin-left: 0.5rem;
+    }
+
+    .address {
+        font-size: 14px;
+    }
+
+    .step-title {
+        font-size: 18px;
+    }
+
+    .step-description {
+        font-size: 14px;
+    }
+
+    .add-address,
+    .select-address {
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+
+    .home-button-checkout {
+        font-size: 14px;
+    }
+
+    .edit-button {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .checkout-container {
+        padding: 1rem;
+    }
+
+    .address-box {
+        padding: 10px;
+    }
+
+    .name {
+        font-size: 16px;
+    }
+
+    .phone {
+        font-size: 14px;
+        margin-left: 0.2rem;
+    }
+
+    .address {
+        font-size: 12px;
+    }
+
+    .step-title {
+        font-size: 16px;
+    }
+
+    .step-description {
+        font-size: 12px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .add-address,
+    .select-address {
+        width: 100%;
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .home-button-checkout {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+
+    .edit-button {
+        font-size: 14px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.scrolling-steps {
+    right: 2rem;
+    top: 10rem;
+    font-family: "Lato", sans-serif;
+    cursor: pointer;
+
+}
+
+.scrolling-steps .ssLine{
+    width: 5px;
+    height: 0%;
+    background-color: rgba(57, 114, 193, 1);
+    position: absolute;
+    top: 8px;
+    left: 20px;
+    transition: height 0.5s ease-in-out; 
+}
+
+.scrolling-steps ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    margin-left: 2rem;
+}
+
+.scrolling-steps ul::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 8px;
+    width: 5px;
+    height: 100%;
+    background-color: rgba(193, 193, 193, 1);
+}
+
+.scrolling-steps li {
+    position: relative;
+    padding-left: 48px;
+    margin-bottom: 140px;
+    font-family: "Lato";
+    font-weight: 700;
+    font-size: 24px;
+    color: rgba(96, 96, 96, 1);
+}
+
+.scrolling-steps li span {
+    font-family: "Lato";
+    font-weight: 400;
+    font-size: 16px;
+    color: rgba(96, 96, 96, 1);
+}
+
+.scrolling-steps li::before {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(193, 193, 193, 1);
+    border-radius: 50%;
+    border: 10px solid rgba(193, 193, 193, 1);
+}
+
+.scrolling-steps li.active {
+    color: rgba(57, 114, 193, 1);
+    font-weight: bold;
+}
+
+.scrolling-steps li.active::before {
+    background-color: rgba(57, 114, 193, 1);
+}
+
+/* 🚀 Hide scrolling steps on Mobile & Tablet (Below 1024px width) */
+@media screen and (max-width: 842px) {
+    .scrolling-steps {
+        display: none;
+    }
+}
