@@ -168,16 +168,19 @@ export default function DealOfTheDay({fetchCart, cart}) {
                          <div className="weight">{product?.product?.weight} g</div>
                        </div>
                        {cartItem ? (
-                         <div className="quantity-control">
-                           <button  onClick={(e) => { e.preventDefault(); handleAddToCart(product?.product, "dec"); }}>-</button>
-                           <span>{cartItem?.quantity}</span>
-                           <button  onClick={(e) => { e.preventDefault(); handleAddToCart(product?.product, "inc"); }}>+</button>
-                         </div>
-                       ) :  user?.userType != "Admin" && product?.inStock === true &&(
-                         <button className="add-btn" onClick={(e) => { e.preventDefault(); handleAddToCart(product?.product, "inc"); }}>
-                           ADD
-                         </button>
-                       )}
+  <div className="quantity-control">
+    <button onClick={(e) => { e.preventDefault(); handleAddToCart(product?.product, "dec"); }}>-</button>
+    <span>{cartItem?.quantity}</span>
+    <button onClick={(e) => { e.preventDefault(); handleAddToCart(product?.product, "inc"); }}>+</button>
+  </div>
+) : ( 
+  user?.userType !== "Admin" && product?.product?.inStock === true && (
+    <button className="add-btn" onClick={(e) => { e.preventDefault(); handleAddToCart(product?.product, "inc"); }}>
+      ADD
+    </button>
+  )
+)}
+
                      </div>
                    </div>
                  </div>
