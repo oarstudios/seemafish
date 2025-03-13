@@ -21,7 +21,12 @@ const app = express();
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }));
-app.use(cors())
+const corsOptions = {
+  origin: ['http://localhost:3000', 'https://freshimeat.in', 'https://www.freshimeat.in'],
+  credentials: true,
+};
+app.use(cors(corsOptions));
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/uploads', express.static('uploads'));
@@ -55,9 +60,10 @@ app.get('/', (req, res) => {
     res.send('Hello from the backend!');
   });
 
-app.listen(PORT, ()=>{
-    console.log("Listening to PORT", PORT)
-})
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running on port ${PORT}`);
+});
+
 
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 const generateUserId = () => {
