@@ -206,7 +206,7 @@ const handleNavigate = (productId) => {
                       <span>{cartItem?.quantity}</span>
                       <button onClick={(e) => { e.preventDefault(); handleAddToCart(cut, "inc"); }}>+</button>
                     </div>
-                  ) : !user?.userType != "Admin" && (
+                  ) : user?.userType !== "Admin" &&(
                     <button className="add-btn" onClick={(e) => { e.preventDefault(); handleAddToCart(cut, "inc"); }}>
                       ADD
                     </button>
