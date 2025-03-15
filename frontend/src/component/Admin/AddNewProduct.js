@@ -32,7 +32,7 @@ const AddNewProduct = () => {
 
   const fetchCategories = async()=>{
     try{
-      const response = await fetch('http://localhost:4001/categories/');
+      const response = await fetch('https://backend.freshimeat.in/categories/');
       const json = await response.json();
       if(response.ok)
       {
@@ -46,7 +46,7 @@ const AddNewProduct = () => {
 
   const fetchProductTags = async()=>{
     try{
-      const response = await fetch('http://localhost:4001/productTags/');
+      const response = await fetch('https://backend.freshimeat.in/productTags/');
       const json = await response.json();
       if(response.ok)
       {
@@ -183,7 +183,7 @@ const AddNewProduct = () => {
     });
 
     try {
-        const response = await fetch("http://localhost:4001/products/", {
+        const response = await fetch("https://backend.freshimeat.in/products/", {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${user.token}`, // If you need authentication
@@ -221,7 +221,7 @@ const addCategory = async(e)=>{
     const formData = {
       "name": newCategory
     }
-    const response = await fetch(`http://localhost:4001/categories/`,{
+    const response = await fetch(`https://backend.freshimeat.in/categories/`,{
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -251,7 +251,7 @@ const addProductTag = async(e)=>{
     const formData = {
       "name": newTag
     }
-    const response = await fetch(`http://localhost:4001/productTags/`,{
+    const response = await fetch(`https://backend.freshimeat.in/productTags/`,{
       method: "POST",
       headers: {
         "Content-Type": "application/json",

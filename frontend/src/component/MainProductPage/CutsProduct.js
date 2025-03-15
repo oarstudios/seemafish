@@ -23,7 +23,7 @@ const CutsProduct = ({fetchCart, cart}) => {
 
   const fetchData = async () => {
     try {
-        const response = await fetch(`http://localhost:4001/products/${id}`);
+        const response = await fetch(`https://backend.freshimeat.in/products/${id}`);
         const json = await response.json();
 
         if (response.ok) {
@@ -42,7 +42,7 @@ const CutsProduct = ({fetchCart, cart}) => {
 
 const fetchAllPrds = async () => {
   try {
-      const response = await fetch(`http://localhost:4001/products`);
+      const response = await fetch(`https://backend.freshimeat.in/products`);
       const json = await response.json();
 
       if (response.ok) {
@@ -73,7 +73,7 @@ useEffect(() => {
 const updatedUserCart = async () => {
   if (!user) return showError();
   try {
-    const response = await fetch(`http://localhost:4001/users/${user?._id}`, {
+    const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}`, {
       method: "GET",
       headers: {
         'Authorization': `Bearer ${user.token}`
@@ -101,7 +101,7 @@ const showError = ()=>{
 const removeFromCart = async (product) => {
   try {
 
-    const response = await fetch(`http://localhost:4001/users/${user?._id}/cart/${product._id}`, {
+    const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}/cart/${product._id}`, {
       method: "DELETE",
       headers: {
         'Authorization': `Bearer ${user?.token}`
@@ -146,7 +146,7 @@ const handleAddToCart = async (product, status) => {
 
     console.log("Updating cart:", formData);
 
-    const response = await fetch(`http://localhost:4001/users/${user?._id}/cart`, {
+    const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}/cart`, {
       method: "POST",
       body: JSON.stringify(formData),
       headers: {
@@ -182,7 +182,7 @@ const handleNavigate = (productId) => {
         const cartItem = cart?.find((item) => item?.productId?._id === cut?._id);
         return (
           <div key={cut.id} className="cut-item">
-            <img src={`http://localhost:4001/uploads/${cut?.images?.[0]}`} onClick={() => handleNavigate(cut?._id)} alt={cut.name} className="cut-image" />
+            <img src={`https://backend.freshimeat.in/uploads/${cut?.images?.[0]}`} onClick={() => handleNavigate(cut?._id)} alt={cut.name} className="cut-image" />
             <div className="cut-details">
               <p className="cut-name" onClick={() => handleNavigate(cut?._id)}>{cut?.name}</p>
               <p className="cut-weight">{cut?.weight}g | Total Price: ₹{ cartItem ? cartItem?.quantity * cut?.price?.sale : cut?.price?.sale }</p>

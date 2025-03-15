@@ -20,7 +20,7 @@ const AdminProducts = () => {
 
   const fetchProducts = async()=>{
     try{
-      const response = await fetch('http://localhost:4001/products/');
+      const response = await fetch('https://backend.freshimeat.in/products/');
       const json = await response.json();
       if(response.ok)
       {
@@ -135,7 +135,7 @@ useEffect(() => {
           {/* Product Cards */}
           {displayedProducts?.map((product, index) => (
             <div key={index} className="product-card">
-<img src={`http://localhost:4001/uploads/${product?.images?.[0]}`} alt={product?.name} />
+<img src={`https://backend.freshimeat.in/uploads/${product?.images?.[0]}`} alt={product?.name} />
 <div className="product-info">
                 <h3>{product?.name}</h3>
                 <div className="product-bottom">

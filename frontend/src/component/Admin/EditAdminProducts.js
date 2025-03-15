@@ -31,7 +31,7 @@ const EditAdminProducts = () => {
  
    const fetchCategories = async()=>{
      try{
-       const response = await fetch('http://localhost:4001/categories/');
+       const response = await fetch('https://backend.freshimeat.in/categories/');
        const json = await response.json();
        if(response.ok)
        {
@@ -45,7 +45,7 @@ const EditAdminProducts = () => {
  
    const fetchProductTags = async()=>{
      try{
-       const response = await fetch('http://localhost:4001/productTags/');
+       const response = await fetch('https://backend.freshimeat.in/productTags/');
        const json = await response.json();
        if(response.ok)
        {
@@ -59,7 +59,7 @@ const EditAdminProducts = () => {
 
    const fetchProduct = async()=>{
     try{
-      const response = await fetch(`http://localhost:4001/products/${id}`);
+      const response = await fetch(`https://backend.freshimeat.in/products/${id}`);
       const json = await response.json();
       if(response.ok)
       {
@@ -140,7 +140,7 @@ const EditAdminProducts = () => {
 
   
     try {
-      const response = await fetch(`http://localhost:4001/products/${id}`, {
+      const response = await fetch(`https://backend.freshimeat.in/products/${id}`, {
         method: "PUT",
         headers: {
           "Authorization": `Bearer ${user.token}`, // If you need authentication
@@ -203,7 +203,7 @@ const EditAdminProducts = () => {
         imageFiles = await Promise.all(
             images.map(async (image) => {
                 if (typeof image === "string") {
-                    return await convertUrlToFile(`http://localhost:4001/uploads/${image}`);
+                    return await convertUrlToFile(`https://backend.freshimeat.in/uploads/${image}`);
                 }
                 return image;
             })
@@ -218,7 +218,7 @@ const EditAdminProducts = () => {
     });
 
     try {
-        const response = await fetch(`http://localhost:4001/products/${id}`, {
+        const response = await fetch(`https://backend.freshimeat.in/products/${id}`, {
             method: "PUT",
             headers: {
                 Authorization: `Bearer ${user.token}`, // Authentication if required
@@ -255,7 +255,7 @@ const handleArchive = async (e) => {
   }
 
   try {
-      const response = await fetch(`http://localhost:4001/products/${id}`, {
+      const response = await fetch(`https://backend.freshimeat.in/products/${id}`, {
           method: "PUT",
           headers: {
               "Authorization": `Bearer ${user.token}`, // If you need authentication
@@ -317,7 +317,7 @@ const handleArchive = async (e) => {
               <div className="uploaded-image-wrapper" key={index}>
                 {console.log(typeof image)}
                 <img
-                  src={typeof image === "string" ? `http://localhost:4001/uploads/${image}` : URL.createObjectURL(image)}
+                  src={typeof image === "string" ? `https://backend.freshimeat.in/uploads/${image}` : URL.createObjectURL(image)}
                   alt={`Uploaded ${index + 1}`}
                   className="uploaded-image"
                 />

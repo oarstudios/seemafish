@@ -12,7 +12,7 @@ export const CartProvider = ({ children }) => {
   const fetchCart = async () => {
     if (!user) return;
     try {
-      const response = await fetch(`http://localhost:4001/users/${user._id}`, {
+      const response = await fetch(`https://backend.freshimeat.in/users/${user._id}`, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       const data = await response.json();

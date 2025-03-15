@@ -19,7 +19,7 @@ const CartPopup = ({ isOpen, onClose, fetchCart, cart }) => {
 const updatedUserCart = async () => {
   if (!user) return showError();
   try {
-    const response = await fetch(`http://localhost:4001/users/${user?._id}`, {
+    const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}`, {
       method: "GET",
       headers: {
         'Authorization': `Bearer ${user.token}`
@@ -47,7 +47,7 @@ const showError = ()=>{
 const removeFromCart = async (product) => {
   try {
 
-    const response = await fetch(`http://localhost:4001/users/${user?._id}/cart/${product._id}`, {
+    const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}/cart/${product._id}`, {
       method: "DELETE",
       headers: {
         'Authorization': `Bearer ${user?.token}`
@@ -91,7 +91,7 @@ const handleAddToCart = async (item, status) => {
 
     console.log("Updating cart:", formData);
 
-    const response = await fetch(`http://localhost:4001/users/${user?._id}/cart`, {
+    const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}/cart`, {
       method: "POST",
       body: JSON.stringify(formData),
       headers: {
@@ -141,7 +141,7 @@ const handleAddToCart = async (item, status) => {
           {cart?.map((item) => (
             <div key={item.productId} className="cut-item">
               <img
-                src={`http://localhost:4001/uploads/${item.productId?.images?.[0] || 'default-image.jpg'}`}
+                src={`https://backend.freshimeat.in/uploads/${item.productId?.images?.[0] || 'default-image.jpg'}`}
                 alt={item.productId?.name || "Product"}
                 className="cut-image"
               />

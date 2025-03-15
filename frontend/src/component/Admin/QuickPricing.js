@@ -18,7 +18,7 @@ const QuickPricing = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch("http://localhost:4001/products/");
+      const response = await fetch("https://backend.freshimeat.in/products/");
       const json = await response.json();
       if (response.ok) {
         setProducts(json);
@@ -29,7 +29,7 @@ const QuickPricing = () => {
   };
   const fetchFTD = async () => {
     try {
-      const response = await fetch("http://localhost:4001/ftds/");
+      const response = await fetch("https://backend.freshimeat.in/ftds/");
       const json = await response.json();
       if (response.ok) {
         setFtds(json);
@@ -87,7 +87,7 @@ const QuickPricing = () => {
     formData.append("price", JSON.stringify(price));
 
     try {
-      const response = await fetch(`http://localhost:4001/products/${id}`, {
+      const response = await fetch(`https://backend.freshimeat.in/products/${id}`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${user.token}`,
@@ -118,7 +118,7 @@ const QuickPricing = () => {
     
     try {
       const method = isBestseller ? "DELETE" : "POST"; // DELETE if already selected, POST if not
-      const url = `http://localhost:4001/ftds/${isBestseller ? ftds.find(ftd => ftd?.product?._id === id)?._id : ""}`; // DELETE the ftd by its ID if exists
+      const url = `https://backend.freshimeat.in/ftds/${isBestseller ? ftds.find(ftd => ftd?.product?._id === id)?._id : ""}`; // DELETE the ftd by its ID if exists
     
       const response = await fetch(url, {
         method,
@@ -204,7 +204,7 @@ const QuickPricing = () => {
           {filteredProducts?.map((product) => (
             <tr key={product._id}>
               <td className="QP-product-info">
-                <img src={`http://localhost:4001/uploads/${product?.images[0]}`} alt={product.name} className="QP-product-image" />
+                <img src={`https://backend.freshimeat.in/uploads/${product?.images[0]}`} alt={product.name} className="QP-product-image" />
                 <span className="QP-product-name">{product.name}</span>
               </td>
               <td className="QP-product-weight">{product.weight}g</td>

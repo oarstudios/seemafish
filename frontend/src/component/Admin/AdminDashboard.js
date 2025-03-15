@@ -45,7 +45,7 @@ const AdminDashboard = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch("http://localhost:4001/products/");
+      const response = await fetch("https://backend.freshimeat.in/products/");
       const json = await response.json();
       if (response.ok) {
         setProducts(json);
@@ -57,7 +57,7 @@ const AdminDashboard = () => {
 
   const fetchCustomers = async () => {
     try {
-      const response = await fetch("http://localhost:4001/users/");
+      const response = await fetch("https://backend.freshimeat.in/users/");
       const json = await response.json();
       if (response.ok) {
         const filterUsers = json?.filter((us) => us?.userType === "User");
@@ -70,7 +70,7 @@ const AdminDashboard = () => {
 
   const fetchPincodes = async () => {
     try {
-      const response = await fetch("http://localhost:4001/pincodes/");
+      const response = await fetch("https://backend.freshimeat.in/pincodes/");
       const json = await response.json();
       if (response.ok) {
         setPincodes(json);
@@ -82,7 +82,7 @@ const AdminDashboard = () => {
 
   const fetchOrders = async () => {
     try {
-      const response = await fetch("http://localhost:4001/orders/");
+      const response = await fetch("https://backend.freshimeat.in/orders/");
       const json = await response.json();
       if (response.ok) {
         const total = json.data.reduce((acc, order) => acc + parseFloat(order.billPrice || 0), 0);

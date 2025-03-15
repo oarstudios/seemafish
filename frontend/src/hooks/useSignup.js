@@ -11,7 +11,7 @@ export const useSignup = () => {
     setError(null);
 
     try {
-      const response = await fetch("http://localhost:4001/users/signup", {
+      const response = await fetch("https://backend.freshimeat.in/users/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId: "abcd", username, email, password, userType }),

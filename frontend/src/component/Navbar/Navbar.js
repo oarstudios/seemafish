@@ -108,7 +108,7 @@ const Navbar = ({ fetchCart, cart }) => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://localhost:4001/products`);
+      const response = await fetch(`https://backend.freshimeat.in/products`);
       const json = await response.json();
 
       if (response.ok) {

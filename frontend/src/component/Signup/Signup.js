@@ -54,7 +54,7 @@ function Signup({ onClick }) {
 
   const handleGoogleSuccess = async (credentialResponse) => {
     try {
-      const response = await fetch('http://localhost:4001/users/google-login', {
+      const response = await fetch('https://backend.freshimeat.in/users/google-login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ token: credentialResponse.credential }),

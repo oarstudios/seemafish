@@ -25,7 +25,7 @@ const AddNewAddressModal = ({ onClose, onSave, availableTypes }) => {
   
     const fetchPincodes = async () => {
       try {
-          const response = await fetch(`http://localhost:4001/pincodes`);
+          const response = await fetch(`https://backend.freshimeat.in/pincodes`);
           const json = await response.json();
   
           if (response.ok) {
@@ -69,7 +69,7 @@ const AddNewAddressModal = ({ onClose, onSave, availableTypes }) => {
 
      // After saving, refetch the user data to get the updated address
   try {
-    const response = await fetch(`http://localhost:4001/users/${user?._id}`, {
+    const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}`, {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${user.token}`,
@@ -152,7 +152,7 @@ const AddNewAddressModal = ({ onClose, onSave, availableTypes }) => {
 
       console.log("Form Data:", formData);console.log("Form Data:", formData);
 
-      const response = await fetch(`http://localhost:4001/users/${user?._id}/address`,{
+      const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}/address`,{
         method: "POST",
         headers: {
           "Authorization": `Bearer ${user.token}`,

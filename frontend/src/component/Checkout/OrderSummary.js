@@ -22,7 +22,7 @@ const OrderSummary = ({ address, orderItems, onBack, setCurrentStep, fetchCart }
     
       const fetchPincodes = async () => {
         try {
-            const response = await fetch(`http://localhost:4001/pincodes`);
+            const response = await fetch(`https://backend.freshimeat.in/pincodes`);
             const json = await response.json();
     
             if (response.ok) {
@@ -125,7 +125,7 @@ useEffect(()=>{
       const updatedUserCart = async () => {
         if (!user) return showError();
         try {
-          const response = await fetch(`http://localhost:4001/users/${user?._id}`, {
+          const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}`, {
             method: "GET",
             headers: {
               'Authorization': `Bearer ${user.token}`
@@ -177,7 +177,7 @@ useEffect(()=>{
       //   formData.billingAddress = { ...formData.shippingAddress }; // Ensure billing address is the same as shipping
       // }
   
-      const response = await fetch(`http://localhost:4001/orders/${user?._id}`, {
+      const response = await fetch(`https://backend.freshimeat.in/orders/${user?._id}`, {
         method: "POST",
         headers: {
           'Authorization': `Bearer ${user.token}`,
@@ -208,7 +208,7 @@ useEffect(()=>{
     }
   
     try {
-      const response = await fetch(`http://localhost:4001/users/${user?._id}/cart`, {
+      const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}/cart`, {
         method: "DELETE",
         headers: {
           'Authorization': `Bearer ${user?.token}`,
@@ -277,7 +277,7 @@ useEffect(()=>{
     const amount= total * 100;
     const currency= "INR";
     const receipt = "abcdef"
-    const response = await fetch('http://localhost:4001/order',{
+    const response = await fetch('https://backend.freshimeat.in/order',{
       method: "POST",
       body: JSON.stringify({
         amount,
@@ -305,7 +305,7 @@ useEffect(()=>{
           ...response, 
         }
 
-        const validateRes = await fetch('http://localhost:4001/order/validate',{
+        const validateRes = await fetch('https://backend.freshimeat.in/order/validate',{
           method: "POST",
           body: JSON.stringify(body),
           headers: {
@@ -385,7 +385,7 @@ useEffect(()=>{
         {orderItems?.map((product, index) => (
           <div key={index} className="user-order-item">
             {console.log(orderItems)}
-            <img src={`http://localhost:4001/uploads/${product?.productId?.images?.[0]}`} alt="Product" className="user-order-img" />
+            <img src={`https://backend.freshimeat.in/uploads/${product?.productId?.images?.[0]}`} alt="Product" className="user-order-img" />
             <div className="user-order-info">
               <p className="user-product-name">{product?.productId?.name}</p>
               <p className="user-product-weight">{product?.productId?.weight}</p>

@@ -23,7 +23,7 @@ const OrderSection = () => {
 
   const fetchOrder = async () => {
     try {
-      const response = await fetch(`http://localhost:4001/orders/${id}`);
+      const response = await fetch(`https://backend.freshimeat.in/orders/${id}`);
       const json = await response.json();
       if (response.ok) {
         console.log(json?.data);
@@ -38,7 +38,7 @@ const OrderSection = () => {
 
   const fetchPincodes = async () => {
     try {
-      const response = await fetch(`http://localhost:4001/pincodes`);
+      const response = await fetch(`https://backend.freshimeat.in/pincodes`);
       const json = await response.json();
 
       if (response.ok) {
@@ -138,7 +138,7 @@ const OrderSection = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:4001/reviews/createreview/${id}`,
+        `https://backend.freshimeat.in/reviews/createreview/${id}`,
         {
           method: "POST",
           headers: {
@@ -232,7 +232,7 @@ const OrderSection = () => {
             {/* {console.log(item)} */}
             <div className="item-details">
               <img
-                src={`http://localhost:4001/uploads/${item?.product?.images?.[0]}`}
+                src={`https://backend.freshimeat.in/uploads/${item?.product?.images?.[0]}`}
                 alt={item?.name}
                 className="item-image"
               />
@@ -341,7 +341,7 @@ const OrderSection = () => {
             >
               <div key={index} className="user-order-item">
                 <img
-                  src={`http://localhost:4001/uploads/${product?.product?.images?.[0]}`}
+                  src={`https://backend.freshimeat.in/uploads/${product?.product?.images?.[0]}`}
                   alt="Product"
                   className="user-order-img"
                 />

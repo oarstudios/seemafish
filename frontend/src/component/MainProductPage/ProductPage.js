@@ -25,7 +25,7 @@ const ProductPage = ({fetchCart, cart}) => {
 
   const fetchData = async () => {
     try {
-        const response = await fetch(`http://localhost:4001/products/${id}`);
+        const response = await fetch(`https://backend.freshimeat.in/products/${id}`);
         const json = await response.json();
 
         if (response.ok) {
@@ -50,7 +50,7 @@ const ProductPage = ({fetchCart, cart}) => {
 const updatedUserCart = async () => {
   if (!user) return showError();
   try {
-    const response = await fetch(`http://localhost:4001/users/${user?._id}`, {
+    const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}`, {
       method: "GET",
       headers: {
         'Authorization': `Bearer ${user.token}`
@@ -78,7 +78,7 @@ const showError = ()=>{
 const removeFromCart = async (product) => {
   try {
 
-    const response = await fetch(`http://localhost:4001/users/${user?._id}/cart/${product._id}`, {
+    const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}/cart/${product._id}`, {
       method: "DELETE",
       headers: {
         'Authorization': `Bearer ${user?.token}`
@@ -121,7 +121,7 @@ const handleAddToCart = async (product, status) => {
 
     console.log("Updating cart:", formData);
 
-    const response = await fetch(`http://localhost:4001/users/${user?._id}/cart`, {
+    const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}/cart`, {
       method: "POST",
       body: JSON.stringify(formData),
       headers: {
@@ -169,14 +169,14 @@ console.log(mainImage)
   return (
     <div className="product-container">
       {/* Main Product Image */}
-      <img src={`http://localhost:4001/uploads/${mainImage}`} alt={product?.name} className="product-image" />
+      <img src={`https://backend.freshimeat.in/uploads/${mainImage}`} alt={product?.name} className="product-image" />
 
       {/* Small Images below Main Image */}
       <div className="product-thumbnails">
         {product?.images?.map((image, index) => (
           <img
             key={index}
-            src={`http://localhost:4001/uploads/${image}`}
+            src={`https://backend.freshimeat.in/uploads/${image}`}
             alt={`Thumbnail ${index + 1}`}
             className={`thumbnail-image ${mainImage === image ? "active" : ""}`}
             onClick={() => handleImageChange(image)}

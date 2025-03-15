@@ -10,7 +10,7 @@ const SliderComponent = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://localhost:4001/creatives`);
+      const response = await fetch(`https://backend.freshimeat.in/creatives`);
       const json = await response.json();
 
       if (response.ok) {
@@ -62,7 +62,7 @@ const SliderComponent = () => {
         {currentImages.map((image) => (
           <div className="slide" key={image._id}>
             <img
-              src={`http://localhost:4001/uploads/${image.media}`} 
+              src={`https://backend.freshimeat.in/uploads/${image.media}`} 
               alt="Creative Banner"
               className="slider-image"
             />

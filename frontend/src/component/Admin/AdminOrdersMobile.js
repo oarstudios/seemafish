@@ -19,7 +19,7 @@ const AdminOrdersMobile = () => {
     const fetchBills = async (status = 'all') => {
       try {
         // Adjust the API URL to fetch bills
-        const response = await fetch(`http://localhost:4001/orders`);
+        const response = await fetch(`https://backend.freshimeat.in/orders`);
     
         const json = await response.json();
         if (response.ok) {
@@ -117,7 +117,7 @@ const AdminOrdersMobile = () => {
           "status": status
         }
     
-        const response = await fetch(`http://localhost:4001/orders/${id}/${userId}`,{
+        const response = await fetch(`https://backend.freshimeat.in/orders/${id}/${userId}`,{
           method: "PUT",
           headers: {
             "Authorization": `Bearer ${user?.token}`,
@@ -225,7 +225,7 @@ const AdminOrdersMobile = () => {
                   <div key={item?._id} className="order-item-mobile">
                     <div className="image-container">
 
-                    <img src={`http://localhost:4001/uploads/${item?.product?.images?.[0]}`} alt={item?.product?.name} className="order-item-image-mobile" />
+                    <img src={`https://backend.freshimeat.in/uploads/${item?.product?.images?.[0]}`} alt={item?.product?.name} className="order-item-image-mobile" />
                     </div>
                     <div className="order-item-details-mobile">
                     <span>{item?.product?.name}</span>

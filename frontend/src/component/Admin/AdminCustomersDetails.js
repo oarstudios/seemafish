@@ -20,7 +20,7 @@ const AdminCustomersDetails = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch(`http://localhost:4001/users`);
+      const response = await fetch(`https://backend.freshimeat.in/users`);
       const json = await response.json();
       if (response.ok) {
         const filteredUsers = json?.filter(user => user.userType !== "Admin"); // Exclude admins
@@ -41,7 +41,7 @@ const AdminCustomersDetails = () => {
   const fetchBills = async () => {
     try {
       // Fetch bills
-      const response = await fetch(`http://localhost:4001/orders`);
+      const response = await fetch(`https://backend.freshimeat.in/orders`);
       const json = await response.json();
       if (response.ok) {
         setBills(json);

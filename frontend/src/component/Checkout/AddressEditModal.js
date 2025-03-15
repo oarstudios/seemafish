@@ -17,7 +17,7 @@ const AddressEditModal = ({ address, onClose, onSave, onDelete, addressId }) => 
     
       const fetchPincodes = async () => {
         try {
-            const response = await fetch(`http://localhost:4001/pincodes`);
+            const response = await fetch(`https://backend.freshimeat.in/pincodes`);
             const json = await response.json();
     
             if (response.ok) {
@@ -41,7 +41,7 @@ const AddressEditModal = ({ address, onClose, onSave, onDelete, addressId }) => 
 
   const handleAfterDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:4001/users/${user?._id}`, {
+      const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}`, {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${user.token}`,
@@ -67,7 +67,7 @@ const AddressEditModal = ({ address, onClose, onSave, onDelete, addressId }) => 
 
      // After saving, refetch the user data to get the updated address
   try {
-    const response = await fetch(`http://localhost:4001/users/${user?._id}`, {
+    const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}`, {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${user.token}`,
@@ -91,7 +91,7 @@ const AddressEditModal = ({ address, onClose, onSave, onDelete, addressId }) => 
   const handleDelete = async(e) => {
     e.preventDefault();
     try{
-      const response = await fetch(`http://localhost:4001/users/${user?._id}/${asd}`,{
+      const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}/${asd}`,{
         method: "Delete",
         headers: {
           "Authorization": `Bearer ${user.token}`,
@@ -158,7 +158,7 @@ const AddressEditModal = ({ address, onClose, onSave, onDelete, addressId }) => 
 
       console.log("Form Data:", formData);console.log("Form Data:", formData);
 
-      const response = await fetch(`http://localhost:4001/users/${user?._id}/${asd}`,{
+      const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}/${asd}`,{
         method: "PUT",
         headers: {
           "Authorization": `Bearer ${user.token}`,

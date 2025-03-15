@@ -13,7 +13,7 @@ const PincodePopup = ({ onClose, onSubmit }) => {
 
   const fetchPincodes = async () => {
     try {
-      const response = await fetch(`http://localhost:4001/pincodes`);
+      const response = await fetch(`https://backend.freshimeat.in/pincodes`);
       const json = await response.json();
 
       if (response.ok) {

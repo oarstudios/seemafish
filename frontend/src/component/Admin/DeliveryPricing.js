@@ -19,7 +19,7 @@ const DeliveryPricing = () => {
   // Fetch delivery areas
   const fetchDeliveryArea = async () => {
     try {
-      const response = await fetch("http://localhost:4001/pincodes/");
+      const response = await fetch("https://backend.freshimeat.in/pincodes/");
       const json = await response.json();
       if (response.ok) {
         setOriginalDeliveryAreas(json);  // Store original data
@@ -104,7 +104,7 @@ const DeliveryPricing = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:4001/pincodes/", {
+      const response = await fetch("https://backend.freshimeat.in/pincodes/", {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${user?.token}`,
@@ -149,7 +149,7 @@ const DeliveryPricing = () => {
     };
 
     try {
-      const response = await fetch(`http://localhost:4001/pincodes/${id}`, {
+      const response = await fetch(`https://backend.freshimeat.in/pincodes/${id}`, {
         method: "PUT",
         headers: {
           "Authorization": `Bearer ${user?.token}`,

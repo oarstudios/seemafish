@@ -37,7 +37,7 @@ const MyAccount = () => {
 
   const fetchPincodes = async () => {
     try {
-        const response = await fetch(`http://localhost:4001/pincodes`);
+        const response = await fetch(`https://backend.freshimeat.in/pincodes`);
         const json = await response.json();
 
         if (response.ok) {
@@ -157,7 +157,7 @@ const MyAccount = () => {
           gender
         }
 
-        const response = await fetch(`http://localhost:4001/users/${user?._id}`,{
+        const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}`,{
           method: "PUT",
           headers: {
             "Authorization": `Bearer ${user.token}`,
@@ -232,7 +232,7 @@ const MyAccount = () => {
 
   const fetchOrders = async () => {
     try {
-      const response = await fetch(`http://localhost:4001/orders/`);
+      const response = await fetch(`https://backend.freshimeat.in/orders/`);
       const json = await response.json();
   
       // Log the response to check its structure
@@ -351,7 +351,7 @@ const MyAccount = () => {
         {orders?.map((ord, index)=>(
           <Link to={`/order/${ord?._id}`} className="orders-link" key={index}>
           <div className="orders-item">
-            <img src={`http://localhost:4001/uploads/${ord?.products?.[0]?.product?.images?.[0]}`} alt="Order" className="orders-image" />
+            <img src={`https://backend.freshimeat.in/uploads/${ord?.products?.[0]?.product?.images?.[0]}`} alt="Order" className="orders-image" />
             <div className="orders-details">
             <p className="orders-date">{formatDate(ord?.createdAt)}</p>
               <p className={`orders-status ${ord?.status?.toLowerCase()}`}>{ord?.status}</p>

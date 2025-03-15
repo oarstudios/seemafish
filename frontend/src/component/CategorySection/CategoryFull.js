@@ -39,7 +39,7 @@ function CategoryFull({fetchCart, cart}) {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://localhost:4001/products`);
+      const response = await fetch(`https://backend.freshimeat.in/products`);
       const json = await response.json();
   
       if (response.ok) {
@@ -84,7 +84,7 @@ function CategoryFull({fetchCart, cart}) {
 const updatedUserCart = async () => {
   if (!user) return showError();
   try {
-    const response = await fetch(`http://localhost:4001/users/${user?._id}`, {
+    const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}`, {
       method: "GET",
       headers: {
         'Authorization': `Bearer ${user.token}`
@@ -112,7 +112,7 @@ const showError = ()=>{
 const removeFromCart = async (product) => {
   try {
 
-    const response = await fetch(`http://localhost:4001/users/${user?._id}/cart/${product._id}`, {
+    const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}/cart/${product._id}`, {
       method: "DELETE",
       headers: {
         'Authorization': `Bearer ${user?.token}`
@@ -156,7 +156,7 @@ const handleAddToCart = async (product, status) => {
 
     console.log("Updating cart:", formData);
 
-    const response = await fetch(`http://localhost:4001/users/${user?._id}/cart`, {
+    const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}/cart`, {
       method: "POST",
       body: JSON.stringify(formData),
       headers: {
@@ -214,7 +214,7 @@ useEffect(() => {
       return (
         <Link to={`/product/${product?._id}`} className="product-card-link" key={product.id}>
           <div className="product-card">
-            <img src={`http://localhost:4001/uploads/${product?.images?.[0]}`} alt={product?.name} />
+            <img src={`https://backend.freshimeat.in/uploads/${product?.images?.[0]}`} alt={product?.name} />
             <div className="product-info">
               <h3>{product?.name}</h3>
               <div className="product-bottom">

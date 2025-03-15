@@ -11,7 +11,7 @@ const Creatives = () => {
 // Fetch existing images from backend
 const fetchImages = async () => {
   try {
-    const response = await fetch("http://localhost:4001/creatives/");
+    const response = await fetch("https://backend.freshimeat.in/creatives/");
     const json = await response.json();
 
     if (response.ok) {
@@ -49,7 +49,7 @@ const fetchImages = async () => {
     formData.append("tag", category);
 
     try {
-      const response = await fetch("http://localhost:4001/creatives/", {
+      const response = await fetch("https://backend.freshimeat.in/creatives/", {
         method: "POST",
         body: formData,
         headers: {
@@ -77,7 +77,7 @@ const fetchImages = async () => {
     e.preventDefault(); // Prevent form submission from reloading the page
   
     try {
-      const response = await fetch(`http://localhost:4001/creatives/${creativeId}`, {
+      const response = await fetch(`https://backend.freshimeat.in/creatives/${creativeId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${user?.token}`,
@@ -107,7 +107,7 @@ const fetchImages = async () => {
       <form encType="multipart/form-data" className="image-box">
       {images?.desktop?.map((img, index) => (
   <div key={index} className="image-wrapper">
-    <img src={`http://localhost:4001/uploads/${img?.media}`} alt={`Desktop ${index}`} className="creative-image" />
+    <img src={`https://backend.freshimeat.in/uploads/${img?.media}`} alt={`Desktop ${index}`} className="creative-image" />
     <button onClick={(e) => handleDeleteImage(e, img._id)}>Delete</button>
   </div>
 ))}
@@ -125,7 +125,7 @@ const fetchImages = async () => {
       <div className="image-box">
       {images?.mobile?.map((img, index) => (
   <div key={index} className="image-wrapper2">
-    <img src={`http://localhost:4001/uploads/${img?.media}`} alt={`Mobile ${index}`} className="creative-image mobile-image" />
+    <img src={`https://backend.freshimeat.in/uploads/${img?.media}`} alt={`Mobile ${index}`} className="creative-image mobile-image" />
     <button onClick={(e) => handleDeleteImage(e, img._id)}>Delete</button>
   </div>
 ))}

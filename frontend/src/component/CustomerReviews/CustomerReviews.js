@@ -7,7 +7,7 @@ import FullStar from "../../assets/material-symbols_star.svg";
 import EmptyStar from "../../assets/material-symbols_star-outline.svg";
 import UserIcon from "../../assets/user.png";
 
-const backendUrl = "http://localhost:4001/reviews"; // Replace with your actual backend URL
+const backendUrl = "https://backend.freshimeat.in/reviews"; // Replace with your actual backend URL
 
 const CustomerReviews = () => {
   const [reviewsData, setReviewsData] = useState(null); // Store the entire object
@@ -118,9 +118,9 @@ const CustomerReviews = () => {
                 {review.media.map((img, index) => (
                   <img
                     key={index}
-                    src={`http://localhost:4001/uploads/${img}`}
+                    src={`https://backend.freshimeat.in/uploads/${img}`}
                     alt={`Review ${index + 1}`}
-                    onClick={() => setSelectedImage(`http://localhost:4001/uploads/${img}`)}
+                    onClick={() => setSelectedImage(`https://backend.freshimeat.in/uploads/${img}`)}
                   />
                 ))}
               </div>

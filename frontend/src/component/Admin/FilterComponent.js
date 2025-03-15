@@ -10,7 +10,7 @@ const FilterComponent = ({ onClose, handleProductTag, prdt }) => {
 
   const fetchProductTags = async () => {
     try {
-      const response = await fetch("http://localhost:4001/productTags/");
+      const response = await fetch("https://backend.freshimeat.in/productTags/");
       const json = await response.json();
       if (response.ok) {
         setProductTags(json);
