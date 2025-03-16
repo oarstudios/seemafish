@@ -16,6 +16,8 @@ import ShopByPrice from "./component/ShopByPrice/ShopByPrice";
 import FlashDeal from "./component/FlashDeal/FlashDeal";
 import DealOfTheDay from "./component/DealOfTheDay/DealOfTheDay";
 import AboutUs from "./component/AboutUs/AboutUs";
+import CartNotification from "./component/CartNotification/CartNotification";
+import CartPopup from "./component/CartPopup/CartPopup";
 
 // Admin Components
 import AdminNavbar from "./component/Admin/AdminNavbar";
@@ -44,6 +46,8 @@ import ContactUs from "./component/ContactUs/ContactUs";
 
 function App() {
   const [cart, setCart] = useState([]);
+  const [isCartPopupOpen, setIsCartPopupOpen] = useState(false);
+  
   const { user } = useAuthContext();
 
   const fetchCart = useCallback(async () => {
@@ -96,6 +100,19 @@ function App() {
 
   return (
     <Router>
+
+<CartNotification
+        cartItems={cart.length}
+        totalValue={cart.reduce((acc, item) => acc + (item.productId?.price?.sale || 0) * item.quantity, 0)}
+        onClose={() => setIsCartPopupOpen(false)}
+        onOpenCartPopup={() => setIsCartPopupOpen(true)} // Open CartPopup when "View Cart" is clicked
+      />
+      <CartPopup 
+        isOpen={isCartPopupOpen} 
+        onClose={() => setIsCartPopupOpen(false)} 
+        fetchCart={fetchCart} 
+        cart={cart} 
+      />
       <ScrollToTop />
       <div style={{ display: lg }} className="loader">
   <img src={loader} alt="Loading..." />

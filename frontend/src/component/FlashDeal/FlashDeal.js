@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom"; // Import Link
 import "./FlashDeal.css";
-
+import CartNotification from "../CartNotification/CartNotification";
 import flashIcon from "../../assets/Flash deals Lightning.png"; // Replace with the correct path to the flash icon
 import seerFish from "../../assets/fishimage.png";
 import prawns from "../../assets/fishimage.png";
@@ -47,6 +47,21 @@ export default function FlashDeal({fetchCart, cart}) {
   const {user} = useAuthContext();
   const {notify} = useNotify();
   const navigate = useNavigate();
+
+
+ const [showNotification, setShowNotification] = useState(false);
+  const [cartValue, setCartValue] = useState(0);
+  const [cartItems, setCartItems] = useState(0);
+  const [notificationTimer, setNotificationTimer] = useState(null); // Track the timer
+  
+  useEffect(() => {
+    if (cart.length > 0) {
+      const totalValue = cart.reduce((sum, item) => sum + item.productId.price.sale * item.quantity, 0);
+      setCartValue(totalValue);
+      setCartItems(cart.reduce((sum, item) => sum + item.quantity, 0));
+    }
+  }, [cart]);
+
 
 
   const fetchData = async () => {
@@ -132,6 +147,12 @@ export default function FlashDeal({fetchCart, cart}) {
   
   
   const handleAddToCart = async (product, status) => {
+
+
+    fetchCart();  // Update the cart
+    setShowNotification(true); // Show the notification
+
+
     if (!user) {
       return showError();
     }
@@ -168,11 +189,21 @@ export default function FlashDeal({fetchCart, cart}) {
       const json = await response.json();
       if (response.ok) {
         console.log("Successfully updated cart:", json);
-        updatedUserCart(); // Fetch updated cart
-        if(!existingItem)
-        {
-          notify('Updated the cart', 'success')
+        updatedUserCart();
+        notify("Updated the cart", "success");
+  
+        // Show only one notification and reset the timer
+        setShowNotification(true);
+  
+        if (notificationTimer) {
+          clearTimeout(notificationTimer);
         }
+  
+        const newTimer = setTimeout(() => {
+          setShowNotification(false);
+        }, 60000);
+  
+        setNotificationTimer(newTimer);
       } else {
         notify("Failed to update cart", "error");
       }
@@ -180,6 +211,8 @@ export default function FlashDeal({fetchCart, cart}) {
       console.log("Error updating cart:", error);
     }
   };
+  
+  
 
   return (
     <div className="flash-deal">
@@ -228,6 +261,8 @@ export default function FlashDeal({fetchCart, cart}) {
               
 })}
       </div>
+
+      {showNotification && <CartNotification cartItems={cartItems} totalValue={cartValue} onClose={() => setShowNotification(false)} />}
     </div>
   );
 }

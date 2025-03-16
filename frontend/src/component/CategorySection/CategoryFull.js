@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./CategoryFull.css"
 
+import CartNotification from "../CartNotification/CartNotification";
+
 import seerFish from "../../assets/fishimage.png";
 import prawns from "../../assets/fishimage.png";
 import pomfret from "../../assets/fishimage.png";
@@ -35,6 +37,21 @@ function CategoryFull({fetchCart, cart}) {
   const {user} = useAuthContext();
   const {notify} = useNotify();
   const navigate = useNavigate();
+
+    
+      const [showNotification, setShowNotification] = useState(false);
+      const [cartValue, setCartValue] = useState(0);
+      const [cartItems, setCartItems] = useState(0);
+      const [notificationTimer, setNotificationTimer] = useState(null); // Track the timer
+      
+      useEffect(() => {
+        if (cart.length > 0) {
+          const totalValue = cart.reduce((sum, item) => sum + item.productId.price.sale * item.quantity, 0);
+          setCartValue(totalValue);
+          setCartItems(cart.reduce((sum, item) => sum + item.quantity, 0));
+        }
+      }, [cart]);
+    
 
 
   const fetchData = async () => {
@@ -132,6 +149,9 @@ const removeFromCart = async (product) => {
 
 
 const handleAddToCart = async (product, status) => {
+
+  fetchCart();  // Update the cart
+  setShowNotification(true); // Show the notification
   if (!user) {
     return showError();
   }
@@ -168,11 +188,21 @@ const handleAddToCart = async (product, status) => {
     const json = await response.json();
     if (response.ok) {
       console.log("Successfully updated cart:", json);
-      updatedUserCart(); // Fetch updated cart
-      if(!existingItem)
-      {
-        notify('Updated the cart', 'success')
+      updatedUserCart();
+      notify("Updated the cart", "success");
+
+      // Show only one notification and reset the timer
+      setShowNotification(true);
+
+      if (notificationTimer) {
+        clearTimeout(notificationTimer);
       }
+
+      const newTimer = setTimeout(() => {
+        setShowNotification(false);
+      }, 3000);
+
+      setNotificationTimer(newTimer);
     } else {
       notify("Failed to update cart", "error");
     }
@@ -180,6 +210,8 @@ const handleAddToCart = async (product, status) => {
     console.log("Error updating cart:", error);
   }
 };
+
+
 
 const [ctTitle, setCtTitle]=useState("")
 const [ctDesc, setCtDesc]=useState("")
@@ -212,6 +244,7 @@ useEffect(() => {
       const cartItem = cart.find((item) => item?.productId?._id === product?._id);
       
       return (
+        
         <Link to={`/product/${product?._id}`} className="product-card-link" key={product.id}>
           <div className="product-card">
             <img src={`https://backend.freshimeat.in/uploads/${product?.images?.[0]}`} alt={product?.name} />
@@ -236,15 +269,19 @@ useEffect(() => {
                 )}
               </div>
             </div>
+            
           </div>
         </Link>
+       
       );
+      
     })
   ) : (
     <p>No products found.</p>
   )}
 </div>
 
+{showNotification && <CartNotification cartItems={cartItems} totalValue={cartValue} onClose={() => setShowNotification(false)} />}
   
           {/* Pagination controls */}
           <div className="pagination1">

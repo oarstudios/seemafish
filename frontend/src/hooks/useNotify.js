@@ -6,7 +6,7 @@ export const useNotify = () => {
     const config = {
       theme: "light",
       className: `toast-custom`, // Use type here for styling
-      autoClose: 1000, // You can adjust the autoClose time as needed
+      autoClose: 2000, // You can adjust the autoClose time as needed
       pauseOnHover: true, // Allows pausing the toast when hovered
       closeButton: true, // Adds a close button for the toast
     };
