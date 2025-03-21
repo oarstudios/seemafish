@@ -194,12 +194,12 @@ const AddressEditModal = ({ address, onClose, onSave, onDelete, addressId }) => 
         
         <div className="input-group">
           <div className="input-container">
-            <input type="text" name="firstName" value={editedAddress.firstName} onChange={handleChange} />
-            <label>First Name*</label>
+            <input type="text" name="firstName" value={editedAddress.firstName} onChange={handleChange} placeholder="First Name*" required />
+    
           </div>
           <div className="input-container">
-            <input type="text" name="lastName" value={editedAddress.lastName} onChange={handleChange} />
-            <label>Last Name*</label>
+            <input type="text" name="lastName" value={editedAddress.lastName} onChange={handleChange} placeholder="Last Name*"  required/>
+          
           </div>
         </div>
 

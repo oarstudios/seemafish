@@ -1,0 +1,72 @@
+/* Popup Overlay */
+.addtocart-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Popup Content */
+.addtocart-popup-content {
+    background: rgba(255, 255, 255, 1);
+    padding: 20px 30px;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    max-width: 500px;
+    width: 90%;
+    border: 2px solid rgba(57, 114, 193, 1);
+}
+
+/* Close Button */
+.addtocart-close-btn {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: rgba(193, 193, 193, 1);
+}
+
+/* Logo */
+.addtocart-popup-logo {
+    height: 120px;
+    margin-bottom: 10px;
+}
+
+/* Popup Title */
+.addtocart-popup-title {
+    font-family: "Lato";
+    font-size: 22px;
+    font-weight: 400;
+    color: rgba(57, 114, 193, 1);
+    margin: 10px 0;
+}
+
+/* Responsiveness */
+@media (max-width: 480px) {
+    .addtocart-popup-content {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .addtocart-popup-logo {
+        height: 100px;
+    }
+
+    .addtocart-popup-title {
+        font-size: 18px;
+    }
+
+    .addtocart-close-btn {
+        font-size: 28px;
+    }
+}

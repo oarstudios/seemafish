@@ -22,6 +22,8 @@ const ProductPage = ({fetchCart, cart}) => {
   const {notify} = useNotify();
   const navigate = useNavigate();
   const {id} = useParams();
+  const [mainImage, setMainImage] = useState("");
+  const [zoomedImage, setZoomedImage] = useState(null); // Modal Image
 
   const fetchData = async () => {
     try {
@@ -45,6 +47,22 @@ const ProductPage = ({fetchCart, cart}) => {
     fetchData();
     fetchCart();
   },[user, id])
+
+  useEffect(() => {
+    setMainImage(product?.images?.[0]);
+  }, [product]);
+
+  const handleImageChange = (image) => {
+    setMainImage(image);
+  };
+
+  const openZoom = (image) => {
+    setZoomedImage(image);
+  };
+
+  const closeZoom = () => {
+    setZoomedImage(null);
+  };
 
   
 const updatedUserCart = async () => {
@@ -146,12 +164,7 @@ const handleAddToCart = async (product, status) => {
   }
 };
 
-const [mainImage, setMainImage] = useState('');
 
-// Switch main image when thumbnail is clicked
-const handleImageChange = (image) => {
-  setMainImage(image);
-};
 
 // Calculate total price & weight dynamically
 const cartItem = cart?.find((item) => item?.productId?._id === id);
@@ -169,7 +182,12 @@ console.log(mainImage)
   return (
     <div className="product-container">
       {/* Main Product Image */}
-      <img src={`https://backend.freshimeat.in/uploads/${mainImage}`} alt={product?.name} className="product-image" />
+      <img
+        src={`https://backend.freshimeat.in/uploads/${mainImage}`}
+        alt={product?.name}
+        className="product-image"
+        onClick={() => openZoom(mainImage)}
+      />
 
       {/* Small Images below Main Image */}
       <div className="product-thumbnails">
@@ -239,6 +257,17 @@ console.log(mainImage)
         <li>Consume within 1-2 days.</li>
         <li>Keep airtight to prevent odor absorption and freezer burn.</li>
       </ul>
+
+
+       {/* Modal for Zoomed Image */}
+       {zoomedImage && (
+        <div className="modal-overlay1" onClick={closeZoom}>
+          <div className="modal-content1">
+            <span className="close-button" onClick={closeZoom}>&times;</span>
+            <img src={`https://backend.freshimeat.in/uploads/${zoomedImage}`} alt="Zoomed" className="zoomed-image" />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -12,7 +12,7 @@ import crab from "../../assets/crab.jpg";
 const categories = [
   { name: "Sea fish", image: seaFish },
   { name: "Prawns", image: prawns },
-  { name: "Fresh water fish", image: freshWaterFish },
+  { name: "Fresh water", image: freshWaterFish },
   { name: "Chicken", image: chicken },
   { name: "Mutton", image: mutton },
 

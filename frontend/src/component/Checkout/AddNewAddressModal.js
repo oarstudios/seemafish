@@ -273,12 +273,12 @@ const AddNewAddressModal = ({ onClose, onSave, availableTypes }) => {
         {/* Address Form */}
         <div className="input-group">
           <div className="input-container">
-            <input type="text" name="firstName" value={newAddress.firstName} onChange={handleChange} />
-            <label>First Name*</label>
+            <input type="text" name="firstName" value={newAddress.firstName} onChange={handleChange} placeholder="First Name*" required/>
+          
           </div>
           <div className="input-container">
-            <input type="text" name="lastName" value={newAddress.lastName} onChange={handleChange} />
-            <label>Last Name*</label>
+            <input type="text" name="lastName" value={newAddress.lastName} onChange={handleChange} placeholder="Last Name*" required/>
+         
           </div>
         </div>
 
