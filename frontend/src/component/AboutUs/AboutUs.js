@@ -83,9 +83,9 @@
 import React, { useState, useEffect } from "react";
 import "./AboutUs.css";
 
-import aboutUsDesktop from "../../assets/about.png"; 
-import aboutUsTablet from "../../assets/about.png"; 
-import aboutUsMobile from "../../assets/aboutusmobile.png"; 
+import aboutUsDesktop from "../../assets/about.webp"; 
+import aboutUsTablet from "../../assets/about.webp"; 
+import aboutUsMobile from "../../assets/aboutusmobile.webp"; 
 
 export default function AboutUs() {
   const [imageSrc, setImageSrc] = useState(aboutUsDesktop);

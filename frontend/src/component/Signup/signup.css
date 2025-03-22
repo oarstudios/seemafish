@@ -139,7 +139,7 @@
     padding: 7.5px 0;
 }
 
-.sg span{
+.spantype{
     color: #3972C1;
     cursor: pointer;
 }
@@ -195,3 +195,5 @@
         width: 100%;
     }
 }
+
+

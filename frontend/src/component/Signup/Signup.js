@@ -157,7 +157,7 @@ function Signup({ onClick }) {
                     Continue with Google
                 </button> */}
             </div>
-            <p>Don't have an account? <span onClick={()=>setIsSg(true)}>Sign Up</span></p>  
+            <p>Don't have an account? <span className="spantype" onClick={()=>setIsSg(true)}>Sign Up</span></p>  
         </form>
 
         {/* Sign Up Form */}
@@ -201,7 +201,7 @@ function Signup({ onClick }) {
                     Continue with Google
                 </button> */}
             </div>
-            <p>Already have an account? <span onClick={()=>setIsSg(false)}>Sign In</span></p>  
+            <p>Already have an account? <span className="spantype" onClick={()=>setIsSg(false)}>Sign In</span></p>  
         </form>
     </div>
   );

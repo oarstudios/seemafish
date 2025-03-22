@@ -245,8 +245,14 @@ console.log(mainImage)
       <h3 className="section-title">Description</h3>
       <p className="product-warning">Actual Product Weight may vary by 30g - 40g.</p>
       <p className="product-description">
-        {product?.description}
-      </p>
+  {product?.description?.split("\n").map((line, index) => (
+    <React.Fragment key={index}>
+      {line}
+      <br />
+    </React.Fragment>
+  ))}
+</p>
+
 
       <hr className="productdown" />
 
@@ -263,7 +269,7 @@ console.log(mainImage)
        {zoomedImage && (
         <div className="modal-overlay1" onClick={closeZoom}>
           <div className="modal-content1">
-            <span className="close-button" onClick={closeZoom}>&times;</span>
+            <span className="close-button" onClick={closeZoom}>✖</span>
             <img src={`https://backend.freshimeat.in/uploads/${zoomedImage}`} alt="Zoomed" className="zoomed-image" />
           </div>
         </div>

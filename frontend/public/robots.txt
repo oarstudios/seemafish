@@ -1,3 +1,20 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /admin/
+Disallow: /account/
+Disallow: /wishlist/
+Disallow: /order-history/
+
+# Allow Googlebot to crawl JS, CSS, and images
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.webp$
+Allow: /*.svg$
+
+# Sitemap
+Sitemap: https://www.freshimeat.in/sitemap.xml
