@@ -48,7 +48,7 @@ export default function BestSellers({fetchCart, cart}) {
         const json = await response.json();
 
         if (response.ok) {
-            const bestSellers = json.filter(product => product.bestseller === true && product.isArchived === false); // Filter bestsellers
+            const bestSellers = json.filter(product => product.bestseller === true && product.isArchived === false && product?.inStock); // Filter bestsellers
             console.log(json);
             setBestSellers(bestSellers);
             // setCart(json)
@@ -224,7 +224,7 @@ const handleAddToCart = async (product, status) => {
 
       </div>
 
-      {showNotification && <CartNotification cartItems={cartItems} totalValue={cartValue} onClose={() => setShowNotification(false)} />}
+      {/* {showNotification && <CartNotification cartItems={cartItems} totalValue={cartValue} onClose={() => setShowNotification(false)} />} */}
     </div>
   );
 }

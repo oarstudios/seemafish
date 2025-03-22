@@ -62,7 +62,7 @@ const fetchImages = async () => {
         console.log(json)
         setImages((prevImages) => ({
           ...prevImages,
-          [category]: [...prevImages[category], json.data.image].slice(0, 3),
+          [category]: [...prevImages[category], json.data.image].slice(0, 4),
         }));
         fetchImages();
         notify("Creative added successfully", "success")
@@ -112,7 +112,7 @@ const fetchImages = async () => {
   </div>
 ))}
 
-        {images?.desktop?.length < 3 && (
+        {images?.desktop?.length < 4 && (
           <label className="add-button" htmlFor="desktop-input">
             + Add Image
           </label>
@@ -130,7 +130,7 @@ const fetchImages = async () => {
   </div>
 ))}
 
-        {images.mobile.length < 3 && (
+        {images.mobile.length < 4 && (
           <label className="add-button" htmlFor="mobile-input">
             + Add Image
           </label>
