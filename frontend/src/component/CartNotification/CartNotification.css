@@ -19,19 +19,29 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    gap: 10px;
   }
   
   .cart-notification-value {
     color: #a0ff88;
   }
   
+  .cart-notification-close {
+    color: #C1C1C1;
+    background-color: transparent;
+    border: none;
+    padding: 0 5px;
+    cursor: pointer;
+  }
+  
   .cart-notification-btn {
-    background: white;
-    color: black;
+    background: #FFFFFF;
+    color: #606060;
     padding: 8px 12px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 0.6rem;
   }
   
   .cart-notification-btn:hover {

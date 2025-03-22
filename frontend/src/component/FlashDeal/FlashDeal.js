@@ -71,7 +71,7 @@ export default function FlashDeal({fetchCart, cart}) {
 
         if (response.ok) {
             // Filter products where isArchived is false
-            const filteredProducts = json.filter(product => !product.isArchived);
+            const filteredProducts = json.filter(product => !product?.isArchived && product?.inStock);
 
             // Shuffle and select 8 random products
             const randomProducts = filteredProducts
@@ -262,7 +262,7 @@ export default function FlashDeal({fetchCart, cart}) {
 })}
       </div>
 
-      {showNotification && <CartNotification cartItems={cartItems} totalValue={cartValue} onClose={() => setShowNotification(false)} />}
+      {/* {showNotification && <CartNotification cartItems={cartItems} totalValue={cartValue} onClose={() => setShowNotification(false)} />} */}
     </div>
   );
 }

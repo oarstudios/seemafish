@@ -281,7 +281,7 @@ useEffect(() => {
   )}
 </div>
 
-{showNotification && <CartNotification cartItems={cartItems} totalValue={cartValue} onClose={() => setShowNotification(false)} />}
+{/* {showNotification && <CartNotification cartItems={cartItems} totalValue={cartValue} onClose={() => setShowNotification(false)} />} */}
   
           {/* Pagination controls */}
           <div className="pagination1">

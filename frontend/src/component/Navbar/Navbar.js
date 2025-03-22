@@ -250,12 +250,18 @@ const Navbar = ({ fetchCart, cart }) => {
             </div>
           ) : (
             <>
-              <img
+              {user ? (
+                <img
                 src={adminIcon}
                 alt="Admin"
                 className="icon"
                 onClick={handleAccClick}
               />
+              ):(
+
+              <button onClick={handleAccClick} className="lgnBtn">Login</button>
+              )}
+              
               {!user || user.userType === "Admin" ? null : (
                 <img
                   src={cartIcon}

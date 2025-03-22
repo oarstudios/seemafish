@@ -69,6 +69,10 @@ function App() {
   useEffect(() => {
     fetchCart();
   }, [fetchCart]);
+  const subtotal = cart?.reduce(
+    (acc, item) => acc + (item?.productId?.price?.sale || 0) * item?.quantity,
+    0
+  );
 
   const [sOpen, setSOpen] = useState(true);
 
@@ -98,15 +102,28 @@ function App() {
         }, 3000);
       },[])
 
+      const [cartNot, setCartNot] = useState(false)
+
+      useEffect(()=>{
+        if(cart.length > 0)
+        {
+          setCartNot(true)
+        }
+      },[cart])
+
+       const [showNotification, setShowNotification] = useState(false);
+
   return (
     <Router>
 
-<CartNotification
-        cartItems={cart.length}
-        totalValue={cart.reduce((acc, item) => acc + (item.productId?.price?.sale || 0) * item.quantity, 0)}
-        onClose={() => setIsCartPopupOpen(false)}
-        onOpenCartPopup={() => setIsCartPopupOpen(true)} // Open CartPopup when "View Cart" is clicked
-      />
+{cart?.length > 0 && cartNot && (
+  <CartNotification
+  cartItems={cart?.length}
+  totalValue={subtotal}
+  onClose={() => setCartNot(false)}
+  onOpenCartPopup={() => setIsCartPopupOpen(true)} // Open CartPopup when "View Cart" is clicked
+/>
+)}
       <CartPopup 
         isOpen={isCartPopupOpen} 
         onClose={() => setIsCartPopupOpen(false)} 
@@ -256,6 +273,7 @@ function App() {
             />
           )}
         </Routes>
+        {/* {showNotification && cart?.length > 0 && <CartNotification cartItems={cart} totalValue={subtotal} onClose={() => setShowNotification(false)} />} */}
         <ToastContainer />
       </div>
     </Router>

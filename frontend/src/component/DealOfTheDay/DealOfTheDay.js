@@ -223,7 +223,7 @@ export default function DealOfTheDay({fetchCart, cart}) {
       </div>
 
 
-      {showNotification && <CartNotification cartItems={cartItems} totalValue={cartValue} onClose={() => setShowNotification(false)} />}
+      {/* {showNotification && <CartNotification cartItems={cartItems} totalValue={cartValue} onClose={() => setShowNotification(false)} />} */}
     </div>
   );
 }

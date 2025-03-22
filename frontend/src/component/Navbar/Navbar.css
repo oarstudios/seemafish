@@ -12,6 +12,22 @@
   font-weight: 700;
 }
 
+.lgnBtn{
+  background: white;
+  border: 1px solid var(--BluePrimary);
+  border-radius: 7px;
+  padding: 7px 10px;
+  color: var(--BluePrimary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.lgnBtn:hover{
+  background-color: var(--BluePrimary);
+  color: white;
+}
+
 /* Hide Top Bar on Mobile */
 @media (max-width: 580px) {
   .top-bar {

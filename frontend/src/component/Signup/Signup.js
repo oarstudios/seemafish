@@ -88,8 +88,12 @@ function Signup({ onClick }) {
       console.log("Successfully signed up");
       notify('Signed up successfully', 'success')
       setTimeout(() => {
-        navigate('/');
-        
+        if(user?.userType === "User")
+        {
+          navigate('/');
+        }else{
+          navigate('/admin');
+        }
       }, 500);
     } else if (error) {
       if (error.includes("email") || error.includes("Email")) {
@@ -98,7 +102,7 @@ function Signup({ onClick }) {
         setPasswordError(error);
       }
     }
-  }, [error]);
+  }, [error, user]);
 
   useEffect(() => {
     if (error2 === false) {
