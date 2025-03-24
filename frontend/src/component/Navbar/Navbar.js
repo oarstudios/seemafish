@@ -207,11 +207,14 @@ const Navbar = ({ fetchCart, cart }) => {
         </div>
 
         <div className="right-section">
-          <div className="location" onClick={handlePincodeClick}>
-            <img src={locationIcon} alt="Location" />
-            <span className="pincode">{pincode}</span>
-            <span className="dropdown">&#9662;</span>
-          </div>
+         {user && (
+
+<div className="location" onClick={handlePincodeClick}>
+<img src={locationIcon} alt="Location" />
+<span className="pincode">{pincode}</span>
+<span className="dropdown">&#9662;</span>
+</div>
+         )}
 
           {/* Search Box */}
           <div className="search-box">
@@ -242,12 +245,17 @@ const Navbar = ({ fetchCart, cart }) => {
               </div>
             )}
           </div>
+          {!user && (
+            <button onClick={handleAccClick} className="lgnBtn">Login</button>
+          )}
+
 
           {/* Mobile View: Hamburger Menu */}
           {isMobile ? (
             <div className="hamburger-menu" onClick={toggleMenu}>
               <img src={hamburgerIcon} alt="Menu" className="icon" />
             </div>
+
           ) : (
             <>
               {user ? (
