@@ -107,7 +107,9 @@ function App() {
       useEffect(()=>{
         if(cart.length > 0)
         {
-          setCartNot(true)
+          setTimeout(() => {
+            setCartNot(true)
+          }, 1000);
         }
       },[cart])
 
@@ -116,7 +118,7 @@ function App() {
   return (
     <Router>
 
-{cart?.length > 0 && cartNot && (
+{user && cart?.length > 0 && cartNot && (
   <CartNotification
   cartItems={cart?.length}
   totalValue={subtotal}
