@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 
 // Components
@@ -113,22 +113,29 @@ function App() {
         }
       },[cart])
 
-       const [showNotification, setShowNotification] = useState(false);
+       const [showNotification, setShowNotification] = useState(true);
+       
+       const handleShowCartNot = (value)=>{
+        setShowNotification(value)
+       }
 
   return (
     <Router>
 
-{user && cart?.length > 0 && cartNot && (
+      
+
+{user && cart?.length > 0 && cartNot && showNotification &&(
   <CartNotification
   cartItems={cart?.length}
   totalValue={subtotal}
   onClose={() => setCartNot(false)}
   onOpenCartPopup={() => setIsCartPopupOpen(true)} // Open CartPopup when "View Cart" is clicked
+  handleShowCartNot={()=>handleShowCartNot(false)}
 />
 )}
       <CartPopup 
         isOpen={isCartPopupOpen} 
-        onClose={() => setIsCartPopupOpen(false)} 
+        onClose={() => {setIsCartPopupOpen(false); handleShowCartNot(true)}} 
         fetchCart={fetchCart} 
         cart={cart} 
       />
@@ -144,7 +151,7 @@ function App() {
             path="/"
             element={
               <>
-                <Navbar fetchCart={fetchCart} cart={cart} />
+                <Navbar fetchCart={fetchCart} cart={cart} handleShowCartNot={handleShowCartNot}/>
                 <div className="comps">
                   <SliderComponent />
                   <CategorySection />
@@ -163,7 +170,7 @@ function App() {
             path="/product/:id"
             element={
               <>
-                <Navbar fetchCart={fetchCart} cart={cart} />
+                <Navbar fetchCart={fetchCart} cart={cart} handleShowCartNot={handleShowCartNot}/>
                 <MainProductPage fetchCart={fetchCart} cart={cart} />
                 <Footer />
               </>
@@ -173,7 +180,7 @@ function App() {
             path="/checkout"
             element={
               <>
-                <Navbar fetchCart={fetchCart} cart={cart} />
+                <Navbar fetchCart={fetchCart} cart={cart} handleShowCartNot={handleShowCartNot}/>
                 <Checkout fetchCart={fetchCart} cart={cart} />
                 <Footer />
               </>
@@ -183,7 +190,7 @@ function App() {
             path="/about-us"
             element={
               <>
-                <Navbar fetchCart={fetchCart} cart={cart}/>
+                <Navbar fetchCart={fetchCart} cart={cart} handleShowCartNot={handleShowCartNot}/>
                 <div className="comps">
                   <AboutUs/>
                 </div>
@@ -195,7 +202,7 @@ function App() {
             path="/myaccount"
             element={
               <>
-              {user?.userType === "User" ? <Navbar fetchCart={fetchCart} cart={cart}/> : <AdminNavbar />}
+              {user?.userType === "User" ? <Navbar fetchCart={fetchCart} cart={cart} handleShowCartNot={handleShowCartNot}/> : <AdminNavbar />}
                 
                 
                 <div className="comps">
@@ -209,7 +216,7 @@ function App() {
             path="/contact"
             element={
               <>
-                <Navbar fetchCart={fetchCart} cart={cart}/>
+                <Navbar fetchCart={fetchCart} cart={cart} handleShowCartNot={handleShowCartNot}/>
                 <div className="comps">
                   <ContactUs />
                 </div>
@@ -221,7 +228,7 @@ function App() {
             path="/order/:id"
             element={
               <>
-                <Navbar fetchCart={fetchCart} cart={cart}/>
+                <Navbar fetchCart={fetchCart} cart={cart} handleShowCartNot={handleShowCartNot}/>
                 <div className="comps">
                   <OrderSection />
                 </div>
@@ -233,7 +240,7 @@ function App() {
             path="/category/:cat"
             element={
               <>
-                <Navbar fetchCart={fetchCart} cart={cart}/>
+                <Navbar fetchCart={fetchCart} cart={cart} handleShowCartNot={handleShowCartNot}/>
                 <div className="comps">
                   <CategoryFull fetchCart={fetchCart} cart={cart}/>
                 </div>
