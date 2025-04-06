@@ -355,16 +355,7 @@ useEffect(()=>{
   return (
     <div className="order-summary-container">
       <h2>Order Summary</h2>
-      <button className="delivery-time-btn" onClick={() => setShowDeliveryPopup(true)}>
-  {selectedSlot === "" ? (
-    "Select Slot"
-  ) : (
-    <>
-      <img src={clockIcon} alt="Clock Icon" className="clock-icon" /> 
-      {selectedSlot} <span>▼</span>
-    </>
-  )}
-</button>
+     
 
 
       <p className="deliver-to-text">Deliver to:</p>
@@ -407,6 +398,17 @@ useEffect(()=>{
         <h3 className="user-price-total">Total:</h3>
         <h3 className="user-price-total-value">₹{orderItems.reduce((total, product) => total + product?.productId?.price?.sale * product?.quantity, pincode?.[0]?.deliveryCharges)}</h3>
       </div>
+
+      <button className="delivery-time-btn" onClick={() => setShowDeliveryPopup(true)}>
+  {selectedSlot === "" ? (
+    "Select Slot"
+  ) : (
+    <>
+      <img src={clockIcon} alt="Clock Icon" className="clock-icon" /> 
+      {selectedSlot} <span>▼</span>
+    </>
+  )}
+</button>
 
       <PaymentMethod selectedPayment={selectedPayment} setSelectedPayment={setSelectedPayment} />
 

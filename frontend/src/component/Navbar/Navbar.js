@@ -17,7 +17,7 @@ import "./Navbar.css";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import trend from '../../assets/trend.png'
 
-const Navbar = ({ fetchCart, cart }) => {
+const Navbar = ({ fetchCart, cart, handleShowCartNot }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [pincode, setPincode] = useState("400001");
   const [sOpen, setSOpen] = useState(false);
@@ -159,6 +159,10 @@ const Navbar = ({ fetchCart, cart }) => {
     return () => document.removeEventListener("click", handleClickOutside);
   }, [menuOpen]);
 
+  const handleDash = ()=>{
+    navigate('/admin/')
+  }
+
   return (
     <div>
       {isPopupOpen && (
@@ -204,6 +208,9 @@ const Navbar = ({ fetchCart, cart }) => {
             {" "}
             <img src={logo} alt="Freshimeat Logo" className="logo" />
           </Link>
+          {user && user?.userType === "Admin" && (
+            <button onClick={handleDash} className="lgnBtn" style={{marginLeft: "20px"}}>Dashboard</button>
+          )}
         </div>
 
         <div className="right-section">
@@ -245,9 +252,6 @@ const Navbar = ({ fetchCart, cart }) => {
               </div>
             )}
           </div>
-          {!user && (
-            <button onClick={handleAccClick} className="lgnBtn">Login</button>
-          )}
 
 
           {/* Mobile View: Hamburger Menu */}
@@ -275,7 +279,7 @@ const Navbar = ({ fetchCart, cart }) => {
                   src={cartIcon}
                   alt="Cart"
                   className="icon"
-                  onClick={() => setIsCartOpen(true)}
+                  onClick={() => {setIsCartOpen(true); handleShowCartNot(false)}}
                 />
               )}
             </>
@@ -335,7 +339,7 @@ const Navbar = ({ fetchCart, cart }) => {
       {/* Cart Popup */}
       <CartPopup
         isOpen={isCartOpen}
-        onClose={() => setIsCartOpen(false)}
+        onClose={() => {setIsCartOpen(false); handleShowCartNot(true)}}
         fetchCart={fetchCart}
         cart={cart}
       />
