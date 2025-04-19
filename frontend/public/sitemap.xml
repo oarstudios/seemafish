@@ -24,8 +24,9 @@
 
 <url>
   <loc>https://freshimeat.in/category/Sea%20fish</loc>
-  <lastmod>2025-03-15T10:31:41+00:00</lastmod>
+  <lastmod>2025-03-22T06:45:40+00:00</lastmod>
 </url>
+
 
 <url>
   <loc>https://freshimeat.in/category/Prawns</loc>
@@ -33,8 +34,8 @@
 </url>
 
 <url>
-  <loc>https://freshimeat.in/category/Fresh%20water%20fish</loc>
-  <lastmod>2025-03-15T10:31:41+00:00</lastmod>
+  <loc>https://freshimeat.in/category/Fresh%20water</loc>
+  <lastmod>2025-03-22T06:45:40+00:00</lastmod>
 </url>
 
 <url>
@@ -78,18 +79,8 @@
 </url>
 
 <url>
-  <loc>https://freshimeat.in/checkout</loc>
-  <lastmod>2025-03-15T10:31:41+00:00</lastmod>
-</url>
-
-<url>
-  <loc>https://freshimeat.in/order/</loc>
-  <lastmod>2025-03-15T10:31:41+00:00</lastmod>
-</url>
-
-<url>
-  <loc>https://freshimeat.in/myaccount</loc>
-  <lastmod>2025-03-15T10:31:41+00:00</lastmod>
+  <loc>https://backend.freshimeat.in/</loc>
+  <lastmod>2025-04-19T04:26:51+00:00</lastmod>
 </url>
 
 

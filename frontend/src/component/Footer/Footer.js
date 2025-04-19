@@ -51,9 +51,9 @@ const Footer = () => {
             {/* Contact Section */}
             <div className="footer-section footer-contact">
               <p><strong>Email</strong></p>
-              <p>freshimeat@gmail.com</p>
+              <p>freshimeats@gmail.com</p>
               <p><strong>Phone</strong></p>
-              <p>+91 99999 99999</p>
+              <p>+91 75067 70659</p>
               <p><strong>Address</strong></p>
               <p>Sector 11, Kamothe, Panvel, Raigad, Navi Mumbai, Maharashtra 410209</p>
             </div>
