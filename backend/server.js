@@ -25,7 +25,7 @@ const corsOptions = {
   origin: ['http://localhost:3000', 'https://freshimeat.in', 'https://www.freshimeat.in'],
   credentials: true,
 };
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));

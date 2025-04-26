@@ -11,6 +11,7 @@ let storage = multer.diskStorage({
 // Init upload
 const upload = multer({
   storage: storage,
+  limits: { fileSize: 5 * 1024 * 1024 }, // 5 MB limit
 }).array('review', 10);
 
 
