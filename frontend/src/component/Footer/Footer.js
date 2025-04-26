@@ -3,6 +3,7 @@ import "./Footer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram, faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import logo from "../../assets/Seema Fish Logo.svg"
+import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -21,10 +22,10 @@ const Footer = () => {
               <div className="footer-links-row">
                 {/* First Column */}
                 <div className="footer-links-column">
-                  <p><strong>Terms and Conditions</strong></p>
-                  <p><strong>Privacy Policy</strong></p>
-                  <p><strong>Refund Policy</strong></p>
-                  <p><strong>Contact Us</strong></p>
+                  <Link to={'/tnc'}><strong>Terms and Conditions</strong></Link>
+                  <Link to={'/privacypolicy'}><strong>Privacy Policy</strong></Link>
+                  <Link to={'/refundpolicy'}><strong>Refund Policy</strong></Link>
+                  <Link to={'/contactus'}><strong>Contact Us</strong></Link>
                 </div>
                 
                 {/* Second Column */}

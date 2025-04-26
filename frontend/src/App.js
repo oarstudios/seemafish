@@ -43,6 +43,10 @@ import { ToastContainer } from "react-toastify";
 import Signup from "./component/Signup/Signup";
 import { useAuthContext } from "./hooks/useAuthContext";
 import ContactUs from "./component/ContactUs/ContactUs";
+import Tnc from "./component/Policies/Tnc";
+import PrivacyPolicy from "./component/Policies/PrivacyPolicy";
+import RefundPolicy from "./component/Policies/RefundPolicy";
+import ContactUsFooter from "./component/Policies/ContactUsFooter";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -166,6 +170,42 @@ function App() {
             }
           />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/tnc" 
+            element={
+              <>
+                <Navbar fetchCart={fetchCart} cart={cart} handleShowCartNot={handleShowCartNot}/>
+                <Tnc/>
+                <Footer />
+              </>
+            }
+           />
+          <Route path="/privacypolicy" 
+            element={
+              <>
+                <Navbar fetchCart={fetchCart} cart={cart} handleShowCartNot={handleShowCartNot}/>
+                <PrivacyPolicy />
+                <Footer />
+              </>
+            }
+           />
+          <Route path="/refundpolicy" 
+            element={
+              <>
+                <Navbar fetchCart={fetchCart} cart={cart} handleShowCartNot={handleShowCartNot}/>
+                <RefundPolicy/>
+                <Footer />
+              </>
+            }
+           />
+          <Route path="/contactus" 
+            element={
+              <>
+                <Navbar fetchCart={fetchCart} cart={cart} handleShowCartNot={handleShowCartNot}/>
+                <ContactUsFooter/>
+                <Footer />
+              </>
+            }
+           />
           <Route
             path="/product/:id"
             element={

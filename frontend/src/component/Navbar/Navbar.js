@@ -163,6 +163,27 @@ const Navbar = ({ fetchCart, cart, handleShowCartNot }) => {
     navigate('/admin/')
   }
 
+  const [ns, setNs] = useState("row");
+
+  useEffect(() => {
+    const updateNs = () => {
+      if (window.innerWidth < 580 && user?.userType === "Admin") {
+        setNs("column");
+      } else {
+        setNs("row");
+      }
+    };
+
+    // Call once initially
+    updateNs();
+
+    // Add event listener
+    window.addEventListener('resize', updateNs);
+
+    // Cleanup on unmount
+    return () => window.removeEventListener('resize', updateNs);
+  }, []);
+
   return (
     <div>
       {isPopupOpen && (
@@ -202,7 +223,7 @@ const Navbar = ({ fetchCart, cart, handleShowCartNot }) => {
       )}
 
       {/* Navbar */}
-      <div className="navbar">
+      <div className="navbar" style={{ flexDirection: ns }}>
         <div className="left-section">
           <Link to="/">
             {" "}
