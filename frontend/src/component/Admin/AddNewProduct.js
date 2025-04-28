@@ -15,7 +15,7 @@ const AddNewProduct = () => {
   const [weight, setWeight] = useState("");
   const [description, setDescription] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Sea Fish");
-  const [productTag, setProductTag] = useState("None");
+  const [productTag, setProductTag] = useState("");
   const [inStock, setInStock] = useState(true);
   const {notify} = useNotify();
   const {user} = useAuthContext();
