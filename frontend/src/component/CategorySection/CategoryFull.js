@@ -218,19 +218,20 @@ const [ctDesc, setCtDesc]=useState("")
 
 useEffect(() => {
   if (cat === "price1") {
-    setCtTitle("Budget-Friendly Seafood");
-    setCtDesc("Explore fresh seafood under ₹300.");
+    setCtTitle("Budget-Friendly Options");
+    setCtDesc("Explore fresh products under ₹300 from our fish, chicken, and mutton selection.");
   } else if (cat === "price2") {
-    setCtTitle("Premium Seafood");
-    setCtDesc("Enjoy high-quality seafood under ₹500.");
+    setCtTitle("Premium Quality");
+    setCtDesc("Enjoy high-quality products under ₹500 from our fish, chicken, and mutton range.");
   } else if (cat === "price3") {
-    setCtTitle("Luxury Seafood Selection");
-    setCtDesc("Indulge in the finest seafood above ₹500.");
+    setCtTitle("Luxury Selection");
+    setCtDesc("Indulge in the finest products above ₹500 from our exclusive fish, chicken, and mutton collection.");
   } else {
-    setCtTitle("Sea Fish Products");
-    setCtDesc("Explore our wide range of fresh Sea Fish.");
+    setCtTitle(cat);
+    setCtDesc("Explore our wide range of fresh products.");
   }
 }, [cat]);
+
 
   
     return (

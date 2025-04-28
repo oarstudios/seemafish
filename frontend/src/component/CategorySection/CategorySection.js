@@ -10,12 +10,11 @@ import mutton from "../../assets/mutton.png";
 import crab from "../../assets/crab.jpg";
 
 const categories = [
-  { name: "Sea fish", image: seaFish },
+  { name: "SeaWater", image: seaFish },
   { name: "Prawns", image: prawns },
-  { name: "Fresh water", image: freshWaterFish },
+  { name: "FreshWater", image: freshWaterFish },
   { name: "Chicken", image: chicken },
   { name: "Mutton", image: mutton },
-
   { name: "Crab", image: crab },
 ];
 
