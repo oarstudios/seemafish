@@ -27,10 +27,9 @@ const CutsProduct = ({fetchCart, cart}) => {
         const json = await response.json();
 
         if (response.ok) {
-          // const prdTags = json.filter(prd => prd?.produtTag === product?.productTag); 
           console.log(json);
-            setPrdTag(json)
-            console.log(json)
+            setPrdTag(json?.productTag)
+            console.log(json?.productTag)
             // setCart(json)
         } else {
             console.error("Failed to fetch products:", json);
@@ -46,10 +45,15 @@ const fetchAllPrds = async () => {
       const json = await response.json();
 
       if (response.ok) {
-        // const prdTags = json.filter(prd => prd?.productTag === prdTag && prd.isArchived === false); 
-        const prdTags = json.filter(prd => prd.isArchived === false); 
-        console.log(prdTags);
+        const prdTags = json.filter(prd => prd?.productTag?.toString() === prdTag?.toString() && prd?.isArchived === false).slice(0, 10);
+        // const prdTags = json.filter(prd => prd.isArchived === false); 
+        if(prdTags.length === 1)
+        {
+          setProducts(json.filter(prd => prd.isArchived === false).slice(0, 10))
+        }else{
           setProducts(prdTags)
+        }
+        console.log(prdTags);
           console.log(json)
           // setCart(json)
       } else {
@@ -64,9 +68,16 @@ const fetchAllPrds = async () => {
 useEffect(() => {
     fetchData();
     fetchCart();
-    fetchAllPrds();
+    
   
 }, [user, id]); // Now it runs every time `id` changes
+
+
+useEffect(() => {
+  if (prdTag) {
+    fetchAllPrds();
+  }
+}, [prdTag]);
 
 
   
