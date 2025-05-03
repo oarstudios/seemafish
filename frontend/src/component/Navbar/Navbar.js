@@ -314,7 +314,9 @@ const Navbar = ({ fetchCart, cart, handleShowCartNot }) => {
       <div className="close-menu" onClick={toggleMenu}>
         <img src={closeIcon} alt="Close" className="close-icon" />
       </div>
-      <Link
+      {user ? (
+        <>
+          <Link
         to={user ? "/myaccount" : "#"}
         onClick={(e) => {
           if (!user) {
@@ -329,6 +331,12 @@ const Navbar = ({ fetchCart, cart, handleShowCartNot }) => {
       <Link onClick={() => setIsCartOpen(true)}>
       Cart
       </Link>
+        </>
+      ): (
+        <button onClick={handleAccClick} className="lgnBtn">Login</button>
+
+      )}
+
 
       <Link
         to={'/contact'}
