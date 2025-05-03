@@ -1,7 +1,7 @@
 import React from "react";
 import "./Footer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook, faInstagram, faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faInstagram, faLinkedin, faXTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import logo from "../../assets/Seema Fish Logo.svg"
 import { Link } from "react-router-dom";
 
@@ -30,10 +30,10 @@ const Footer = () => {
                 
                 {/* Second Column */}
                 <div className="footer-links-column">
-                  <p><strong>Sea water fish</strong></p>
-                  <p><strong>Fresh water fish</strong></p>
-                  <p><strong>Chicken</strong></p>
-                  <p><strong>Mutton</strong></p>
+                  <Link to={'/category/SeaWater'}><strong>SeaWater</strong></Link>
+                  <Link to={'/category/FreshWater'}><strong>FreshWater</strong></Link>
+                  <Link to={'/category/Chicken'}><strong>Chicken</strong></Link>
+                  <Link to={'/category/Mutton'}><strong>Mutton</strong></Link>
                 </div>
               </div>
     
@@ -41,10 +41,10 @@ const Footer = () => {
               <div className="footer-social">
                 <p><strong>Follow Us</strong></p>
                 <div className="social-icons">
-                  <a href="#" aria-label="Facebook"><FontAwesomeIcon icon={faFacebook} /></a>
-                  <a href="#" aria-label="Instagram"><FontAwesomeIcon icon={faInstagram} /></a>
-                  <a href="#" aria-label="LinkedIn"><FontAwesomeIcon icon={faLinkedin} /></a>
-                  <a href="#" aria-label="Twitter"><FontAwesomeIcon icon={faXTwitter} /></a>
+                  {/* <a href="#" aria-label="Facebook"><FontAwesomeIcon icon={faFacebook} /></a> */}
+                  <a href="https://www.instagram.com/seema_fish_kamothe?igsh=bXgzbmN1bmx6enhw&utm_source=qr" target="_blank" aria-label="Instagram"><FontAwesomeIcon icon={faInstagram} /></a>
+                  {/* <a href="#" aria-label="Twitter"><FontAwesomeIcon icon={faXTwitter} /></a> */}
+                  <a href="https://youtube.com/@vlogsonu5470?si=8GHchVwxSaZgsHs6" target="_blank" aria-label="Twitter"><FontAwesomeIcon icon={faYoutube} /></a>
                 </div>
               </div>
             </div>
