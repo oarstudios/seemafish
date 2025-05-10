@@ -3,8 +3,8 @@ const Billing = require('../models/OrderModel'); // Adjust path as needed
 // Create a new billing document
 exports.createBilling = async (req, res) => {
     try {
-      console.log("Received request data:", req.body);
-      console.log("Received userId:", req.params.userId);
+      //console.log("Received request data:", req.body);
+      //console.log("Received userId:", req.params.userId);
   
       if (!req.body.products || !Array.isArray(req.body.products)) {
         return res.status(400).json({ message: "Invalid products data" });

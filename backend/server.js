@@ -28,6 +28,7 @@ const corsOptions = {
 app.use(cors());
 
 app.use(bodyParser.json())
+app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/uploads', express.static('uploads'));
 app.use("/users", userRoutes)
@@ -42,14 +43,16 @@ app.use('/creatives', creativeRoutes)
 
 
 app.use((err, req, res, next)=>{
-    console.log(err.stack)
+    //console.log(err.stack)
     res.status(500).json({error: "Something went wrong!!"})
 })
 
 const PORT = process.env.PORT;
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("Connected to MongoDB"))
+  .then(
+    () => console.log("Connected to MongoDB")
+  )
   .catch((err) => {
     console.error("MongoDB connection error:", err);
     process.exit(1);
@@ -61,7 +64,7 @@ app.get('/', (req, res) => {
   });
 
   app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server running on port ${PORT}`);
+    //console.log(`Server running on port ${PORT}`);
 });
 
 
@@ -127,29 +130,41 @@ app.post('/users/google-login', async (req, res) => {
   };
 
   
-  app.post('/order', async(req, res)=>{
-    try{
+  app.post('/order', async (req, res) => {
+    try {
+      const { amount, currency, receipt } = req.body;
+  
+      //console.log("Received order request:", req.body); // ✅ Log incoming
+  
+      if (!amount || !currency || !receipt) {
+        return res.status(400).json({ error: 'Missing required fields' });
+      }
+  
       const razorpay = new Razorpay({
         key_id: process.env.RAZORPAY_KEY_ID,
         key_secret: process.env.RAZORPAY_SECRET,
       });
-    
-      const options = req.body;
-      const order = await razorpay.orders.create(options);
   
-      if(!order)
-      {
-        return res.status(500).json({error: 'Failed to create order'});
+      const options = {
+        amount: Number(amount),
+        currency,
+        receipt,
+      };
+  
+      const order = await razorpay.orders.create(options);
+      //console.log("Created Razorpay order:", order); // ✅ Log order object
+  
+      if (!order) {
+        return res.status(500).json({ error: 'Failed to create order' });
       }
   
-      res.status(200).json({order});
-  
-    }catch(error)
-    {
-       console.log(error);
-      res.status(500).json({error: 'Failed to process order'});
+      res.status(200).json({ order });
+    } catch (error) {
+      console.error("Error in /order:", error); // ✅ Better error visibility
+      res.status(500).json({ error: 'Failed to process order' });
     }
-  })
+  });
+  
   
   
   app.post('/order/validate', async (req, res) =>{

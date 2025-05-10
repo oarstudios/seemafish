@@ -15,7 +15,7 @@ const OrderSummary = ({ address, orderItems, onBack, setCurrentStep, fetchCart }
   const [selectedSlot, setSelectedSlot] = useState(""); 
   const [selectedPayment, setSelectedPayment] = useState("paynow"); 
   const {user} = useAuthContext();
-  console.log(user)
+  //console.log(user)
   const {notify} = useNotify();
 
   const [pincode, setPincode] = useState([])
@@ -26,11 +26,11 @@ const OrderSummary = ({ address, orderItems, onBack, setCurrentStep, fetchCart }
             const json = await response.json();
     
             if (response.ok) {
-              console.log(json);
+              //console.log(json);
                // Check if pincode exists in the fetched pincodes list
             const pc = await json?.filter(item => JSON.stringify(item?.pincode) === address?.pincode)
                 setPincode(pc)
-                console.log(pc)
+                //console.log(pc)
                 // setCart(json)
             } else {
                 console.error("Failed to fetch products:", json);
@@ -76,14 +76,14 @@ const OrderSummary = ({ address, orderItems, onBack, setCurrentStep, fetchCart }
 
   const total = subtotal + pincode?.[0]?.deliveryCharges;
 
-  console.log(total)
+  //console.log(total)
 
   const lastSpaceIndex = selectedSlot.lastIndexOf(" ");
 const day = selectedSlot.substring(0, lastSpaceIndex); // "Tomorrow 21 Feb"
 const slot = selectedSlot.substring(lastSpaceIndex + 1); 
 
 useEffect(()=>{
-  console.log(day, slot)
+  //console.log(day, slot)
 },[day, slot])
 
   const [randomString, setRandomString] = useState("");
@@ -115,7 +115,7 @@ useEffect(()=>{
   
       useEffect(()=>{
         generateRandomString();
-        console.log(user?.cart)
+        //console.log(user?.cart)
       },[user])
 
       const showError = ()=>{
@@ -133,13 +133,13 @@ useEffect(()=>{
           });
       
           const updatedUser = await response.json();
-          console.log('updated user', updatedUser)
+          //console.log('updated user', updatedUser)
           if (response.ok) {
             // setUser(updatedUser);
             localStorage.setItem('user', JSON.stringify({token: user.token, user: updatedUser}));
             
             fetchCart();
-            console.log("updt", user)
+            //console.log("updt", user)
           }
         } catch (error) {
           console.error('Failed to update user cart:', error);
@@ -170,7 +170,7 @@ useEffect(()=>{
     };
     
 
-      console.log(formData)
+      //console.log(formData)
   
       // If the billing address is the same as the shipping address, copy the shipping address to billing address
       // if (!differentBillingAddress) {
@@ -189,16 +189,16 @@ useEffect(()=>{
       const json = await response.json();
   
       if (response.ok) {
-        console.log("order",json);
+        //console.log("order",json);
         notify('Order successfully placed', "success");
         setTimeout(() => {
           navigate(`/order/${json?.data?._id}`);
         }, 1000);
       }
   
-      console.log("formData", formData);
+      //console.log("formData", formData);
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 
@@ -218,12 +218,12 @@ useEffect(()=>{
   
       const json = await response.json();
       if (response.ok) {
-        console.log("Cart emptied successfully:", json);
+        //console.log("Cart emptied successfully:", json);
         updatedUserCart(); // Refresh cart after emptying
         // notify("Cart emptied successfully", "success");
       }
     } catch (error) {
-      console.log("Error emptying cart:", error);
+      //console.log("Error emptying cart:", error);
       notify("Error emptying cart", "error");
     }
   };
@@ -235,120 +235,105 @@ useEffect(()=>{
 
    //PAYMENT GATEWAY
 
-   const paymentHandler = async(e) =>{
+   const paymentHandler = async (e) => {
     e.preventDefault();
-
+  
     if (!selectedSlot) {
       notify("Please select a time slot before proceeding with the payment.", "error");
       return;
     }
-
-    const productDataArray = user?.cart?.map(item => ({
-      product: item?.productId?._id,
-      quantity: item.quantity // Include the quantity for each product
-    }));
-
-      if (productDataArray?.length === 0) {
-        // notify('No product data to submit.',"info");
-        console.log("No product data to submit.")
-
-        return;
-      }
+  
+    if (orderItems?.length === 0) {
+      //console.log("No product data to submit.");
+      return;
+    }
+  
     const data = {
-      productIds: productDataArray, // Changed from productIds to productData
+      productIds: orderItems,
       firstName: address?.firstName,
-      lastName:  address?.lastName,
+      lastName: address?.lastName,
       country: 'INDIA',
-      address:  address,
-      city:  address?.city,
-      state:  address?.state,
-      pincode:  address?.pincode,
-      phoneNumber:  address?.phoneNo,
-      email:  user?.email,
+      address,
+      city: address?.city,
+      state: address?.state,
+      pincode: address?.pincode,
+      phoneNumber: address?.phoneNo,
+      email: user?.email,
       totalPrice: total,
       status: 'Order Placed'
     };
-
-
-    if(!data?.firstName || !data?.lastName || !data?.country || !data?.address || !data?.city || !data?.state || !data?.pincode || !data?.phoneNumber || !data?.email || !data?.status)
-      {
-        return setPay(false)
-      }
-    const amount= total * 100;
-    const currency= "INR";
-    const receipt = "abcdef"
-    const response = await fetch('https://backend.freshimeat.in/order',{
+  
+    // Validate required fields
+    const requiredFields = ['firstName', 'lastName', 'country', 'address', 'city', 'state', 'pincode', 'phoneNumber', 'email', 'status'];
+    if (!requiredFields.every(field => data[field])) {
+      return setPay(false);
+    }
+  
+    const amount = total * 100;
+    const currency = "INR";
+    const receipt = `receipt_${Date.now()}`;
+  
+    const response = await fetch('https://backend.freshimeat.in/order', {
       method: "POST",
-      body: JSON.stringify({
-        amount,
-        currency,
-        receipt
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-
-    const order = await response.json();
-    console.log('payment', order)
-
-    var options = {
-      "key": "rzp_test_q34DaePkfJ8UeT", // Enter the Key ID generated from the Dashboard
-      amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      body: JSON.stringify({ amount, currency, receipt }),
+      headers: { 'Content-Type': 'application/json' }
+    });
+  
+    const orderData = await response.json();
+  
+    if (!response.ok) {
+      notify("Failed to initiate payment. Please try again.", "error");
+      //console.log(orderData)
+      return;
+    }
+  
+    const options = {
+      key: "rzp_live_EpuhpsYvf0yyOt",
+      amount,
       currency,
-      "name": "Acme Corp", //your business name
-      "description": "Test Transaction",
-      "image": "https://example.com/your_logo",
-      "order_id": order.order?.id, 
-      "handler": async function(response){
-        const body = {
-          ...response, 
-        }
-
-        const validateRes = await fetch('https://backend.freshimeat.in/order/validate',{
+      name: "Freshimeat",
+      description: "Order Payment",
+      image: "https://freshimeat.in/logo.png", // Optional
+      order_id: orderData.order.id,
+      handler: async function (response) {
+        const body = { ...response };
+  
+        const validateRes = await fetch('https://backend.freshimeat.in/order/validate', {
           method: "POST",
           body: JSON.stringify(body),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
-
-        
-    
-        // Prepare the data object for the request
-        
-
-        const json = await validateRes.json()
-        if(validateRes.ok)
-        {
-          try{
-            await handleBillSubmit();
-            await handleEmptyCart();
-            
-          }catch(error)
-          {
-            console.log('Error:', error);
-          }
-        }
-        console.log(json)
-      },
-      "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
-          "name": "Gaurav Kumar", //your customer's name
-          "email": "gaurav.kumar@example.com",
-          "contact": "9000090000" //Provide the customer's phone number for better conversion rates 
-      },
-      "notes": {
-          "address": "Razorpay Corporate Office"
-      },
-      "theme": {
-          "color": "#3399cc"
-      }
-  };
-  var rzp1 = new window.Razorpay(options);
-      rzp1.open();
-      // e.preventDefault();
+          headers: { 'Content-Type': 'application/json' }
+        });
   
-  }
+        const json = await validateRes.json();
+        if (validateRes.ok) {
+          try {
+            await handleBillSubmit(); // Make sure this uses `data`
+            await handleEmptyCart();
+          } catch (error) {
+            //console.log('Error:', error);
+          }
+        } else {
+          notify("Payment verification failed!", "error");
+        }
+        //console.log(json);
+      },
+      prefill: {
+        name: `${data.firstName} ${data.lastName}`,
+        email: data.email,
+        contact: data.phoneNumber
+      },
+      notes: {
+        address: `${data.address}`
+      },
+      theme: {
+        color: "#3399cc"
+      }
+    };
+  
+    const rzp1 = new window.Razorpay(options);
+    rzp1.open();
+  };
+  
 
   
 
@@ -375,7 +360,7 @@ useEffect(()=>{
         <h3 className="deliver-to-text">Order Details:</h3>
         {orderItems?.map((product, index) => (
           <div key={index} className="user-order-item">
-            {console.log(orderItems)}
+            {/* {console.log(orderItems)} */}
             <img src={`https://backend.freshimeat.in/uploads/${product?.productId?.images?.[0]}`} alt="Product" className="user-order-img" />
             <div className="user-order-info">
               <p className="user-product-name">{product?.productId?.name}</p>

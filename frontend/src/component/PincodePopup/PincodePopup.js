@@ -18,9 +18,9 @@ const PincodePopup = ({ onClose, onSubmit }) => {
 
       if (response.ok) {
         // const prdTags = json.filter(prd => prd?.produtTag === product?.productTag);
-        console.log(json);
+        //console.log(json);
         setPincodes(json);
-        console.log(json);
+        //console.log(json);
         // setCart(json)
       } else {
         console.error("Failed to fetch products:", json);

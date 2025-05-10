@@ -26,11 +26,11 @@ const OrderSection = () => {
       const response = await fetch(`https://backend.freshimeat.in/orders/${id}`);
       const json = await response.json();
       if (response.ok) {
-        console.log(json?.data);
+        //console.log(json?.data);
         setOrder(json?.data);
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 
@@ -42,14 +42,14 @@ const OrderSection = () => {
       const json = await response.json();
 
       if (response.ok) {
-        console.log(json);
+        //console.log(json);
         // Check if pincode exists in the fetched pincodes list
         const pc = await json?.filter(
           (item) =>
             Number(item?.pincode) === Number(order?.shippingAddress?.pincode)
         );
         setPincode(pc?.[0]);
-        console.log(pc?.[0]);
+        //console.log(pc?.[0]);
         // setCart(json)
       } else {
         console.error("Failed to fetch products:", json);
@@ -92,7 +92,7 @@ const OrderSection = () => {
   };
 
   useEffect(() => {
-    console.log(inputs);
+    //console.log(inputs);
   }, []);
 
   const handleRemoveImage = (productId, index) => {
@@ -152,12 +152,12 @@ const OrderSection = () => {
       if (response.ok) {
         setSubmittedReviews((prev) => ({ ...prev, [id]: true })); // Mark the review as submitted
         notify("Review added successfully", "success");
-        console.log(json);
+        //console.log(json);
       } else {
         console.error(json);
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 
@@ -229,7 +229,7 @@ const OrderSection = () => {
             onSubmit={(e) => handleReviewSubmit(e, item?.product?._id)}
             // encType="multipart/form-data"
           >
-            {/* {console.log(item)} */}
+            {/* {//console.log(item)} */}
             <div className="item-details">
               <img
                 src={`https://backend.freshimeat.in/uploads/${item?.product?.images?.[0]}`}

@@ -26,7 +26,7 @@ const DeliveryPricing = () => {
         setDeliveryAreas(json);  // Set filtered data initially as original
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 
@@ -120,12 +120,12 @@ const DeliveryPricing = () => {
         setDeliveryCharges("");
         setEnable(false);
         setAddNew(false);
-        console.log(json);
+        //console.log(json);
         notify("Added pincode successfully", "success");
         fetchDeliveryArea();
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       notify("Error adding pincode", "error");
     }
   };
@@ -165,13 +165,13 @@ const DeliveryPricing = () => {
             area._id === id ? { ...updatedArea, isEditing: false } : area
           )
         );
-        console.log("Delivery Area updated successfully");
+        //console.log("Delivery Area updated successfully");
         notify("Pincode updated successfully", "success");
       } else {
-        console.log("Failed to update delivery area");
+        //console.log("Failed to update delivery area");
       }
     } catch (error) {
-      console.log("Error while updating delivery area", error);
+      //console.log("Error while updating delivery area", error);
       notify("Error updating the pincode", "error");
     }
   };

@@ -36,10 +36,10 @@ const EditAdminProducts = () => {
        if(response.ok)
        {
          setCategories(json)
-         console.log(json)
+         //console.log(json)
        }
      }catch(error){
-       console.log(error)
+       //console.log(error)
      }
    }
  
@@ -50,10 +50,10 @@ const EditAdminProducts = () => {
        if(response.ok)
        {
          setProductTags(json)
-         console.log(json)
+         //console.log(json)
        }
      }catch(error){
-       console.log(error)
+       //console.log(error)
      }
    }
 
@@ -74,15 +74,15 @@ const EditAdminProducts = () => {
     setProductTag(json.productTag);
     setInStock(json.inStock);
     setImages(json.images || []);
-    console.log(json.images)
+    //console.log(json.images)
     setNote(json.note);
     setIsBestsellerActive(json.bestseller)
     setSelectedCategory(json.category)
-        console.log(json)
+        //console.log(json)
         setIsArchived(json.isArchived)
       }
     }catch(error){
-      console.log(error)
+      //console.log(error)
     }
   }
  
@@ -120,7 +120,7 @@ const EditAdminProducts = () => {
   const handleImageDelete = (index) => {
     setImages((prevImages) => {
       const updatedImages = prevImages.filter((_, i) => i !== index);
-      console.log("Updated images after deletion:", updatedImages);
+      //console.log("Updated images after deletion:", updatedImages);
       return updatedImages;
     });
   };
@@ -151,7 +151,7 @@ const EditAdminProducts = () => {
   
       const json = await response.json();
       if (response.ok) {
-        console.log("Product updated successfully:", json);
+        //console.log("Product updated successfully:", json);
         notify('Product updated successfully', "success");
       } else {
         console.error("Update failed:", json);
@@ -165,13 +165,13 @@ const EditAdminProducts = () => {
 
   const convertUrlToFile = async (url) => {
     try {
-        console.log(`Fetching image from: ${url}`);
+        //console.log(`Fetching image from: ${url}`);
         const res = await fetch(url, { mode: "cors" }); // Ensure CORS is handled
         if (!res.ok) throw new Error(`Failed to fetch image: ${res.statusText}`);
         
         const blob = await res.blob();
         const fileName = url.split('/').pop();
-        console.log(`Converted ${fileName} to File`);
+        //console.log(`Converted ${fileName} to File`);
         
         return new File([blob], fileName, { type: blob.type });
     } catch (error) {
@@ -229,7 +229,7 @@ const EditAdminProducts = () => {
         const json = await response.json();
 
         if (response.ok) {
-            console.log("Product updated successfully:", json);
+            //console.log("Product updated successfully:", json);
             notify("Product updated successfully", "success");
         } else {
             console.error("Update failed:", json);
@@ -266,7 +266,7 @@ const handleArchive = async (e) => {
 
       const json = await response.json();
       if (response.ok) {
-          console.log("Product updated successfully:", json);
+          //console.log("Product updated successfully:", json);
           notify('Product updated successfully', "success");
           fetchProduct();
       } else {
@@ -315,7 +315,7 @@ const handleArchive = async (e) => {
           <div className="uploaded-images-container">
             {images.map((image, index) => (
               <div className="uploaded-image-wrapper" key={index}>
-                {console.log(typeof image)}
+                {/* {console.log(typeof image)} */}
                 <img
                   src={typeof image === "string" ? `https://backend.freshimeat.in/uploads/${image}` : URL.createObjectURL(image)}
                   alt={`Uploaded ${index + 1}`}

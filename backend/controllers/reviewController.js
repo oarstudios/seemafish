@@ -6,7 +6,7 @@ const addReview = async (req, res) => {
   const { id } = req.params;
   const media = req.files || []; // multer adds files to req.files
 
-  console.log(media); // Log to check if the files are correctly passed
+  //console.log(media); // Log to check if the files are correctly passed
 
   // Validate media file count
   if (media.length > 3) {

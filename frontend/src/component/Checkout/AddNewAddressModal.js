@@ -30,9 +30,9 @@ const AddNewAddressModal = ({ onClose, onSave, availableTypes }) => {
   
           if (response.ok) {
             // const prdTags = json.filter(prd => prd?.produtTag === product?.productTag); 
-            console.log(json);
+            //console.log(json);
               setPincodes(json)
-              console.log(json)
+              //console.log(json)
               // setCart(json)
           } else {
               console.error("Failed to fetch products:", json);
@@ -91,7 +91,7 @@ const AddNewAddressModal = ({ onClose, onSave, availableTypes }) => {
 
   const handleAddresses= async(e)=>{
     e.preventDefault();
-    console.log(user);
+    //console.log(user);
 
     if (!validateInput()) return; // Stop if validation fails
 
@@ -150,7 +150,7 @@ const AddNewAddressModal = ({ onClose, onSave, availableTypes }) => {
     tag: newAddress.tag
       }
 
-      console.log("Form Data:", formData);console.log("Form Data:", formData);
+      //console.log("Form Data:", formData);//console.log("Form Data:", formData);
 
       const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}/address`,{
         method: "POST",
@@ -165,7 +165,7 @@ const AddNewAddressModal = ({ onClose, onSave, availableTypes }) => {
 
       if(response.ok)
       {
-        console.log(json)
+        //console.log(json)
         
         localStorage.setItem('user', JSON.stringify({user: json, token: user?.token}));
         dispatch({ type: 'LOGIN', payload: {user: json, token: user?.token} });
@@ -174,7 +174,7 @@ const AddNewAddressModal = ({ onClose, onSave, availableTypes }) => {
         onClose();
       }
     }catch(error){
-      console.log(error)
+      //console.log(error)
       notify("Error adding address", "error")
     }
   }

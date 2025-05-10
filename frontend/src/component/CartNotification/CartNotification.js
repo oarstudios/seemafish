@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 const CartNotification = ({ cartItems, totalValue, onClose, onOpenCartPopup, handleShowCartNot }) => {
   const location = useLocation();
   const [show, setShow] = useState(true)
-  console.log(location)
+  //console.log(location)
   useEffect(()=>{
     if(location?.pathname === "/myaccount" || location?.pathname == '/checkout')
     {

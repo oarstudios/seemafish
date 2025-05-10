@@ -64,7 +64,7 @@ function Signup({ onClick }) {
       if (!response.ok) {
         throw new Error(data.error || 'Google login failed');
       }
-      console.log('Google login successfull:', data);
+      //console.log('Google login successfull:', data);
       notify('Signed up successfully', 'success')
       // Save user data and navigate
       localStorage.setItem('user', JSON.stringify(data));
@@ -80,12 +80,12 @@ function Signup({ onClick }) {
   };
 
   const handleGoogleError = () => {
-    console.log("Google sign-in error");
+    //console.log("Google sign-in error");
   };
 
   useEffect(() => {
     if (error === false) {
-      console.log("Successfully signed up");
+      //console.log("Successfully signed up");
       notify('Signed up successfully', 'success')
       setTimeout(() => {
         if(user?.userType === "User")
@@ -106,7 +106,7 @@ function Signup({ onClick }) {
 
   useEffect(() => {
     if (error2 === false) {
-      console.log("Successfully logged in");
+      //console.log("Successfully logged in");
       notify('Logged in successfully', 'success')
       setTimeout(() => {
         navigate('/');

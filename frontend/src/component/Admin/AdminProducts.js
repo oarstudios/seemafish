@@ -24,11 +24,11 @@ const AdminProducts = () => {
       const json = await response.json();
       if(response.ok)
       {
-        console.log(json)
+        //console.log(json)
         setProducts(json)
       }
     }catch(error){
-      console.log(error)
+      //console.log(error)
     }
   }
 
@@ -65,7 +65,7 @@ const handleProductTag = (tag) => {
 
 
 useEffect(() => {
-  console.log("Selected product tag:", prd);
+  //console.log("Selected product tag:", prd);
 }, [prd]);
 
   

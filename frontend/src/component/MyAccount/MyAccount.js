@@ -42,9 +42,9 @@ const MyAccount = () => {
 
         if (response.ok) {
           // const prdTags = json.filter(prd => prd?.produtTag === product?.productTag); 
-          console.log(json);
+          //console.log(json);
             setPincodes(json)
-            console.log(json)
+            //console.log(json)
             // setCart(json)
         } else {
             console.error("Failed to fetch products:", json);
@@ -55,14 +55,14 @@ const MyAccount = () => {
 };
 
     useEffect(()=>{
-      console.log(user)
+      //console.log(user)
       setUsername(user?.username)
       setEmail(user?.email)
       setPassword(user?.password)
       setAge(user?.age)
       setGender(user?.gender)
       setAddresses(user?.addresses)
-      console.log(user?.addresses)
+      //console.log(user?.addresses)
       fetchPincodes();
     },[user, user?.addresses])
 
@@ -124,7 +124,7 @@ const MyAccount = () => {
 
     useEffect(()=>{
       setDob(calculateAge(age))
-      console.log(age)
+      //console.log(age)
     },[age])
     
     
@@ -140,7 +140,7 @@ const MyAccount = () => {
       }
 
       if(error){
-        console.log(password)
+        //console.log(password)
         setEdit1(!edit1)
         return notify(
           "Password must be at least 8 characters, with uppercase, lowercase, number, and special character.", "error"
@@ -170,14 +170,14 @@ const MyAccount = () => {
 
         if(response.ok)
         {
-          console.log(json)
+          //console.log(json)
           // localStorage.setItem('user', JSON.stringify(json));
           localStorage.setItem('user', JSON.stringify({user: json, token: user?.token}));
           // dispatch({ type: 'LOGIN', payload: json });
           notify("Data updated successfully", "success")
         }
       }catch(error){
-        console.log(error)
+        //console.log(error)
         notify("Error updating data", "error")
       }
     }
@@ -188,12 +188,12 @@ const MyAccount = () => {
     try{
       logout();
       notify("Successfully logged out.", "success")
-      console.log("Successfully logged out.")
+      //console.log("Successfully logged out.")
       setTimeout(() => {
         navigate('/')
       }, 1000);
     }catch(error){
-      console.log(error)
+      //console.log(error)
       notify(error, "error")
     }
   }
@@ -236,7 +236,7 @@ const MyAccount = () => {
       const json = await response.json();
   
       // Log the response to check its structure
-      console.log("billings",json);
+      //console.log("billings",json);
   
       if (Array.isArray(json.data)) {
         const filterOrders = json.data.filter(
@@ -247,9 +247,9 @@ const MyAccount = () => {
         const sortedOrders = filterOrders.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
   
         setOrders(sortedOrders);
-        console.log("order", sortedOrders);
+        //console.log("order", sortedOrders);
       } else {
-        console.log("Returned data is not an array:", json);
+        //console.log("Returned data is not an array:", json);
       }
     } catch (error) {
       console.error("Error fetching orders:", error);
@@ -260,7 +260,7 @@ const MyAccount = () => {
   useEffect(() => {
     if (user) {
       fetchOrders();
-      console.log("ord", user?.password === "")
+      //console.log("ord", user?.password === "")
     }
   }, [user]);
 

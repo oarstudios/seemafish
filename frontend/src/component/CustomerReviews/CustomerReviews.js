@@ -25,7 +25,7 @@ const CustomerReviews = () => {
         const response = await fetch(`${backendUrl}/getproductreview/${id}`);
         const json = await response.json();
     
-        console.log("API Response:", json); // Debugging
+        //console.log("API Response:", json); // Debugging
     
         if (json?.reviews && Array.isArray(json.reviews.reviews)) {
           // Sort reviews by rating in descending order

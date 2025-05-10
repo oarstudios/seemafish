@@ -49,7 +49,7 @@
         useEffect(() => {
             // Get user from localStorage on component mount
             const user = JSON.parse(localStorage.getItem('user'));
-            console.log('authcontext', user);
+            //console.log('authcontext', user);
             if (user) {
                 dispatch({ type: 'LOGIN', payload: user });
             }

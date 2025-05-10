@@ -25,7 +25,7 @@ const AdminOrders = () => {
   
       const json = await response.json();
       if (response.ok) {
-        console.log('Fetched Bills:', json);
+        //console.log('Fetched Bills:', json);
   
        
   
@@ -48,7 +48,7 @@ const AdminOrders = () => {
         console.error('Failed to fetch bills:', json);
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
   
@@ -132,12 +132,12 @@ const AdminOrders = () => {
   
       if(response.ok)
       {
-        console.log(json)
+        //console.log(json)
          notify("Changed the status of order", "success")
         fetchBills();
       }
     }catch(error){
-      console.log(error)
+      //console.log(error)
       notify("Error changing the status of order", "error")
     }
 
