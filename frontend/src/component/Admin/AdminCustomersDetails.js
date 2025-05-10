@@ -30,10 +30,10 @@ const AdminCustomersDetails = () => {
           return a.createdAt > b.createdAt ? -1 : 1;
         });
         setUsers(sortedCusts);
-        console.log(sortedCusts);
+        //console.log(sortedCusts);
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
   
@@ -45,12 +45,12 @@ const AdminCustomersDetails = () => {
       const json = await response.json();
       if (response.ok) {
         setBills(json);
-        console.log('Fetched Bills:', json);
+        //console.log('Fetched Bills:', json);
       } else {
         console.error('Failed to fetch bills:', json);
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 

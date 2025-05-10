@@ -49,7 +49,7 @@ export default function BestSellers({fetchCart, cart}) {
 
         if (response.ok) {
             const bestSellers = json.filter(product => product.bestseller === true && product.isArchived === false && product?.inStock); // Filter bestsellers
-            console.log(json);
+            //console.log(json);
             setBestSellers(bestSellers);
             // setCart(json)
         } else {
@@ -78,13 +78,13 @@ const updatedUserCart = async () => {
     });
 
     const updatedUser = await response.json();
-    console.log('updated user', updatedUser)
+    //console.log('updated user', updatedUser)
     if (response.ok) {
       // setUser(updatedUser);
       localStorage.setItem('user', JSON.stringify({token: user.token, user: updatedUser}));
       
       fetchCart();
-      console.log("updt", user)
+      //console.log("updt", user)
     }
   } catch (error) {
     console.error('Failed to update user cart:', error);
@@ -106,13 +106,13 @@ const removeFromCart = async (product) => {
     });
 
     if (response.ok) {
-      console.log("Product removed from cart");
+      //console.log("Product removed from cart");
       updatedUserCart(); // Fetch updated cart
     } else {
       notify("Failed to remove from cart", "error");
     }
   } catch (error) {
-    console.log("Error removing product from cart:", error);
+    //console.log("Error removing product from cart:", error);
   }
 };
 
@@ -144,7 +144,7 @@ const handleAddToCart = async (product, status) => {
       return removeFromCart(product); // Call function to remove item from cart
     }
 
-    console.log("Updating cart:", formData);
+    //console.log("Updating cart:", formData);
 
     const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}/cart`, {
       method: "POST",
@@ -157,7 +157,7 @@ const handleAddToCart = async (product, status) => {
 
     const json = await response.json();
     if (response.ok) {
-      console.log("Successfully updated cart:", json);
+      //console.log("Successfully updated cart:", json);
       updatedUserCart();
       notify("Updated the cart", "success");
 
@@ -177,7 +177,7 @@ const handleAddToCart = async (product, status) => {
       notify("Failed to update cart", "error");
     }
   } catch (error) {
-    console.log("Error updating cart:", error);
+    //console.log("Error updating cart:", error);
   }
 };
 

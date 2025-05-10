@@ -14,10 +14,10 @@ const FilterComponent = ({ onClose, handleProductTag, prdt }) => {
       const json = await response.json();
       if (response.ok) {
         setProductTags(json);
-        console.log(json);
+        //console.log(json);
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 

@@ -37,10 +37,10 @@ const AddNewProduct = () => {
       if(response.ok)
       {
         setCategories(json)
-        console.log(json)
+        //console.log(json)
       }
     }catch(error){
-      console.log(error)
+      //console.log(error)
     }
   }
 
@@ -51,10 +51,10 @@ const AddNewProduct = () => {
       if(response.ok)
       {
         setProductTags(json)
-        console.log(json)
+        //console.log(json)
       }
     }catch(error){
-      console.log(error)
+      //console.log(error)
     }
   }
 
@@ -117,7 +117,7 @@ const AddNewProduct = () => {
   };
 
   useEffect(()=>{
-    console.log(images, title, defaultPrice, salePrice, weight, description, categories, productTag, inStock, note)
+    //console.log(images, title, defaultPrice, salePrice, weight, description, categories, productTag, inStock, note)
 
   },[])
 
@@ -193,7 +193,7 @@ const AddNewProduct = () => {
 
         const json = await response.json();
         if (response.ok) {
-            console.log("Product added successfully:", json);
+            //console.log("Product added successfully:", json);
             notify('Product added successfully', "success");
             setImages([]);
             setTitle("");
@@ -233,13 +233,13 @@ const addCategory = async(e)=>{
     const json = await response.json();
     if(response.ok)
     {
-      console.log(json)
+      //console.log(json)
       notify("Category added successfully", "success")
       fetchCategories();
       setIsCategoryPopupOpen(false)
     }
   }catch(error){
-    console.log(error)
+    //console.log(error)
     notify("Error adding category", "error")
     setIsCategoryPopupOpen(false)
   }
@@ -263,13 +263,13 @@ const addProductTag = async(e)=>{
     const json = await response.json();
     if(response.ok)
     {
-      console.log(json)
+      //console.log(json)
       notify("Product Tag added successfully", "success")
       fetchProductTags();
       setIsTagPopupOpen(false)
     }
   }catch(error){
-    console.log(error)
+    //console.log(error)
     notify("Error adding product tag", "error")
     setIsTagPopupOpen(false)
   }

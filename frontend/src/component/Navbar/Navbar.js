@@ -74,7 +74,7 @@ const Navbar = ({ fetchCart, cart, handleShowCartNot }) => {
   });
 
   useEffect(() => {
-    console.log(user?._id);
+    //console.log(user?._id);
     if (user) {
       setSOpen(false);
     }
@@ -112,7 +112,7 @@ const Navbar = ({ fetchCart, cart, handleShowCartNot }) => {
       const json = await response.json();
 
       if (response.ok) {
-        console.log(json);
+        //console.log(json);
         const filteredProducts = json.filter((product) => !product.isArchived);
         setProducts(filteredProducts);
         setFilteredProducts(filteredProducts);

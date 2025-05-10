@@ -22,9 +22,9 @@ const AddressEditModal = ({ address, onClose, onSave, onDelete, addressId }) => 
     
             if (response.ok) {
               // const prdTags = json.filter(prd => prd?.produtTag === product?.productTag); 
-              console.log(json);
+              //console.log(json);
                 setPincodes(json)
-                console.log(json)
+                //console.log(json)
                 // setCart(json)
             } else {
                 console.error("Failed to fetch products:", json);
@@ -106,7 +106,7 @@ const AddressEditModal = ({ address, onClose, onSave, onDelete, addressId }) => 
         notify("Address deleted successfully", "success")
         handleAfterDelete()
         onClose();
-        console.log(json)
+        //console.log(json)
       }
     }catch(error)
     {
@@ -116,7 +116,7 @@ const AddressEditModal = ({ address, onClose, onSave, onDelete, addressId }) => 
 
   const handleEditAddress= async(e)=>{
     e.preventDefault();
-    console.log(user);
+    //console.log(user);
 
      // Validate that all required fields are filled out
   const requiredFields = [
@@ -156,7 +156,7 @@ const AddressEditModal = ({ address, onClose, onSave, onDelete, addressId }) => 
     tag: editedAddress.tag
       }
 
-      console.log("Form Data:", formData);console.log("Form Data:", formData);
+      //console.log("Form Data:", formData);//console.log("Form Data:", formData);
 
       const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}/${asd}`,{
         method: "PUT",
@@ -171,7 +171,7 @@ const AddressEditModal = ({ address, onClose, onSave, onDelete, addressId }) => 
 
       if(response.ok)
       {
-        console.log(json)
+        //console.log(json)
         
           localStorage.setItem('user', JSON.stringify({user: json, token: user?.token}));
           dispatch({ type: 'LOGIN', payload: {user: json, token: user?.token} });
@@ -180,7 +180,7 @@ const AddressEditModal = ({ address, onClose, onSave, onDelete, addressId }) => 
         onClose();
       }
     }catch(error){
-      console.log(error)
+      //console.log(error)
       notify("Error updating address", "error")
     }
   }

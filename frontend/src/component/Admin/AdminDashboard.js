@@ -51,7 +51,7 @@ const AdminDashboard = () => {
         setProducts(json);
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 
@@ -64,7 +64,7 @@ const AdminDashboard = () => {
         setUsers(filterUsers);
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 
@@ -76,7 +76,7 @@ const AdminDashboard = () => {
         setPincodes(json);
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 
@@ -90,7 +90,7 @@ const AdminDashboard = () => {
         setRevenue(total);
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 

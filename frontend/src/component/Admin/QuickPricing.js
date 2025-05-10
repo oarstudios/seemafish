@@ -20,10 +20,10 @@ const QuickPricing = () => {
       const json = await response.json();
       if (response.ok) {
         setProducts(json);
-        console.log(json)
+        //console.log(json)
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
   const fetchFTD = async () => {
@@ -34,7 +34,7 @@ const QuickPricing = () => {
         setFtds(json);
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 
@@ -66,8 +66,8 @@ const QuickPricing = () => {
   };
 
   useEffect(() => {
-    console.log(salePrices);
-    console.log(ftds);
+    //console.log(salePrices);
+    //console.log(ftds);
   }, [salePrices, ftds]);
 
   const handleSubmit = async (e, id, dp) => {
@@ -156,7 +156,7 @@ const QuickPricing = () => {
         notify("Only 4 products are acceptable for fish of the day.", "error");
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       notify("Error updating product", "error");
     }
   };
@@ -186,7 +186,7 @@ const QuickPricing = () => {
   };
 
   useEffect(() => {
-    console.log("Selected product tag:", prd);
+    //console.log("Selected product tag:", prd);
   }, [prd]);
 
   return (

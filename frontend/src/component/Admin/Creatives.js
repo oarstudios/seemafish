@@ -25,8 +25,8 @@ const fetchImages = async () => {
         mobile: mobileImages,
       });
 
-      console.log("Desktop Images:", desktopImages);
-      console.log("Mobile Images:", mobileImages);
+      //console.log("Desktop Images:", desktopImages);
+      //console.log("Mobile Images:", mobileImages);
     }
   } catch (error) {
     console.error("Error fetching images:", error);
@@ -41,7 +41,7 @@ const fetchImages = async () => {
 
   const handleImageChange = async (e, category) => {
     const file = e.target.files[0];
-    console.log(file)
+    //console.log(file)
     if (!file) return;
 
     const formData = new FormData();
@@ -59,7 +59,7 @@ const fetchImages = async () => {
 
       const json = await response.json();
       if (response.ok) {
-        console.log(json)
+        //console.log(json)
         setImages((prevImages) => ({
           ...prevImages,
           [category]: [...prevImages[category], json.data.image].slice(0, 4),

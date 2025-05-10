@@ -23,7 +23,7 @@ const AdminOrdersMobile = () => {
     
         const json = await response.json();
         if (response.ok) {
-          console.log('Fetched Bills:', json);
+          //console.log('Fetched Bills:', json);
     
          
     
@@ -46,7 +46,7 @@ const AdminOrdersMobile = () => {
           console.error('Failed to fetch bills:', json);
         }
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     };
     
@@ -130,12 +130,12 @@ const AdminOrdersMobile = () => {
     
         if(response.ok)
         {
-          console.log(json)
+          //console.log(json)
            notify("Changed the status of order", "success")
           fetchBills();
         }
       }catch(error){
-        console.log(error)
+        //console.log(error)
         notify("Error changing the status of order", "error")
       }
   

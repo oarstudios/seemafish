@@ -12,7 +12,7 @@ const CartPopup = ({ isOpen, onClose, fetchCart, cart }) => {
   useEffect(() => {
     if (isOpen && user) {
       fetchCart();
-      console.log(cart)
+      //console.log(cart)
     }
   }, [isOpen, user]);
 
@@ -27,13 +27,13 @@ const updatedUserCart = async () => {
     });
 
     const updatedUser = await response.json();
-    console.log('updated user', updatedUser)
+    //console.log('updated user', updatedUser)
     if (response.ok) {
       // setUser(updatedUser);
       localStorage.setItem('user', JSON.stringify({token: user.token, user: updatedUser}));
       
       fetchCart();
-      console.log("updt", user)
+      //console.log("updt", user)
     }
   } catch (error) {
     console.error('Failed to update user cart:', error);
@@ -55,13 +55,13 @@ const removeFromCart = async (product) => {
     });
 
     if (response.ok) {
-      console.log("Product removed from cart");
+      //console.log("Product removed from cart");
       updatedUserCart(); // Fetch updated cart
     } else {
       notify("Failed to remove from cart", "error");
     }
   } catch (error) {
-    console.log("Error removing product from cart:", error);
+    //console.log("Error removing product from cart:", error);
   }
 };
 
@@ -89,7 +89,7 @@ const handleAddToCart = async (item, status) => {
       return removeFromCart(item); // Call function to remove item from cart
     }
 
-    console.log("Updating cart:", formData);
+    //console.log("Updating cart:", formData);
 
     const response = await fetch(`https://backend.freshimeat.in/users/${user?._id}/cart`, {
       method: "POST",
@@ -102,7 +102,7 @@ const handleAddToCart = async (item, status) => {
 
     const json = await response.json();
     if (response.ok) {
-      console.log("Successfully updated cart:", json);
+      //console.log("Successfully updated cart:", json);
       updatedUserCart(); // Fetch updated cart
       if(!existingItem)
       {
@@ -112,7 +112,7 @@ const handleAddToCart = async (item, status) => {
       notify("Failed to update cart", "error");
     }
   } catch (error) {
-    console.log("Error updating cart:", error);
+    //console.log("Error updating cart:", error);
   }
 };
 

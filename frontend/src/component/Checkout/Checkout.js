@@ -26,7 +26,7 @@ const Checkout = ({cart, fetchCart}) => {
 
   useEffect(()=>{
     setAddresses(user?.addresses)
-    console.log(user)
+    //console.log(user)
   },[user, user?.address])
 
   const handleEditClick = (index) => {
